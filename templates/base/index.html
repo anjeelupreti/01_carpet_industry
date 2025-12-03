@@ -34,15 +34,20 @@
 
 <body class="{% block body_class %}{% endblock %}">
 
-  <!-- Include Header -->
+  <!-- Include Header/Navbar -->
+  {% include 'base/navbar.html' %}
 
   <main class="main">
     {% block content %}
     <!-- Content will be inserted here by child templates -->
     {% endblock %}
   </main>
-  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
   <!-- Include Footer -->
+  {% include 'base/footer.html' %}
+
+  <!-- Scroll Top Button -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
   <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
@@ -53,6 +58,40 @@
 
   <!-- Main JS File -->
   <script src="{% static 'assets/js/main.js' %}"></script>
+
+  <!-- Base Template JS -->
+  <script>
+    // Scroll to top functionality
+    const scrollTop = document.getElementById('scroll-top');
+    
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 300) {
+        scrollTop.classList.add('active');
+      } else {
+        scrollTop.classList.remove('active');
+      }
+    });
+    
+    scrollTop.addEventListener('click', function(e) {
+      e.preventDefault();
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+    
+    // Initialize AOS
+    document.addEventListener('DOMContentLoaded', function() {
+      if (typeof AOS !== 'undefined') {
+        AOS.init({
+          duration: 800,
+          easing: 'ease-in-out',
+          once: true,
+          mirror: false
+        });
+      }
+    });
+  </script>
 
   {% block extra_js %}{% endblock %}
 </body>

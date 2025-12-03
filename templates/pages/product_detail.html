@@ -1,1049 +1,1544 @@
 {% extends 'base/index.html' %}
 {% load static %}
 
-{% block title %}{{ product.name }} - Everest Carpet Industry{% endblock %}
-{% block description %}{{ product.description|truncatechars:160 }}{% endblock %}
-{% block body_class %}product-detail-page{% endblock %}
+{% block title %}Product Details - Everest Memorial Carpet Industry{% endblock %}
 
-{% block content %}
-{% include 'base/header.html' %}
-<!-- Page Header -->
-<section class="page-header">
-  <div class="container">
-    <div class="page-header-content">
-      <nav class="breadcrumbs" aria-label="breadcrumb">
-        <ol>
-          <li><a href="{% url 'homepage' %}">Home</a></li>
-          <li><a href="{% url 'products' %}">Collections</a></li>
-          <li class="active">{{ product.name }}</li>
-        </ol>
-      </nav>
-      <h1 class="page-title">{{ product.name }}</h1>
-      <p class="page-subtitle">{{ product.category }}</p>
-    </div>
-  </div>
-</section>
-
-<!-- Product Detail Section -->
-<section id="product-detail" class="product-detail section">
-  <div class="container">
-    <div class="row g-5">
-      <!-- Product Images -->
-      <div class="col-lg-7" data-aos="fade-right">
-        <div class="product-gallery">
-          <div class="main-image">
-            <img src="https://images.unsplash.com/photo-1594041680534-e8c8cdebd659?w=800&auto=format&fit=crop" 
-                 alt="{{ product.name }}" 
-                 class="img-fluid rounded-4">
-            <div class="product-badge">Best Seller</div>
-            <a href="https://images.unsplash.com/photo-1594041680534-e8c8cdebd659?w=1200&auto=format&fit=crop" 
-               class="enlarge-btn" 
-               data-glightbox 
-               data-title="{{ product.name }}">
-              <i class="bi bi-zoom-in"></i>
-            </a>
-          </div>
-          
-          <div class="thumbnail-gallery mt-3">
-            <div class="row g-2">
-              <div class="col-3">
-                <a href="#" class="thumbnail-item active" data-image="https://images.unsplash.com/photo-1594041680534-e8c8cdebd659?w=800&auto=format&fit=crop">
-                  <img src="https://images.unsplash.com/photo-1594041680534-e8c8cdebd659?w=200&auto=format&fit=crop" alt="Front View" class="img-fluid rounded-2">
-                </a>
-              </div>
-              <div class="col-3">
-                <a href="#" class="thumbnail-item" data-image="https://images.unsplash.com/photo-1604537529428-15bcbeecfe4d?w=800&auto=format&fit=crop">
-                  <img src="https://images.unsplash.com/photo-1604537529428-15bcbeecfe4d?w=200&auto=format&fit=crop" alt="Weaving Process" class="img-fluid rounded-2">
-                </a>
-              </div>
-              <div class="col-3">
-                <a href="#" class="thumbnail-item" data-image="https://images.unsplash.com/photo-1616486498803-2d3f4172c925?w=800&auto=format&fit=crop">
-                  <img src="https://images.unsplash.com/photo-1616486498803-2d3f4172c925?w=200&auto=format&fit=crop" alt="Texture Detail" class="img-fluid rounded-2">
-                </a>
-              </div>
-              <div class="col-3">
-                <a href="#" class="thumbnail-item" data-image="https://images.unsplash.com/photo-1616486498800-903dfcac41d2?w=800&auto=format&fit=crop">
-                  <img src="https://images.unsplash.com/photo-1616486498800-903dfcac41d2?w=200&auto=format&fit=crop" alt="Room Setting" class="img-fluid rounded-2">
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Product Info -->
-      <div class="col-lg-5" data-aos="fade-left" data-aos-delay="200">
-        <div class="product-info">
-          <div class="product-header mb-4">
-            <span class="product-category badge">{{ product.category }}</span>
-            <h1 class="product-title">{{ product.name }}</h1>
-            <div class="product-rating">
-              <i class="bi bi-star-fill"></i>
-              <i class="bi bi-star-fill"></i>
-              <i class="bi bi-star-fill"></i>
-              <i class="bi bi-star-fill"></i>
-              <i class="bi bi-star-half"></i>
-              <span class="rating-text ms-2">{{ product.rating }} ({{ product.reviews_count }} reviews)</span>
-            </div>
-          </div>
-          
-          <div class="product-description mb-4">
-            <p class="lead">{{ product.description }}</p>
-            <p>Handcrafted by master weavers using techniques passed down through generations, preserving traditional Tibetan craftsmanship.</p>
-          </div>
-          
-          <!-- Product Specifications -->
-          <div class="product-specs mb-4">
-            <h4 class="mb-3">Specifications</h4>
-            <div class="specs-grid">
-              <div class="spec-item">
-                <i class="bi bi-snow spec-icon"></i>
-                <div class="spec-content">
-                  <strong>Material</strong>
-                  <p>{{ product.material }}</p>
-                </div>
-              </div>
-              <div class="spec-item">
-                <i class="bi bi-node-plus spec-icon"></i>
-                <div class="spec-content">
-                  <strong>Knot Density</strong>
-                  <p>{{ product.knot_density }}</p>
-                </div>
-              </div>
-              <div class="spec-item">
-                <i class="bi bi-rulers spec-icon"></i>
-                <div class="spec-content">
-                  <strong>Size</strong>
-                  <p>{{ product.size }}</p>
-                </div>
-              </div>
-              <div class="spec-item">
-                <i class="bi bi-palette spec-icon"></i>
-                <div class="spec-content">
-                  <strong>Dyes</strong>
-                  <p>{{ product.dyes }}</p>
-                </div>
-              </div>
-              <div class="spec-item">
-                <i class="bi bi-speedometer spec-icon"></i>
-                <div class="spec-content">
-                  <strong>Weight</strong>
-                  <p>{{ product.weight }}</p>
-                </div>
-              </div>
-              <div class="spec-item">
-                <i class="bi bi-clock spec-icon"></i>
-                <div class="spec-content">
-                  <strong>Production Time</strong>
-                  <p>{{ product.production_time }}</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          <!-- Price Section -->
-          <div class="price-section mb-4">
-            <div class="price-display mb-4">
-              <h3 class="current-price">{{ product.price }}</h3>
-              <p class="price-note text-muted">(Custom orders only - price varies with specifications)</p>
-            </div>
-            
-            <!-- Quality Badge -->
-            <div class="quality-badge premium mb-4">
-              <i class="bi bi-award"></i>
-              Premium Quality - {{ product.warranty }} Warranty
-            </div>
-          </div>
-          
-          <!-- Action Buttons -->
-          <div class="product-actions mb-4">
-            <a href="{% url 'contact_us' %}" class="btn btn-primary btn-lg w-100 mb-3">
-              <i class="bi bi-envelope me-2"></i> Request Custom Quote
-            </a>
-            <a href="{% url 'products' %}" class="btn btn-outline-primary w-100">
-              <i class="bi bi-arrow-left me-2"></i> Back to Collections
-            </a>
-          </div>
-          
-          <!-- Additional Info -->
-          <div class="additional-info">
-            <div class="info-item">
-              <div class="info-icon">
-                <i class="bi bi-truck"></i>
-              </div>
-              <div class="info-content">
-                <strong>Worldwide Shipping</strong>
-                <p>Secure packaging & delivery included</p>
-              </div>
-            </div>
-            <div class="info-item">
-              <div class="info-icon">
-                <i class="bi bi-shield-check"></i>
-              </div>
-              <div class="info-content">
-                <strong>{{ product.warranty }} Warranty</strong>
-                <p>Quality guaranteed against defects</p>
-              </div>
-            </div>
-            <div class="info-item">
-              <div class="info-icon">
-                <i class="bi bi-clock-history"></i>
-              </div>
-              <div class="info-content">
-                <strong>{{ product.production_time }} Production</strong>
-                <p>Handcrafted to order</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    
-    <!-- Product Tabs -->
-    <div class="product-tabs mt-5" data-aos="fade-up">
-      <div class="tab-navigation">
-        <div class="nav nav-tabs" role="tablist">
-          <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#description-tab">
-            <i class="bi bi-file-text me-2"></i> Description
-          </button>
-          <button class="nav-link" data-bs-toggle="tab" data-bs-target="#specifications-tab">
-            <i class="bi bi-list-check me-2"></i> Specifications
-          </button>
-          <button class="nav-link" data-bs-toggle="tab" data-bs-target="#care-tab">
-            <i class="bi bi-heart me-2"></i> Care Instructions
-          </button>
-          <button class="nav-link" data-bs-toggle="tab" data-bs-target="#reviews-tab">
-            <i class="bi bi-star me-2"></i> Reviews
-          </button>
-        </div>
-      </div>
-      
-      <div class="tab-content mt-4">
-        <!-- Description Tab -->
-        <div class="tab-pane fade show active" id="description-tab">
-          <div class="tab-content-inner">
-            <h4>Design & Symbolism</h4>
-            <p>The dragon in Tibetan Buddhism represents the power of enlightenment and protection. Combined with lotus flowers (symbolizing purity and spiritual awakening), this carpet brings harmony and positive energy to any space.</p>
-            
-            <h4 class="mt-4">Craftsmanship</h4>
-            <p>Each carpet is hand-knotted by skilled artisans using the traditional Tibetan knotting technique. The 100% Tibetan wool provides natural luster and durability, while vegetable dyes create rich, long-lasting colors.</p>
-            
-            <h4 class="mt-4">Cultural Significance</h4>
-            <p>This design is inspired by traditional Tibetan thangka paintings and monastery artwork, preserving cultural heritage while creating functional art for modern homes.</p>
-          </div>
-        </div>
-        
-        <!-- Specifications Tab -->
-        <div class="tab-pane fade" id="specifications-tab">
-          <div class="specs-table">
-            <table class="table">
-              <tbody>
-                <tr>
-                  <td><strong>Material Composition</strong></td>
-                  <td>100% High-altitude Tibetan sheep wool</td>
-                </tr>
-                <tr>
-                  <td><strong>Knot Density</strong></td>
-                  <td>80 knots per square inch (320,000 total knots)</td>
-                </tr>
-                <tr>
-                  <td><strong>Pile Height</strong></td>
-                  <td>0.5 inches (12mm)</td>
-                </tr>
-                <tr>
-                  <td><strong>Total Weight</strong></td>
-                  <td>Approximately 25 kg (55 lbs)</td>
-                </tr>
-                <tr>
-                  <td><strong>Dye Type</strong></td>
-                  <td>Natural vegetable dyes (madder root, indigo, walnut)</td>
-                </tr>
-                <tr>
-                  <td><strong>Weaving Technique</strong></td>
-                  <td>Tibetan loop knot (asymmetric knot)</td>
-                </tr>
-                <tr>
-                  <td><strong>Production Time</strong></td>
-                  <td>{{ product.production_time }} for standard size</td>
-                </tr>
-                <tr>
-                  <td><strong>Warranty</strong></td>
-                  <td>{{ product.warranty }} against manufacturing defects</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-        
-        <!-- Care Instructions Tab -->
-        <div class="tab-pane fade" id="care-tab">
-          <div class="care-instructions">
-            <h4>Caring for Your Tibetan Carpet</h4>
-            <div class="care-tips">
-              <div class="care-tip">
-                <div class="tip-icon">
-                  <i class="bi bi-shuffle"></i>
-                </div>
-                <div class="tip-content">
-                  <h5>Rotation</h5>
-                  <p>Rotate carpet every 6 months for even wear</p>
-                </div>
-              </div>
-              <div class="care-tip">
-                <div class="tip-icon">
-                  <i class="bi bi-droplet"></i>
-                </div>
-                <div class="tip-content">
-                  <h5>Cleaning</h5>
-                  <p>Vacuum regularly, professional cleaning recommended annually</p>
-                </div>
-              </div>
-              <div class="care-tip">
-                <div class="tip-icon">
-                  <i class="bi bi-sun"></i>
-                </div>
-                <div class="tip-content">
-                  <h5>Sun Protection</h5>
-                  <p>Avoid direct sunlight to prevent fading</p>
-                </div>
-              </div>
-              <div class="care-tip">
-                <div class="tip-icon">
-                  <i class="bi bi-wind"></i>
-                </div>
-                <div class="tip-content">
-                  <h5>Ventilation</h5>
-                  <p>Ensure good air circulation to prevent moisture</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Reviews Tab -->
-        <div class="tab-pane fade" id="reviews-tab">
-          <div class="reviews-section">
-            <div class="average-rating mb-4">
-              <h4>Overall Rating: {{ product.rating }}/5</h4>
-              <div class="stars mb-2">
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-half"></i>
-              </div>
-              <p class="text-muted">Based on {{ product.reviews_count }} customer reviews</p>
-            </div>
-            
-            <div class="review-list">
-              <div class="review-item">
-                <div class="review-header">
-                  <div class="reviewer">
-                    <strong>Sarah M.</strong>
-                    <div class="review-stars">
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star-fill"></i>
-                    </div>
-                  </div>
-                  <span class="review-date">March 15, 2024</span>
-                </div>
-                <div class="review-body">
-                  <p>"Absolutely stunning craftsmanship! The colors are even more vibrant in person. It's the centerpiece of our living room."</p>
-                </div>
-              </div>
-              
-              <div class="review-item">
-                <div class="review-header">
-                  <div class="reviewer">
-                    <strong>James L.</strong>
-                    <div class="review-stars">
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star-half"></i>
-                    </div>
-                  </div>
-                  <span class="review-date">February 28, 2024</span>
-                </div>
-                <div class="review-body">
-                  <p>"Excellent quality and the customer service was outstanding. They helped me customize the size perfectly for my office."</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    
-    <!-- Related Products -->
-    <div class="related-products mt-5" data-aos="fade-up">
-      <div class="section-header mb-4">
-        <h3 class="section-title">You May Also Like</h3>
-        <p class="section-subtitle">Explore more from our collections</p>
-      </div>
-      
-      <div class="row g-4">
-        <div class="col-md-4">
-          <div class="related-card">
-            <div class="related-image">
-              <img src="https://images.unsplash.com/photo-1600166898405-da9535204843?w=400&auto=format&fit=crop" 
-                   alt="Phoenix Design Carpet" 
-                   class="img-fluid">
-            </div>
-            <div class="related-content">
-              <h5>Phoenix & Dragon Carpet</h5>
-              <p>Traditional Tibetan design featuring mythical creatures</p>
-              <a href="{% url 'product_detail' %}" class="btn btn-sm btn-outline-primary">
-                View Details
-              </a>
-            </div>
-          </div>
-        </div>
-        
-        <div class="col-md-4">
-          <div class="related-card">
-            <div class="related-image">
-              <img src="https://images.unsplash.com/photo-1604079628049-cce582c2e69a?w=400&auto=format&fit=crop" 
-                   alt="Geometric Pattern Carpet" 
-                   class="img-fluid">
-            </div>
-            <div class="related-content">
-              <h5>Geometric Mandala Carpet</h5>
-              <p>Contemporary Tibetan geometric patterns</p>
-              <a href="{% url 'product_detail' %}" class="btn btn-sm btn-outline-primary">
-                View Details
-              </a>
-            </div>
-          </div>
-        </div>
-        
-        <div class="col-md-4">
-          <div class="related-card">
-            <div class="related-image">
-              <img src="https://images.unsplash.com/photo-1616486498800-903dfcac41d2?w=400&auto=format&fit=crop" 
-                   alt="Floral Border Carpet" 
-                   class="img-fluid">
-            </div>
-            <div class="related-content">
-              <h5>Floral Border Carpet</h5>
-              <p>Antique reproduction with intricate floral borders</p>
-              <a href="{% url 'product_detail' %}" class="btn btn-sm btn-outline-primary">
-                View Details
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
+{% block extra_css %}
 <style>
+/* ========== PRODUCT DETAIL PAGE ENHANCEMENTS ========== */
+:root {
+    --primary-navy: #0a192f;
+    --dark-navy: #071528;
+    --medium-navy: #1e3a5f;
+    --light-navy: #2c5282;
+    --lightest-navy: #90a3bf;
+    --transition-smooth: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --shadow-soft: 0 5px 15px rgba(10, 25, 47, 0.05);
+    --shadow-medium: 0 10px 25px rgba(10, 25, 47, 0.08);
+    --shadow-large: 0 15px 35px rgba(10, 25, 47, 0.12);
+}
+
 /* Page Header */
 .page-header {
-  padding: 100px 0 60px;
-  background: linear-gradient(135deg, rgba(248, 249, 250, 0.9) 0%, rgba(233, 236, 239, 0.9) 100%);
-  text-align: center;
+    background: linear-gradient(135deg, var(--primary-navy) 0%, var(--dark-navy) 100%);
+    padding: 80px 0 40px;
+    position: relative;
+    overflow: hidden;
+    color: white;
 }
 
-.page-header-content {
-  max-width: 800px;
-  margin: 0 auto;
+.header-pattern {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.1;
+    background-image: 
+        radial-gradient(circle at 20% 80%, var(--lightest-navy) 1px, transparent 1px),
+        radial-gradient(circle at 80% 20%, var(--lightest-navy) 1px, transparent 1px);
+    background-size: 80px 80px;
+    animation: patternFloat 30s linear infinite;
 }
 
-.breadcrumbs {
-  margin-bottom: 20px;
+@keyframes patternFloat {
+    0% { transform: translate(0, 0); }
+    25% { transform: translate(10px, 10px); }
+    50% { transform: translate(20px, 5px); }
+    75% { transform: translate(10px, -5px); }
+    100% { transform: translate(0, 0); }
 }
 
-.breadcrumbs ol {
-  display: flex;
-  justify-content: center;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  gap: 10px;
-  font-size: 0.9rem;
+.breadcrumb-nav {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
 }
 
-.breadcrumbs li {
-  display: flex;
-  align-items: center;
+.breadcrumb-item {
+    color: var(--lightest-navy);
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
-.breadcrumbs li a {
-  color: var(--default-color);
-  text-decoration: none;
-  transition: color 0.3s ease;
+.breadcrumb-item a {
+    color: var(--lightest-navy);
+    text-decoration: none;
+    transition: color var(--transition-smooth);
 }
 
-.breadcrumbs li a:hover {
-  color: var(--accent-color);
+.breadcrumb-item a:hover {
+    color: white;
 }
 
-.breadcrumbs li.active {
-  color: var(--accent-color);
-  font-weight: 500;
+.breadcrumb-item.active {
+    color: white;
+    font-weight: 500;
 }
 
-.breadcrumbs li+li::before {
-  content: "/";
-  margin-right: 10px;
-  color: color-mix(in srgb, var(--default-color), transparent 50%);
+.breadcrumb-divider {
+    color: var(--lightest-navy);
+    opacity: 0.5;
 }
 
-.page-title {
-  font-size: 2.5rem;
-  font-weight: 700;
-  margin-bottom: 10px;
-  color: var(--heading-color);
+.product-title-main {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    line-height: 1.2;
 }
 
-.page-subtitle {
-  font-size: 1.1rem;
-  color: color-mix(in srgb, var(--default-color), transparent 30%);
+.product-subtitle {
+    color: var(--lightest-navy);
+    font-size: 1.1rem;
+    margin-bottom: 20px;
 }
 
 /* Product Detail Section */
-.section {
-  padding: 80px 0;
+.product-detail-section {
+    padding: 60px 0;
 }
 
-.product-gallery .main-image {
-  position: relative;
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+/* Product Gallery */
+.product-gallery {
+    position: sticky;
+    top: 100px;
 }
 
-.product-gallery .main-image img {
-  width: 100%;
-  height: 500px;
-  object-fit: cover;
-  transition: transform 0.5s ease;
+.main-gallery {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--shadow-large);
+    margin-bottom: 20px;
 }
 
-.product-gallery .main-image:hover img {
-  transform: scale(1.02);
+.main-image-container {
+    position: relative;
+    height: 400px;
+    overflow: hidden;
+    cursor: zoom-in;
 }
 
-.product-badge {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  background: linear-gradient(135deg, var(--accent-color), color-mix(in srgb, var(--accent-color), #000 20%));
-  color: var(--contrast-color);
-  padding: 8px 20px;
-  border-radius: 20px;
-  font-weight: 600;
-  font-size: 0.9rem;
-  z-index: 2;
+.main-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.enlarge-btn {
-  position: absolute;
-  bottom: 20px;
-  right: 20px;
-  width: 50px;
-  height: 50px;
-  background: rgba(255, 255, 255, 0.9);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--accent-color);
-  text-decoration: none;
-  transition: all 0.3s ease;
+.main-image-container:hover img {
+    transform: scale(1.05);
 }
 
-.enlarge-btn:hover {
-  background: var(--accent-color);
-  color: var(--contrast-color);
-  transform: scale(1.1);
+.gallery-badge {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    padding: 8px 20px;
+    background: linear-gradient(135deg, var(--medium-navy), var(--light-navy));
+    color: white;
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    z-index: 2;
+    animation: badgeFloat 3s ease-in-out infinite;
 }
 
-.thumbnail-gallery .thumbnail-item {
-  display: block;
-  border-radius: 10px;
-  overflow: hidden;
-  border: 2px solid transparent;
-  transition: all 0.3s ease;
+@keyframes badgeFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
 }
 
-.thumbnail-gallery .thumbnail-item.active,
-.thumbnail-gallery .thumbnail-item:hover {
-  border-color: var(--accent-color);
+.zoom-hint {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-navy);
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all var(--transition-smooth);
 }
 
-.thumbnail-gallery .thumbnail-item img {
-  width: 100%;
-  height: 80px;
-  object-fit: cover;
+.main-image-container:hover .zoom-hint {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Thumbnail Gallery */
+.thumbnail-gallery {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.thumbnail-item {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: all var(--transition-smooth);
+}
+
+.thumbnail-item.active {
+    border-color: var(--light-navy);
+    transform: scale(1.05);
+}
+
+.thumbnail-item:hover:not(.active) {
+    border-color: var(--lightest-navy);
+    transform: translateY(-2px);
+}
+
+.thumbnail-item img {
+    width: 100%;
+    height: 80px;
+    object-fit: cover;
+    transition: transform var(--transition-smooth);
+}
+
+.thumbnail-item:hover img {
+    transform: scale(1.1);
 }
 
 /* Product Info */
-.product-info .product-category.badge {
-  background: rgba(var(--accent-color-rgb), 0.1);
-  color: var(--accent-color);
-  padding: 6px 15px;
-  border-radius: 20px;
-  font-weight: 500;
-  font-size: 0.9rem;
-  margin-bottom: 15px;
-  display: inline-block;
+.product-info-card {
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: var(--shadow-medium);
+    border: 1px solid rgba(10, 25, 47, 0.05);
 }
 
-.product-info .product-title {
-  font-size: 2rem;
-  font-weight: 700;
-  margin-bottom: 15px;
-  color: var(--heading-color);
+.category-badge {
+    display: inline-block;
+    padding: 6px 15px;
+    background: rgba(44, 82, 130, 0.1);
+    color: var(--light-navy);
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin-bottom: 15px;
 }
 
-.product-rating {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  color: #ffc107;
-  margin-bottom: 20px;
+.info-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--primary-navy);
+    margin-bottom: 15px;
+    line-height: 1.3;
 }
 
-.product-rating .rating-text {
-  color: color-mix(in srgb, var(--default-color), transparent 30%);
-  font-size: 0.9rem;
+.rating-section {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
 }
 
-.lead {
-  font-size: 1.1rem;
-  line-height: 1.6;
-  color: color-mix(in srgb, var(--default-color), transparent 20%);
+.rating-stars {
+    color: #ffc107;
+    font-size: 1.1rem;
+}
+
+.rating-text {
+    color: rgba(51, 51, 51, 0.6);
+    font-size: 0.9rem;
+}
+
+.product-description {
+    color: rgba(51, 51, 51, 0.8);
+    line-height: 1.7;
+    margin-bottom: 25px;
+    font-size: 1rem;
 }
 
 /* Specifications Grid */
 .specs-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 15px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-bottom: 25px;
 }
 
 .spec-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 15px;
-  padding: 15px;
-  background: var(--surface-color);
-  border-radius: 10px;
-  border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    background: rgba(44, 82, 130, 0.05);
+    border-radius: 10px;
+    border: 1px solid rgba(44, 82, 130, 0.1);
 }
 
 .spec-icon {
-  font-size: 1.5rem;
-  color: var(--accent-color);
-  flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    background: var(--light-navy);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1rem;
+    flex-shrink: 0;
 }
 
 .spec-content strong {
-  display: block;
-  font-size: 0.9rem;
-  color: var(--heading-color);
-  margin-bottom: 5px;
+    display: block;
+    font-size: 0.9rem;
+    color: var(--primary-navy);
+    margin-bottom: 3px;
 }
 
-.spec-content p {
-  font-size: 0.9rem;
-  color: color-mix(in srgb, var(--default-color), transparent 30%);
-  margin: 0;
+.spec-content span {
+    font-size: 0.85rem;
+    color: rgba(51, 51, 51, 0.6);
 }
 
 /* Price Section */
+.price-section {
+    margin-bottom: 25px;
+    padding: 20px;
+    background: rgba(44, 82, 130, 0.05);
+    border-radius: 15px;
+    border: 1px solid rgba(44, 82, 130, 0.1);
+}
+
+.price-display {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
 .current-price {
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: var(--accent-color);
-  margin-bottom: 5px;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--primary-navy);
+}
+
+.price-unit {
+    color: rgba(51, 51, 51, 0.6);
+    font-size: 1rem;
 }
 
 .price-note {
-  font-size: 0.9rem;
+    color: rgba(51, 51, 51, 0.6);
+    font-size: 0.85rem;
+    margin: 0;
 }
 
+/* Quality Badge */
 .quality-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 10px 20px;
-  border-radius: 20px;
-  font-weight: 600;
-}
-
-.quality-badge.premium {
-  background: rgba(0, 0, 128, 0.1);
-  color: #000080;
-}
-
-.quality-badge i {
-  font-size: 1.2rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 20px;
+    background: linear-gradient(135deg, var(--primary-navy), var(--medium-navy));
+    color: white;
+    border-radius: 25px;
+    font-weight: 500;
+    font-size: 0.9rem;
+    margin-bottom: 25px;
 }
 
 /* Action Buttons */
-.btn-lg {
-  padding: 12px 30px;
-  font-size: 1.1rem;
-  border-radius: 10px;
+.action-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 30px;
 }
 
-.btn-primary {
-  background: var(--accent-color);
-  border-color: var(--accent-color);
+.primary-action-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 15px 25px;
+    background: var(--primary-navy);
+    color: white;
+    border: 2px solid var(--primary-navy);
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: all var(--transition-smooth);
+    box-shadow: var(--shadow-soft);
 }
 
-.btn-primary:hover {
-  background: color-mix(in srgb, var(--accent-color), #000 15%);
-  border-color: color-mix(in srgb, var(--accent-color), #000 15%);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(var(--accent-color-rgb), 0.2);
+.primary-action-btn:hover {
+    background: white;
+    color: var(--primary-navy);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-medium);
 }
 
-.btn-outline-primary {
-  border-color: var(--accent-color);
-  color: var(--accent-color);
+.secondary-action-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 15px 25px;
+    background: white;
+    color: var(--primary-navy);
+    border: 2px solid var(--light-navy);
+    border-radius: 10px;
+    font-weight: 500;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: all var(--transition-smooth);
 }
 
-.btn-outline-primary:hover {
-  background: var(--accent-color);
-  color: var(--contrast-color);
+.secondary-action-btn:hover {
+    background: var(--light-navy);
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-soft);
 }
 
-/* Additional Info */
-.additional-info {
-  margin-top: 30px;
-  padding-top: 30px;
-  border-top: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+/* Quick Info Cards */
+.quick-info-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-top: 30px;
 }
 
-.info-item {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  margin-bottom: 20px;
+.quick-info-card {
+    text-align: center;
+    padding: 15px;
+    background: white;
+    border-radius: 10px;
+    border: 1px solid rgba(44, 82, 130, 0.1);
+    transition: all var(--transition-smooth);
 }
 
-.info-item:last-child {
-  margin-bottom: 0;
+.quick-info-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--light-navy);
+    box-shadow: var(--shadow-soft);
 }
 
-.info-icon {
-  width: 40px;
-  height: 40px;
-  background: rgba(var(--accent-color-rgb), 0.1);
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.info-card-icon {
+    width: 40px;
+    height: 40px;
+    background: rgba(44, 82, 130, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 10px;
+    color: var(--light-navy);
+    font-size: 1.2rem;
 }
 
-.info-icon i {
-  font-size: 1.2rem;
-  color: var(--accent-color);
+.info-card-content strong {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--primary-navy);
+    margin-bottom: 3px;
 }
 
-.info-content strong {
-  display: block;
-  font-size: 0.95rem;
-  color: var(--heading-color);
-  margin-bottom: 3px;
-}
-
-.info-content p {
-  font-size: 0.85rem;
-  color: color-mix(in srgb, var(--default-color), transparent 40%);
-  margin: 0;
+.info-card-content p {
+    font-size: 0.8rem;
+    color: rgba(51, 51, 51, 0.6);
+    margin: 0;
 }
 
 /* Product Tabs */
-.tab-navigation .nav-tabs {
-  border-bottom: 2px solid color-mix(in srgb, var(--default-color), transparent 90%);
+.product-tabs-section {
+    margin-top: 60px;
 }
 
-.tab-navigation .nav-link {
-  border: none;
-  background: transparent;
-  color: color-mix(in srgb, var(--default-color), transparent 50%);
-  font-weight: 500;
-  padding: 12px 25px;
-  border-bottom: 2px solid transparent;
-  margin-bottom: -2px;
+.tabs-header {
+    border-bottom: 2px solid rgba(44, 82, 130, 0.1);
+    margin-bottom: 30px;
 }
 
-.tab-navigation .nav-link:hover {
-  color: var(--accent-color);
-  border-color: color-mix(in srgb, var(--accent-color), transparent 50%);
+.tabs-nav {
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
 }
 
-.tab-navigation .nav-link.active {
-  color: var(--accent-color);
-  border-color: var(--accent-color);
-  background: transparent;
+.tab-btn {
+    padding: 12px 25px;
+    background: transparent;
+    border: none;
+    border-bottom: 3px solid transparent;
+    color: rgba(51, 51, 51, 0.6);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--transition-smooth);
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
+.tab-btn:hover {
+    color: var(--light-navy);
+}
+
+.tab-btn.active {
+    color: var(--primary-navy);
+    border-bottom-color: var(--primary-navy);
+    background: rgba(44, 82, 130, 0.05);
+}
+
+.tab-content {
+    display: none;
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* Tab Content Styles */
 .tab-content-inner h4 {
-  font-size: 1.3rem;
-  font-weight: 600;
-  margin-bottom: 15px;
-  color: var(--heading-color);
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--primary-navy);
+    margin-bottom: 15px;
 }
 
 .tab-content-inner p {
-  color: color-mix(in srgb, var(--default-color), transparent 30%);
-  line-height: 1.6;
+    color: rgba(51, 51, 51, 0.8);
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+.tab-content-inner ul {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.tab-content-inner ul li {
+    padding: 8px 0;
+    padding-left: 25px;
+    position: relative;
+    color: rgba(51, 51, 51, 0.8);
+}
+
+.tab-content-inner ul li:before {
+    content: "•";
+    position: absolute;
+    left: 10px;
+    color: var(--light-navy);
+    font-weight: bold;
 }
 
 /* Specifications Table */
-.specs-table .table {
-  background: var(--surface-color);
-  border-radius: 10px;
-  overflow: hidden;
+.specs-table {
+    overflow-x: auto;
 }
 
-.specs-table .table tr {
-  border-bottom: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+.specs-table table {
+    width: 100%;
+    border-collapse: collapse;
 }
 
-.specs-table .table tr:last-child {
-  border-bottom: none;
+.specs-table th {
+    background: rgba(44, 82, 130, 0.1);
+    color: var(--primary-navy);
+    font-weight: 600;
+    padding: 15px;
+    text-align: left;
+    border: 1px solid rgba(44, 82, 130, 0.1);
 }
 
-.specs-table .table td {
-  padding: 15px;
-  vertical-align: top;
+.specs-table td {
+    padding: 15px;
+    border: 1px solid rgba(44, 82, 130, 0.1);
+    color: rgba(51, 51, 51, 0.8);
 }
 
-/* Care Tips */
-.care-tips {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
-}
-
-.care-tip {
-  display: flex;
-  align-items: flex-start;
-  gap: 15px;
-}
-
-.tip-icon {
-  width: 40px;
-  height: 40px;
-  background: rgba(var(--accent-color-rgb), 0.1);
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-
-.tip-icon i {
-  font-size: 1.2rem;
-  color: var(--accent-color);
-}
-
-.tip-content h5 {
-  font-size: 1rem;
-  font-weight: 600;
-  margin-bottom: 5px;
-  color: var(--heading-color);
-}
-
-.tip-content p {
-  font-size: 0.9rem;
-  color: color-mix(in srgb, var(--default-color), transparent 40%);
-  margin: 0;
+.specs-table tr:nth-child(even) {
+    background: rgba(44, 82, 130, 0.02);
 }
 
 /* Reviews Section */
-.review-item {
-  padding: 20px;
-  background: var(--surface-color);
-  border-radius: 10px;
-  margin-bottom: 20px;
+.review-card {
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(44, 82, 130, 0.1);
+    box-shadow: var(--shadow-soft);
+    transition: transform var(--transition-smooth);
 }
 
-.review-item:last-child {
-  margin-bottom: 0;
+.review-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-medium);
 }
 
 .review-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
 }
 
-.reviewer {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+.reviewer-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
 }
 
-.reviewer strong {
-  font-size: 1rem;
-  color: var(--heading-color);
+.reviewer-avatar {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, var(--primary-navy), var(--medium-navy));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 600;
 }
 
-.review-stars {
-  color: #ffc107;
-  font-size: 0.9rem;
+.reviewer-details h5 {
+    margin: 0;
+    font-size: 1rem;
+    color: var(--primary-navy);
 }
 
 .review-date {
-  font-size: 0.85rem;
-  color: color-mix(in srgb, var(--default-color), transparent 50%);
+    font-size: 0.85rem;
+    color: rgba(51, 51, 51, 0.6);
+}
+
+.review-rating {
+    color: #ffc107;
 }
 
 .review-body p {
-  margin: 0;
-  color: color-mix(in srgb, var(--default-color), transparent 30%);
-  line-height: 1.6;
+    margin: 0;
+    color: rgba(51, 51, 51, 0.8);
+    line-height: 1.6;
 }
 
 /* Related Products */
-.section-header {
-  text-align: center;
-  margin-bottom: 40px;
+.related-products-section {
+    margin-top: 80px;
+    padding-top: 60px;
+    border-top: 1px solid rgba(44, 82, 130, 0.1);
 }
 
 .section-title {
-  font-size: 2rem;
-  font-weight: 700;
-  margin-bottom: 10px;
-  color: var(--heading-color);
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary-navy);
+    margin-bottom: 15px;
 }
 
 .section-subtitle {
-  font-size: 1.1rem;
-  color: color-mix(in srgb, var(--default-color), transparent 30%);
+    text-align: center;
+    color: rgba(51, 51, 51, 0.6);
+    margin-bottom: 40px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.related-card {
-  background: var(--surface-color);
-  border-radius: 15px;
-  overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-  transition: transform 0.3s ease;
-  height: 100%;
+.related-products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
 }
 
-.related-card:hover {
-  transform: translateY(-5px);
+.related-product-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: var(--shadow-soft);
+    transition: all var(--transition-smooth);
+    text-decoration: none;
+    color: inherit;
 }
 
-.related-image {
-  height: 200px;
-  overflow: hidden;
+.related-product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-large);
 }
 
-.related-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.5s ease;
+.related-product-image {
+    height: 200px;
+    overflow: hidden;
 }
 
-.related-card:hover .related-image img {
-  transform: scale(1.05);
+.related-product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s ease;
 }
 
-.related-content {
-  padding: 20px;
+.related-product-card:hover .related-product-image img {
+    transform: scale(1.1);
 }
 
-.related-content h5 {
-  font-size: 1.2rem;
-  font-weight: 600;
-  margin-bottom: 10px;
-  color: var(--heading-color);
+.related-product-content {
+    padding: 20px;
 }
 
-.related-content p {
-  font-size: 0.9rem;
-  color: color-mix(in srgb, var(--default-color), transparent 30%);
-  margin-bottom: 15px;
+.related-product-content h5 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--primary-navy);
+    margin-bottom: 8px;
+}
+
+.related-product-content p {
+    color: rgba(51, 51, 51, 0.6);
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+.related-product-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    color: var(--light-navy);
+    font-weight: 500;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: gap var(--transition-smooth);
+}
+
+.related-product-link:hover {
+    gap: 10px;
+    color: var(--primary-navy);
 }
 
 /* Responsive */
+@media (max-width: 992px) {
+    .product-gallery {
+        position: static;
+        margin-bottom: 40px;
+    }
+    
+    .specs-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .quick-info-cards {
+        grid-template-columns: 1fr;
+    }
+    
+    .main-image-container {
+        height: 300px;
+    }
+}
+
 @media (max-width: 768px) {
-  .page-title {
+    .product-title-main {
+        font-size: 2rem;
+    }
+    
+    .thumbnail-gallery {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    
+    .thumbnail-item img {
+        height: 60px;
+    }
+    
+    .tabs-nav {
+        flex-direction: column;
+    }
+    
+    .tab-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* Image Zoom Modal */
+.image-zoom-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.image-zoom-modal.active {
+    display: flex;
+    opacity: 1;
+}
+
+.zoomed-image {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+}
+
+.image-zoom-modal.active .zoomed-image {
+    transform: scale(1);
+}
+
+.close-zoom {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: white;
     font-size: 2rem;
-  }
-  
-  .specs-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .care-tips {
-    grid-template-columns: 1fr;
-  }
-  
-  .thumbnail-gallery .thumbnail-item img {
-    height: 60px;
-  }
-  
-  .product-gallery .main-image img {
-    height: 300px;
-  }
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.1);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s ease;
+}
+
+.close-zoom:hover {
+    background: rgba(255, 255, 255, 0.2);
 }
 </style>
+{% endblock %}
 
+{% block content %}
+{% include 'base/navbar.html' %}
+
+<!-- Page Header -->
+<section class="page-header">
+    <div class="header-pattern"></div>
+    <div class="container position-relative">
+        <div class="breadcrumb-nav">
+            <div class="breadcrumb-item">
+                <a href="{% url 'homepage' %}">Home</a>
+            </div>
+            <div class="breadcrumb-divider">/</div>
+            <div class="breadcrumb-item">
+                <a href="{% url 'products' %}">Collections</a>
+            </div>
+            <div class="breadcrumb-divider">/</div>
+            <div class="breadcrumb-item active">
+                Dragon Lotus Carpet
+            </div>
+        </div>
+        
+        <h1 class="product-title-main">Dragon Lotus Carpet</h1>
+        <p class="product-subtitle">Traditional Tibetan Design • Premium Handcrafted Quality</p>
+    </div>
+</section>
+
+<!-- Product Detail Section -->
+<section class="product-detail-section">
+    <div class="container">
+        <div class="row g-5">
+            <!-- Product Gallery -->
+            <div class="col-lg-6">
+                <div class="product-gallery">
+                    <div class="main-gallery">
+                        <div class="main-image-container" id="mainImageContainer">
+                            <img src="https://images.unsplash.com/photo-1600166898405-da9535204843?w=800&auto=format&fit=crop" 
+                                 alt="Dragon Lotus Carpet" 
+                                 id="mainProductImage"
+                                 loading="lazy">
+                            <div class="gallery-badge">
+                                <i class="bi bi-award me-1"></i> Best Seller
+                            </div>
+                            <div class="zoom-hint">
+                                <i class="bi bi-zoom-in"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="thumbnail-gallery">
+                        <div class="thumbnail-item active" data-image="https://images.unsplash.com/photo-1600166898405-da9535204843?w=800&auto=format&fit=crop">
+                            <img src="https://images.unsplash.com/photo-1600166898405-da9535204843?w=200&auto=format&fit=crop" alt="Front View">
+                        </div>
+                        <div class="thumbnail-item" data-image="https://images.unsplash.com/photo-1600166898405-da9535204843?w=800&auto=format&fit=crop">
+                            <img src="https://images.unsplash.com/photo-1600166898405-da9535204843?w=200&auto=format&fit=crop" alt="Close-up Texture">
+                        </div>
+                        <div class="thumbnail-item" data-image="https://images.unsplash.com/photo-1600166898405-da9535204843?w=800&auto=format&fit=crop">
+                            <img src="https://images.unsplash.com/photo-1600166898405-da9535204843?w=200&auto=format&fit=crop" alt="Pattern Detail">
+                        </div>
+                        <div class="thumbnail-item" data-image="https://images.unsplash.com/photo-1600166898405-da9535204843?w=800&auto=format&fit=crop">
+                            <img src="https://images.unsplash.com/photo-1600166898405-da9535204843?w=200&auto=format&fit=crop" alt="Color Detail">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Product Info -->
+            <div class="col-lg-6">
+                <div class="product-info-card">
+                    <span class="category-badge">Traditional Tibetan</span>
+                    <h2 class="info-title">Dragon Lotus Carpet</h2>
+                    
+                    <div class="rating-section">
+                        <div class="rating-stars">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-half"></i>
+                        </div>
+                        <span class="rating-text">4.5/5 (28 reviews)</span>
+                    </div>
+                    
+                    <p class="product-description">
+                        Featuring traditional Tibetan dragon motifs intertwined with lotus flowers, this exquisite carpet symbolizes power, purity, and spiritual awakening. Handcrafted by master weavers using techniques passed down through generations.
+                    </p>
+                    
+                    <!-- Specifications Grid -->
+                    <div class="specs-grid">
+                        <div class="spec-item">
+                            <div class="spec-icon">
+                                <i class="bi bi-rulers"></i>
+                            </div>
+                            <div class="spec-content">
+                                <strong>Size</strong>
+                                <span>8×10 ft (240×300 cm)</span>
+                            </div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-icon">
+                                <i class="bi bi-node-plus"></i>
+                            </div>
+                            <div class="spec-content">
+                                <strong>Knot Density</strong>
+                                <span>80 knots per square inch</span>
+                            </div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-icon">
+                                <i class="bi bi-snow"></i>
+                            </div>
+                            <div class="spec-content">
+                                <strong>Material</strong>
+                                <span>100% Tibetan Wool</span>
+                            </div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-icon">
+                                <i class="bi bi-palette"></i>
+                            </div>
+                            <div class="spec-content">
+                                <strong>Dyes</strong>
+                                <span>Natural Vegetable Dyes</span>
+                            </div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-icon">
+                                <i class="bi bi-clock"></i>
+                            </div>
+                            <div class="spec-content">
+                                <strong>Production Time</strong>
+                                <span>60-75 days</span>
+                            </div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-icon">
+                                <i class="bi bi-speedometer"></i>
+                            </div>
+                            <div class="spec-content">
+                                <strong>Weight</strong>
+                                <span>Approx. 25 kg</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Price Section -->
+                    <div class="price-section">
+                        <!-- <div class="price-display">
+                            <span class="current-price">$1,200</span>
+                            <span class="price-unit">USD</span>
+                        </div> -->
+                        <p class="price-note">Custom orders only • Price varies with specifications</p>
+                    </div>
+                    
+                    <!-- Quality Badge -->
+                    <div class="category-badge">
+                        <i class="bi bi-award"></i>
+                        Premium Quality • 5-Year Warranty
+                    </div>
+                    
+                    <!-- Action Buttons -->
+                    <div class="action-buttons">
+                        <a href="{% url 'contact_us' %}" class="primary-action-btn">
+                            <i class="bi bi-envelope me-2"></i>
+                            Request Custom Quote
+                        </a>
+                        <a href="{% url 'products' %}" class="secondary-action-btn">
+                            <i class="bi bi-arrow-left me-2"></i>
+                            Back to Collections
+                        </a>
+                    </div>
+                    
+                    <!-- Quick Info Cards -->
+                    <div class="quick-info-cards">
+                        <div class="quick-info-card">
+                            <div class="info-card-icon">
+                                <i class="bi bi-truck"></i>
+                            </div>
+                            <div class="info-card-content">
+                                <strong>Free Shipping</strong>
+                                <p>Worldwide delivery included</p>
+                            </div>
+                        </div>
+                        <div class="quick-info-card">
+                            <div class="info-card-icon">
+                                <i class="bi bi-shield-check"></i>
+                            </div>
+                            <div class="info-card-content">
+                                <strong>5-Year Warranty</strong>
+                                <p>Quality guaranteed</p>
+                            </div>
+                        </div>
+                        <div class="quick-info-card">
+                            <div class="info-card-icon">
+                                <i class="bi bi-clock-history"></i>
+                            </div>
+                            <div class="info-card-content">
+                                <strong>60-75 Days</strong>
+                                <p>Handcrafted to order</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Product Tabs -->
+        <div class="product-tabs-section">
+            <div class="tabs-header">
+                <div class="tabs-nav">
+                    <button class="tab-btn active" data-tab="description">
+                        <i class="bi bi-file-text me-2"></i>Description
+                    </button>
+                    <button class="tab-btn" data-tab="specifications">
+                        <i class="bi bi-list-check me-2"></i>Specifications
+                    </button>
+                    <button class="tab-btn" data-tab="care">
+                        <i class="bi bi-heart me-2"></i>Care Instructions
+                    </button>
+                    <button class="tab-btn" data-tab="reviews">
+                        <i class="bi bi-star me-2"></i>Reviews
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Description Tab -->
+            <div class="tab-content active" id="description-tab">
+                <div class="tab-content-inner">
+                    <h4>Design & Symbolism</h4>
+                    <p>The dragon in Tibetan Buddhism represents the power of enlightenment, protection, and good fortune. Combined with lotus flowers—symbolizing purity, spiritual awakening, and detachment—this carpet brings harmony and positive energy to any space.</p>
+                    
+                    <h4>Craftsmanship</h4>
+                    <p>Each carpet is hand-knotted by skilled artisans using the traditional Tibetan knotting technique. The 100% Tibetan wool provides natural luster, durability, and warmth, while vegetable dyes create rich, long-lasting colors that age beautifully over time.</p>
+                    
+                    <h4>Cultural Significance</h4>
+                    <p>This design is inspired by traditional Tibetan thangka paintings and monastery artwork. It preserves cultural heritage while creating functional art for modern homes, making it both a decorative piece and a conversation starter.</p>
+                    
+                    <h4>Customization Options</h4>
+                    <ul>
+                        <li>Custom sizes available (up to 15×20 feet)</li>
+                        <li>Color variations to match your decor</li>
+                        <li>Optional border designs</li>
+                        <li>Personalized motifs upon request</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Specifications Tab -->
+            <div class="tab-content" id="specifications-tab">
+                <div class="tab-content-inner">
+                    <div class="specs-table">
+                        <table>
+                            <tr>
+                                <th>Attribute</th>
+                                <th>Details</th>
+                            </tr>
+                            <tr>
+                                <td>Material Composition</td>
+                                <td>100% High-altitude Tibetan sheep wool</td>
+                            </tr>
+                            <tr>
+                                <td>Knot Density</td>
+                                <td>80 knots per square inch (320,000 total knots)</td>
+                            </tr>
+                            <tr>
+                                <td>Pile Height</td>
+                                <td>0.5 inches (12mm)</td>
+                            </tr>
+                            <tr>
+                                <td>Total Weight</td>
+                                <td>Approximately 25 kg (55 lbs)</td>
+                            </tr>
+                            <tr>
+                                <td>Dye Type</td>
+                                <td>Natural vegetable dyes (madder root, indigo, walnut)</td>
+                            </tr>
+                            <tr>
+                                <td>Weaving Technique</td>
+                                <td>Tibetan loop knot (asymmetric knot)</td>
+                            </tr>
+                            <tr>
+                                <td>Production Time</td>
+                                <td>60-75 days for standard size</td>
+                            </tr>
+                            <tr>
+                                <td>Warranty</td>
+                                <td>5 years against manufacturing defects</td>
+                            </tr>
+                            <tr>
+                                <td>Country of Origin</td>
+                                <td>Handmade in Nepal by Tibetan artisans</td>
+                            </tr>
+                            <tr>
+                                <td>Care Level</td>
+                                <td>Professional cleaning recommended</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Care Instructions Tab -->
+            <div class="tab-content" id="care-tab">
+                <div class="tab-content-inner">
+                    <h4>Caring for Your Tibetan Carpet</h4>
+                    <p>Proper care ensures your carpet maintains its beauty and durability for generations. Follow these guidelines:</p>
+                    
+                    <div class="specs-grid">
+                        <div class="spec-item">
+                            <div class="spec-icon">
+                                <i class="bi bi-shuffle"></i>
+                            </div>
+                            <div class="spec-content">
+                                <strong>Rotation</strong>
+                                <span>Rotate every 6 months for even wear</span>
+                            </div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-icon">
+                                <i class="bi bi-droplet"></i>
+                            </div>
+                            <div class="spec-content">
+                                <strong>Cleaning</strong>
+                                <span>Vacuum weekly, professional cleaning annually</span>
+                            </div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-icon">
+                                <i class="bi bi-sun"></i>
+                            </div>
+                            <div class="spec-content">
+                                <strong>Sun Protection</strong>
+                                <span>Avoid direct sunlight to prevent fading</span>
+                            </div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-icon">
+                                <i class="bi bi-wind"></i>
+                            </div>
+                            <div class="spec-content">
+                                <strong>Ventilation</strong>
+                                <span>Ensure good air circulation to prevent moisture</span>
+                            </div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-icon">
+                                <i class="bi bi-shield"></i>
+                            </div>
+                            <div class="spec-content">
+                                <strong>Stain Treatment</strong>
+                                <span>Blot immediately, avoid rubbing</span>
+                            </div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-icon">
+                                <i class="bi bi-arrow-down-up"></i>
+                            </div>
+                            <div class="spec-content">
+                                <strong>Storage</strong>
+                                <span>Roll, don't fold, in a dry place</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Reviews Tab -->
+            <div class="tab-content" id="reviews-tab">
+                <div class="tab-content-inner">
+                    <h4>Customer Reviews</h4>
+                    <p>Average Rating: <strong>4.5/5</strong> based on 28 reviews</p>
+                    
+                    <div class="review-card">
+                        <div class="review-header">
+                            <div class="reviewer-info">
+                                <div class="reviewer-avatar">
+                                    SM
+                                </div>
+                                <div class="reviewer-details">
+                                    <h5>Sarah M.</h5>
+                                    <div class="review-date">March 15, 2024</div>
+                                </div>
+                            </div>
+                            <div class="review-rating">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                            </div>
+                        </div>
+                        <div class="review-body">
+                            <p>"Absolutely stunning craftsmanship! The colors are even more vibrant in person than in the photos. It has become the centerpiece of our living room and receives compliments from every visitor."</p>
+                        </div>
+                    </div>
+                    
+                    <div class="review-card">
+                        <div class="review-header">
+                            <div class="reviewer-info">
+                                <div class="reviewer-avatar">
+                                    JL
+                                </div>
+                                <div class="reviewer-details">
+                                    <h5>James L.</h5>
+                                    <div class="review-date">February 28, 2024</div>
+                                </div>
+                            </div>
+                            <div class="review-rating">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-half"></i>
+                            </div>
+                        </div>
+                        <div class="review-body">
+                            <p>"Excellent quality and the customer service was outstanding. They helped me customize the size perfectly for my office. Delivery was prompt and the carpet was packaged with great care."</p>
+                        </div>
+                    </div>
+                    
+                    <div class="review-card">
+                        <div class="review-header">
+                            <div class="reviewer-info">
+                                <div class="reviewer-avatar">
+                                    RK
+                                </div>
+                                <div class="reviewer-details">
+                                    <h5>Robert K.</h5>
+                                    <div class="review-date">January 10, 2024</div>
+                                </div>
+                            </div>
+                            <div class="review-rating">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star"></i>
+                            </div>
+                        </div>
+                        <div class="review-body">
+                            <p>"Beautiful carpet with incredible detail. The only reason I'm not giving 5 stars is because it took longer than expected, but they kept me updated throughout the process. Worth the wait!"</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Related Products -->
+        <div class="related-products-section">
+            <h2 class="section-title">You May Also Like</h2>
+            <p class="section-subtitle">Explore more exquisite designs from our collection</p>
+            
+            <div class="related-products-grid">
+                <a href="{% url 'product_detail' %}" class="related-product-card">
+                    <div class="related-product-image">
+                        <img src="https://images.unsplash.com/photo-1600166898405-da9535204843?w=400&auto=format&fit=crop" 
+                             alt="Persian Palace Carpet"
+                             loading="lazy">
+                    </div>
+                    <div class="related-product-content">
+                        <h5>Persian Palace Carpet</h5>
+                        <p>Antique reproduction with intricate floral patterns and aged finish.</p>
+                        <span class="related-product-link">
+                            View Details <i class="bi bi-arrow-right"></i>
+                        </span>
+                    </div>
+                </a>
+                
+                <a href="{% url 'product_detail' %}" class="related-product-card">
+                    <div class="related-product-image">
+                        <img src="https://images.unsplash.com/photo-1600166898405-da9535204843?w=400&auto=format&fit=crop" 
+                             alt="Modern Geometric Carpet"
+                             loading="lazy">
+                    </div>
+                    <div class="related-product-content">
+                        <h5>Modern Geometric Carpet</h5>
+                        <p>Abstract geometric patterns in earthy tones for contemporary interiors.</p>
+                        <span class="related-product-link">
+                            View Details <i class="bi bi-arrow-right"></i>
+                        </span>
+                    </div>
+                </a>
+                
+                <a href="{% url 'product_detail' %}" class="related-product-card">
+                    <div class="related-product-image">
+                        <img src="https://images.unsplash.com/photo-1600166898405-da9535204843?w=400&auto=format&fit=crop" 
+                             alt="Snow Lion Thangka"
+                             loading="lazy">
+                    </div>
+                    <div class="related-product-content">
+                        <h5>Snow Lion Thangka Carpet</h5>
+                        <p>Inspired by Tibetan paintings with snow lions and cloud motifs.</p>
+                        <span class="related-product-link">
+                            View Details <i class="bi bi-arrow-right"></i>
+                        </span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Image Zoom Modal -->
+<div class="image-zoom-modal" id="imageZoomModal">
+    <span class="close-zoom" id="closeZoom">&times;</span>
+    <img src="https://images.unsplash.com/photo-1600166898405-da9535204843?w=1200&auto=format&fit=crop" 
+         alt="Zoomed Dragon Lotus Carpet" 
+         class="zoomed-image">
+</div>
+
+{% include 'base/footer.html' %}
+{% endblock %}
+
+{% block extra_js %}
 <script>
-// Initialize AOS animations
-AOS.init({
-  duration: 800,
-  easing: 'ease-in-out',
-  once: true,
-  offset: 100
-});
-
-// Thumbnail image switching
 document.addEventListener('DOMContentLoaded', function() {
-  const thumbnailItems = document.querySelectorAll('.thumbnail-item');
-  const mainImage = document.getElementById('main-product-image');
-  
-  thumbnailItems.forEach(item => {
-    item.addEventListener('click', function(e) {
-      e.preventDefault();
-      
-      // Remove active class from all thumbnails
-      thumbnailItems.forEach(thumb => thumb.classList.remove('active'));
-      
-      // Add active class to clicked thumbnail
-      this.classList.add('active');
-      
-      // Update main image
-      const newImageSrc = this.getAttribute('data-image');
-      mainImage.src = newImageSrc;
-      mainImage.alt = this.querySelector('img').alt;
+    // DOM Elements
+    const mainImage = document.getElementById('mainProductImage');
+    const thumbnailItems = document.querySelectorAll('.thumbnail-item');
+    const tabBtns = document.querySelectorAll('.tab-btn');
+    const tabContents = document.querySelectorAll('.tab-content');
+    const imageZoomModal = document.getElementById('imageZoomModal');
+    const closeZoom = document.getElementById('closeZoom');
+    const mainImageContainer = document.getElementById('mainImageContainer');
+    const zoomedImage = document.querySelector('.zoomed-image');
+    
+    // Thumbnail Click Handler
+    thumbnailItems.forEach(item => {
+        item.addEventListener('click', function() {
+            // Remove active class from all thumbnails
+            thumbnailItems.forEach(thumb => thumb.classList.remove('active'));
+            
+            // Add active class to clicked thumbnail
+            this.classList.add('active');
+            
+            // Update main image (using the same image as requested)
+            const imageSrc = this.getAttribute('data-image');
+            mainImage.src = imageSrc;
+            zoomedImage.src = imageSrc.replace('w=800', 'w=1200');
+            
+            // Add subtle animation to main image
+            mainImage.style.opacity = '0.7';
+            setTimeout(() => {
+                mainImage.style.opacity = '1';
+            }, 150);
+        });
     });
-  });
-  
-  // Initialize GLightbox
-  const lightbox = GLightbox({
-    touchNavigation: true,
-    loop: true,
-    autoplayVideos: true
-  });
-  
-  // Tab functionality
-  const tabLinks = document.querySelectorAll('.nav-link');
-  tabLinks.forEach(link => {
-    link.addEventListener('click', function() {
-      tabLinks.forEach(tab => tab.classList.remove('active'));
-      this.classList.add('active');
+    
+    // Tab Switching
+    tabBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            const tabId = this.getAttribute('data-tab');
+            
+            // Update active tab button
+            tabBtns.forEach(tab => tab.classList.remove('active'));
+            this.classList.add('active');
+            
+            // Show corresponding tab content
+            tabContents.forEach(content => {
+                content.classList.remove('active');
+                if (content.id === `${tabId}-tab`) {
+                    content.classList.add('active');
+                }
+            });
+        });
     });
-  });
+    
+    // Image Zoom Functionality
+    mainImageContainer.addEventListener('click', function() {
+        imageZoomModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    });
+    
+    closeZoom.addEventListener('click', function() {
+        imageZoomModal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    });
+    
+    imageZoomModal.addEventListener('click', function(e) {
+        if (e.target === this) {
+            this.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+    });
+    
+    // Close modal with Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && imageZoomModal.classList.contains('active')) {
+            imageZoomModal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+    });
+    
+    // Smooth scroll to tabs when clicked from other sections
+    const hash = window.location.hash;
+    if (hash) {
+        const tabId = hash.replace('#', '');
+        const tabBtn = document.querySelector(`.tab-btn[data-tab="${tabId}"]`);
+        if (tabBtn) {
+            setTimeout(() => {
+                tabBtn.click();
+            }, 100);
+        }
+    }
+    
+    // Add animation to elements on scroll
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, observerOptions);
+    
+    // Observe elements for animation
+    const animatedElements = document.querySelectorAll('.product-info-card, .product-gallery, .tab-content-inner, .review-card, .related-product-card');
+    animatedElements.forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(20px)';
+        el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        observer.observe(el);
+    });
+    
+    // Quantity increment/decrement (if added later)
+    const quantityInput = document.querySelector('input[type="number"]');
+    if (quantityInput) {
+        const minusBtn = document.querySelector('.quantity-minus');
+        const plusBtn = document.querySelector('.quantity-plus');
+        
+        if (minusBtn && plusBtn) {
+            minusBtn.addEventListener('click', function() {
+                if (quantityInput.value > 1) {
+                    quantityInput.value = parseInt(quantityInput.value) - 1;
+                }
+            });
+            
+            plusBtn.addEventListener('click', function() {
+                quantityInput.value = parseInt(quantityInput.value) + 1;
+            });
+        }
+    }
+    
+    // Add to favorites functionality
+    const favoriteBtns = document.querySelectorAll('.btn-favorite');
+    favoriteBtns.forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            const icon = this.querySelector('i');
+            
+            if (icon.classList.contains('bi-heart')) {
+                icon.classList.remove('bi-heart');
+                icon.classList.add('bi-heart-fill');
+                showToast('Added to favorites!', 'success');
+            } else {
+                icon.classList.remove('bi-heart-fill');
+                icon.classList.add('bi-heart');
+                showToast('Removed from favorites!', 'info');
+            }
+        });
+    });
+    
+    // Toast notification function
+    function showToast(message, type = 'info') {
+        const toast = document.createElement('div');
+        toast.className = `toast align-items-center text-white bg-${type === 'success' ? 'primary' : 'info'} border-0`;
+        toast.style.position = 'fixed';
+        toast.style.bottom = '20px';
+        toast.style.right = '20px';
+        toast.style.zIndex = '9999';
+        toast.style.minWidth = '250px';
+        toast.style.borderRadius = '8px';
+        toast.style.boxShadow = '0 5px 15px rgba(0,0,0,0.2)';
+        toast.style.backgroundColor = type === 'success' ? 'var(--primary-navy)' : 'var(--light-navy)';
+        
+        toast.innerHTML = `
+            <div class="d-flex">
+                <div class="toast-body">
+                    <i class="bi ${type === 'success' ? 'bi-check-circle' : 'bi-info-circle'} me-2"></i>
+                    ${message}
+                </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+            </div>
+        `;
+        
+        document.body.appendChild(toast);
+        
+        const bsToast = new bootstrap.Toast(toast, { delay: 3000 });
+        bsToast.show();
+        
+        toast.addEventListener('hidden.bs.toast', function() {
+            document.body.removeChild(toast);
+        });
+    }
+    
+    // Initialize tooltips
+    const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+    tooltipTriggerList.map(function(tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl);
+    });
 });
 </script>
-{% include 'base/footer.html' %}
 {% endblock %}

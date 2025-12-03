@@ -1,313 +1,1231 @@
 {% extends 'base/index.html' %}
+{% load static %}
+
 {% block title %}Contact Us - Everest Memorial Carpet Industry{% endblock %}
 
-{% block description %}Get in touch with Everest Memorial Carpet Industry. Contact us for custom carpet orders, quotations, and inquiries about our handmade Tibetan carpets.{% endblock %}
-{% block body_class %}contact-page{% endblock %}
+{% block extra_css %}
+<style>
+/* ========== CONTACT PAGE ENHANCEMENTS ========== */
+:root {
+    --primary-navy: #0a192f;
+    --dark-navy: #071528;
+    --medium-navy: #1e3a5f;
+    --light-navy: #2c5282;
+    --lightest-navy: #90a3bf;
+    --transition-smooth: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --shadow-soft: 0 5px 15px rgba(10, 25, 47, 0.05);
+    --shadow-medium: 0 10px 25px rgba(10, 25, 47, 0.08);
+    --shadow-large: 0 15px 35px rgba(10, 25, 47, 0.12);
+}
+
+/* Page Header */
+.contact-header {
+    background: linear-gradient(135deg, var(--primary-navy) 0%, var(--dark-navy) 100%);
+    padding: 60px 0 30px;
+    position: relative;
+    overflow: hidden;
+    color: white;
+}
+
+.header-pattern {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.1;
+    background-image: 
+        radial-gradient(circle at 20% 80%, var(--lightest-navy) 1px, transparent 1px),
+        radial-gradient(circle at 80% 20%, var(--lightest-navy) 1px, transparent 1px);
+    background-size: 80px 80px;
+    animation: patternFloat 30s linear infinite;
+}
+
+@keyframes patternFloat {
+    0% { transform: translate(0, 0); }
+    25% { transform: translate(10px, 10px); }
+    50% { transform: translate(20px, 5px); }
+    75% { transform: translate(10px, -5px); }
+    100% { transform: translate(0, 0); }
+}
+
+.breadcrumb-nav {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.breadcrumb-item {
+    color: var(--lightest-navy);
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.breadcrumb-item a {
+    color: var(--lightest-navy);
+    text-decoration: none;
+    transition: color var(--transition-smooth);
+}
+
+.breadcrumb-item a:hover {
+    color: white;
+}
+
+.breadcrumb-item.active {
+    color: white;
+    font-weight: 500;
+}
+
+.breadcrumb-divider {
+    color: var(--lightest-navy);
+    opacity: 0.5;
+}
+
+.page-title-main {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    line-height: 1.2;
+}
+
+.page-subtitle {
+    color: var(--lightest-navy);
+    font-size: 1rem;
+    margin-bottom: 20px;
+    max-width: 600px;
+}
+
+/* Contact Main Section */
+.contact-main-section {
+    padding: 40px 0 30px;
+}
+
+.contact-wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+}
+
+@media (min-width: 992px) {
+    .contact-wrapper {
+        grid-template-columns: 1fr 1.2fr;
+        align-items: start;
+        gap: 40px;
+    }
+}
+
+/* Contact Info Panel */
+.contact-info-panel {
+    background: linear-gradient(135deg, var(--primary-navy) 0%, var(--dark-navy) 100%);
+    border-radius: 16px;
+    padding: 30px;
+    color: white;
+    box-shadow: var(--shadow-large);
+    position: relative;
+    overflow: hidden;
+    height: fit-content;
+}
+
+.info-panel-pattern {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.05;
+    background-image: 
+        radial-gradient(circle at 20% 80%, white 1px, transparent 1px),
+        radial-gradient(circle at 80% 20%, white 1px, transparent 1px);
+    background-size: 60px 60px;
+}
+
+.info-panel-header {
+    position: relative;
+    z-index: 2;
+    margin-bottom: 25px;
+}
+
+.info-panel-header h3 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.info-panel-header p {
+    color: var(--lightest-navy);
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+/* Contact Info Cards */
+.contact-info-cards {
+    position: relative;
+    z-index: 2;
+}
+
+.info-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    padding: 18px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    margin-bottom: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all var(--transition-smooth);
+    cursor: pointer;
+}
+
+.info-card:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateX(5px);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.info-card:last-child {
+    margin-bottom: 0;
+}
+
+.card-icon {
+    width: 48px;
+    height: 48px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+    transition: all var(--transition-smooth);
+}
+
+.info-card:hover .card-icon {
+    background: white;
+    color: var(--primary-navy);
+    transform: rotate(5deg);
+}
+
+.card-content h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.card-content p {
+    color: var(--lightest-navy);
+    font-size: 0.85rem;
+    margin: 2px 0;
+    line-height: 1.4;
+}
+
+.card-content small {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.75rem;
+    margin-top: 4px;
+    display: block;
+}
+
+/* Department Contacts */
+.department-contacts {
+    position: relative;
+    z-index: 2;
+    margin-top: 25px;
+    padding-top: 25px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.department-contacts h5 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.dept-item {
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    font-size: 0.85rem;
+}
+
+.dept-item:last-child {
+    border-bottom: none;
+}
+
+.dept-item strong {
+    color: white;
+    font-weight: 500;
+}
+
+.dept-item a {
+    color: var(--lightest-navy);
+    text-decoration: none;
+    transition: color var(--transition-smooth);
+}
+
+.dept-item a:hover {
+    color: white;
+    text-decoration: underline;
+}
+
+/* Social Links */
+.social-links-panel {
+    position: relative;
+    z-index: 2;
+    margin-top: 25px;
+    padding-top: 25px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.social-links-panel h5 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.social-icons {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.social-icon {
+    width: 42px;
+    height: 42px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.1rem;
+    text-decoration: none;
+    transition: all var(--transition-smooth);
+    position: relative;
+    overflow: hidden;
+}
+
+.social-icon::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.6s ease;
+}
+
+.social-icon:hover::before {
+    left: 100%;
+}
+
+.social-icon:hover {
+    background: white;
+    color: var(--primary-navy);
+    transform: translateY(-3px);
+}
+
+/* Form Container */
+.form-container {
+    background: white;
+    border-radius: 16px;
+    padding: 30px;
+    box-shadow: var(--shadow-large);
+    border: 1px solid rgba(10, 25, 47, 0.05);
+    margin-bottom: 30px;
+}
+
+.form-header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.form-header h3 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--primary-navy);
+    margin-bottom: 8px;
+}
+
+.form-header p {
+    color: rgba(51, 51, 51, 0.6);
+    font-size: 0.95rem;
+}
+
+/* Form Elements */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.form-group {
+    position: relative;
+}
+
+.form-label {
+    display: block;
+    font-weight: 500;
+    color: var(--primary-navy);
+    margin-bottom: 6px;
+    font-size: 0.85rem;
+}
+
+.form-label.required::after {
+    content: " *";
+    color: #dc3545;
+}
+
+.form-control {
+    width: 100%;
+    padding: 12px 14px;
+    border: 2px solid rgba(44, 82, 130, 0.2);
+    border-radius: 8px;
+    font-size: 0.9rem;
+    color: var(--primary-navy);
+    background: white;
+    transition: all var(--transition-smooth);
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--light-navy);
+    box-shadow: 0 0 0 3px rgba(44, 82, 130, 0.1);
+    background: white;
+}
+
+.form-control::placeholder {
+    color: rgba(44, 82, 130, 0.4);
+}
+
+.form-control:disabled,
+.form-control[readonly] {
+    background-color: rgba(44, 82, 130, 0.05);
+    opacity: 0.7;
+}
+
+/* Select Styling */
+.select-wrapper {
+    position: relative;
+}
+
+.select-wrapper::after {
+    content: "▼";
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--light-navy);
+    font-size: 0.75rem;
+    pointer-events: none;
+}
+
+.form-select {
+    appearance: none;
+    background-image: none;
+    padding-right: 40px;
+}
+
+/* Textarea */
+textarea.form-control {
+    resize: vertical;
+    min-height: 100px;
+    max-height: 200px;
+}
+
+/* File Upload */
+.file-upload-wrapper {
+    position: relative;
+}
+
+.file-upload-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 14px;
+    border: 2px dashed rgba(44, 82, 130, 0.3);
+    border-radius: 8px;
+    background: rgba(44, 82, 130, 0.05);
+    cursor: pointer;
+    transition: all var(--transition-smooth);
+}
+
+.file-upload-label:hover {
+    border-color: var(--light-navy);
+    background: rgba(44, 82, 130, 0.08);
+}
+
+.file-upload-label i {
+    color: var(--light-navy);
+    font-size: 1.1rem;
+}
+
+.file-upload-label span {
+    color: var(--primary-navy);
+    font-size: 0.9rem;
+}
+
+.file-upload-input {
+    display: none;
+}
+
+.file-preview {
+    margin-top: 8px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.file-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 10px;
+    background: rgba(44, 82, 130, 0.1);
+    border-radius: 6px;
+    font-size: 0.8rem;
+    color: var(--primary-navy);
+}
+
+.file-remove {
+    color: #dc3545;
+    cursor: pointer;
+    font-size: 0.85rem;
+}
+
+.file-remove:hover {
+    color: #c82333;
+}
+
+/* Submit Button */
+.submit-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 14px 25px;
+    background: var(--primary-navy);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--transition-smooth);
+    margin-top: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+.submit-btn:hover {
+    background: var(--medium-navy);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(10, 25, 47, 0.2);
+}
+
+.submit-btn:active {
+    transform: translateY(0);
+}
+
+.submit-btn i {
+    font-size: 1rem;
+}
+
+/* Form Status Messages */
+.form-status {
+    margin: 12px 0;
+}
+
+.loading-message,
+.error-message,
+.success-message {
+    padding: 12px;
+    border-radius: 8px;
+    margin: 8px 0;
+    display: none;
+    font-size: 0.9rem;
+}
+
+.loading-message {
+    background: rgba(44, 82, 130, 0.1);
+    color: var(--primary-navy);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.loading-spinner {
+    width: 18px;
+    height: 18px;
+    border: 2px solid rgba(44, 82, 130, 0.3);
+    border-top-color: var(--primary-navy);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.error-message {
+    background: rgba(220, 53, 69, 0.1);
+    color: #dc3545;
+    border: 1px solid rgba(220, 53, 69, 0.2);
+}
+
+.success-message {
+    background: rgba(40, 167, 69, 0.1);
+    color: #28a745;
+    border: 1px solid rgba(40, 167, 69, 0.2);
+}
+
+/* Response Time Notice */
+.response-notice {
+    text-align: center;
+    margin-top: 15px;
+    padding: 12px;
+    background: rgba(44, 82, 130, 0.05);
+    border-radius: 8px;
+    border: 1px solid rgba(44, 82, 130, 0.1);
+    font-size: 0.85rem;
+}
+
+.response-notice p {
+    margin: 0;
+    color: rgba(51, 51, 51, 0.6);
+}
+
+.response-notice i {
+    color: var(--light-navy);
+    margin-right: 5px;
+}
+
+/* Map Container - Full Width Below Form */
+.map-container {
+    width: 100%;
+    height: 400px;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: var(--shadow-medium);
+    border: 1px solid rgba(10, 25, 47, 0.1);
+    margin-top: 20px;
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* FAQ Section */
+.faq-section {
+    margin-top: 50px;
+    padding-top: 50px;
+    border-top: 1px solid rgba(44, 82, 130, 0.1);
+}
+
+.section-title {
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--primary-navy);
+    margin-bottom: 12px;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: rgba(51, 51, 51, 0.6);
+    margin-bottom: 30px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 0.95rem;
+}
+
+.faq-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+}
+
+@media (min-width: 768px) {
+    .faq-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.faq-item {
+    background: white;
+    border-radius: 12px;
+    padding: 22px;
+    border: 1px solid rgba(44, 82, 130, 0.1);
+    box-shadow: var(--shadow-soft);
+    transition: all var(--transition-smooth);
+}
+
+.faq-item:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-medium);
+    border-color: var(--light-navy);
+}
+
+.faq-item h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--primary-navy);
+    margin-bottom: 10px;
+}
+
+.faq-item p {
+    color: rgba(51, 51, 51, 0.7);
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Contact Cards Animation */
+.contact-card {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.contact-card:nth-child(1) { animation-delay: 0.1s; }
+.contact-card:nth-child(2) { animation-delay: 0.2s; }
+.contact-card:nth-child(3) { animation-delay: 0.3s; }
+.contact-card:nth-child(4) { animation-delay: 0.4s; }
+.contact-card:nth-child(5) { animation-delay: 0.5s; }
+.contact-card:nth-child(6) { animation-delay: 0.6s; }
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .contact-info-panel,
+    .form-container {
+        padding: 25px 20px;
+    }
+    
+    .page-title-main {
+        font-size: 1.8rem;
+    }
+    
+    .info-card {
+        padding: 15px;
+    }
+    
+    .card-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+    
+    .map-container {
+        height: 300px;
+    }
+}
+
+@media (max-width: 576px) {
+    .contact-header {
+        padding: 50px 0 25px;
+    }
+    
+    .contact-main-section {
+        padding: 30px 0;
+    }
+    
+    .info-panel-header h3,
+    .form-header h3 {
+        font-size: 1.4rem;
+    }
+    
+    .map-container {
+        height: 250px;
+        border-radius: 12px;
+    }
+}
+
+/* Desktop specific optimizations */
+@media (min-width: 992px) {
+    .contact-wrapper {
+        max-height: none;
+        min-height: auto;
+    }
+    
+    .contact-info-panel {
+        position: sticky;
+        top: 100px;
+    }
+    
+    .form-container {
+        min-height: auto;
+    }
+}
+
+/* Compact form layout */
+.form-row-compact {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+@media (max-width: 768px) {
+    .form-row-compact {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+{% endblock %}
 
 {% block content %}
-{% include 'base/header.html' %}
+{% include 'base/navbar.html' %}
 
-<!-- Page Title -->
-<div class="page-title light-background">
-  <div class="container d-lg-flex justify-content-between align-items-center">
-    <h1 class="mb-2 mb-lg-0">Contact Us</h1>
-    <nav class="breadcrumbs">
-      <ol>
-        <li><a href="index.html">Home</a></li>
-        <li class="current">Contact</li>
-      </ol>
-    </nav>
-  </div>
-</div><!-- End Page Title -->
-
-<!-- Contact Section -->
-<section id="contact" class="contact section">
-
-  <div class="container">
-    <div class="contact-wrapper">
-      <div class="contact-info-panel">
-        <div class="contact-info-header">
-          <h3>Contact Information</h3>
-          <p>Get in touch with us for custom carpet orders, quotations, and inquiries about our exquisite handmade Tibetan carpets.</p>
+<!-- Page Header -->
+<section class="contact-header">
+    <div class="header-pattern"></div>
+    <div class="container position-relative">
+        <div class="breadcrumb-nav">
+            <div class="breadcrumb-item">
+                <a href="{% url 'homepage' %}">Home</a>
+            </div>
+            <div class="breadcrumb-divider">/</div>
+            <div class="breadcrumb-item active">
+                Contact Us
+            </div>
         </div>
-
-        <div class="contact-info-cards">
-          <!-- Nepal Office -->
-          <div class="info-card">
-            <div class="icon-container">
-              <i class="bi bi-pin-map-fill"></i>
-            </div>
-            <div class="card-content">
-              <h4>Head Office - Nepal</h4>
-              <p>Thankot-1, Kathmandu, Nepal</p>
-              <p>G.P.O. Box: 6459</p>
-            </div>
-          </div>
-
-          <!-- US Office -->
-          <div class="info-card">
-            <div class="icon-container">
-              <i class="bi bi-pin-map-fill"></i>
-            </div>
-            <div class="card-content">
-              <h4>US Office</h4>
-              <p>31-12, 23rd Street</p>
-              <p>Long Island City, New York - 11102</p>
-            </div>
-          </div>
-
-          <!-- Email -->
-          <div class="info-card">
-            <div class="icon-container">
-              <i class="bi bi-envelope-open"></i>
-            </div>
-            <div class="card-content">
-              <h4>Email Us</h4>
-              <p>info@everestcarpets.com</p>
-              <p>sales@everestcarpets.com</p>
-            </div>
-          </div>
-
-          <!-- Phone Numbers -->
-          <div class="info-card">
-            <div class="icon-container">
-              <i class="bi bi-telephone-fill"></i>
-            </div>
-            <div class="card-content">
-              <h4>Call Us</h4>
-              <p>Nepal: +977-1-415414</p>
-              <p>USA: +1 (718) 545-2460</p>
-            </div>
-          </div>
-
-          <!-- Working Hours -->
-          <div class="info-card">
-            <div class="icon-container">
-              <i class="bi bi-clock-history"></i>
-            </div>
-            <div class="card-content">
-              <h4>Working Hours</h4>
-              <p>Sunday-Friday: 9AM - 6PM NPT</p>
-              <p>Saturday: 10AM - 4PM NPT</p>
-            </div>
-          </div>
-
-          <!-- Emergency Contact -->
-          <div class="info-card">
-            <div class="icon-container">
-              <i class="bi bi-whatsapp"></i>
-            </div>
-            <div class="card-content">
-              <h4>WhatsApp Business</h4>
-              <p>+977-9841XXXXXX</p>
-              <p>For urgent inquiries</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Department Contacts -->
-        <div class="department-contacts mt-4">
-          <h5>Department Contacts</h5>
-          <div class="department-list">
-            <div class="dept-item">
-              <strong>Sales Department:</strong> sales@everestcarpets.com
-            </div>
-            <div class="dept-item">
-              <strong>Custom Orders:</strong> custom@everestcarpets.com
-            </div>
-            <div class="dept-item">
-              <strong>Customer Support:</strong> support@everestcarpets.com
-            </div>
-          </div>
-        </div>
-
-        <div class="social-links-panel mt-4">
-          <h5>Follow Our Journey</h5>
-          <div class="social-icons">
-            <a href="#"><i class="bi bi-facebook"></i></a>
-            <a href="#"><i class="bi bi-instagram"></i></a>
-            <a href="#"><i class="bi bi-pinterest"></i></a>
-            <a href="#"><i class="bi bi-youtube"></i></a>
-            <a href="#"><i class="bi bi-whatsapp"></i></a>
-          </div>
-        </div>
-      </div>
-
-      <div class="contact-form-panel">
-        <!-- Map Container -->
-        <div class="map-container">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3533.6831799566726!2d85.27959847539507!3d27.66723427620269!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb191ff587b2e9%3A0x83d2f18526d8e6cf!2sThankot%2C%2044600%2C%20Nepal!5e0!3m2!1sen!2snp!4v1700000000000!5m2!1sen!2snp" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div>
-
-        <!-- Form Container -->
-        <div class="form-container">
-          <h3>Send Us Your Inquiry</h3>
-          <p>Fill out the form below for custom carpet orders, price quotations, or any questions about our products.</p>
-
-          <form action="#" method="post" class="php-email-form">
-            <!-- Inquiry Type -->
-            <div class="mb-3">
-              <label class="form-label">Inquiry Type *</label>
-              <select class="form-select" name="inquiry_type" required>
-                <option value="">Select Inquiry Type</option>
-                <option value="custom_order">Custom Order Request</option>
-                <option value="price_quote">Price Quotation</option>
-                <option value="product_info">Product Information</option>
-                <option value="design_consult">Design Consultation</option>
-                <option value="general">General Inquiry</option>
-                <option value="wholesale">Wholesale/Bulk Orders</option>
-              </select>
-            </div>
-
-            <!-- Personal Information -->
-            <div class="row g-3 mb-3">
-              <div class="col-md-6">
-                <div class="form-floating">
-                  <input type="text" class="form-control" id="nameInput" name="name" placeholder="Full Name" required>
-                  <label for="nameInput">Full Name *</label>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="form-floating">
-                  <input type="text" class="form-control" id="companyInput" name="company" placeholder="Company/Organization">
-                  <label for="companyInput">Company/Organization</label>
-                </div>
-              </div>
-            </div>
-
-            <!-- Contact Information -->
-            <div class="row g-3 mb-3">
-              <div class="col-md-6">
-                <div class="form-floating">
-                  <input type="email" class="form-control" id="emailInput" name="email" placeholder="Email Address" required>
-                  <label for="emailInput">Email Address *</label>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="form-floating">
-                  <input type="tel" class="form-control" id="phoneInput" name="phone" placeholder="Phone Number" required>
-                  <label for="phoneInput">Phone Number *</label>
-                </div>
-              </div>
-            </div>
-
-            <!-- Country Selection -->
-            <div class="mb-3">
-              <div class="form-floating">
-                <select class="form-select" id="countryInput" name="country" required>
-                  <option value="">Select Country</option>
-                  <option value="US">United States</option>
-                  <option value="UK">United Kingdom</option>
-                  <option value="CA">Canada</option>
-                  <option value="AU">Australia</option>
-                  <option value="NP">Nepal</option>
-                  <option value="other">Other Country</option>
-                </select>
-                <label for="countryInput">Country *</label>
-              </div>
-            </div>
-
-            <!-- Product Interest -->
-            <div class="mb-3">
-              <label class="form-label">Product Interest</label>
-              <select class="form-select" name="product_interest">
-                <option value="">Select Product Category</option>
-                <option value="traditional">Traditional Tibetan Carpets</option>
-                <option value="antique">Antique Reproduction</option>
-                <option value="contemporary">Contemporary Designs</option>
-                <option value="all">All Collections</option>
-                <option value="custom">Custom Design</option>
-              </select>
-            </div>
-
-            <!-- Project Details -->
-            <div class="mb-3">
-              <div class="form-floating">
-                <textarea class="form-control" id="projectInput" name="project_details" rows="4" placeholder="Tell us about your project requirements..." style="height: 120px"></textarea>
-                <label for="projectInput">Project Details (Size, Design, Timeline, etc.)</label>
-              </div>
-            </div>
-
-            <!-- Message -->
-            <div class="mb-4">
-              <div class="form-floating">
-                <textarea class="form-control" id="messageInput" name="message" rows="4" placeholder="Your detailed message..." style="height: 150px" required></textarea>
-                <label for="messageInput">Your Message *</label>
-              </div>
-            </div>
-
-            <!-- File Upload for Design References -->
-            <div class="mb-4">
-              <label class="form-label">Upload Design References (Optional)</label>
-              <input type="file" class="form-control" name="design_files" multiple accept=".jpg,.jpeg,.png,.pdf">
-              <small class="text-muted">You can upload images, PDFs, or design files (Max 10MB total)</small>
-            </div>
-
-            <!-- Form Status Messages -->
-            <div class="my-3">
-              <div class="loading">Sending your message...</div>
-              <div class="error-message">There was an error sending your message. Please try again.</div>
-              <div class="sent-message">Your message has been sent successfully! We'll get back to you within 24 hours.</div>
-            </div>
-
-            <!-- Submit Button -->
-            <div class="d-grid">
-              <button type="submit" class="btn-submit">
-                <i class="bi bi-send-fill me-2"></i> Send Message
-              </button>
-            </div>
-
-            <!-- Response Time Notice -->
-            <div class="response-notice mt-3">
-              <p class="text-center mb-0">
-                <small><i class="bi bi-info-circle me-1"></i> We typically respond within 24 hours on business days</small>
-              </p>
-            </div>
-          </form>
-        </div>
-      </div>
+        
+        <h1 class="page-title-main">Get In Touch</h1>
+        <p class="page-subtitle">Connect with us for custom carpet orders, quotations, and inquiries about our exquisite handmade Tibetan carpets.</p>
     </div>
-  </div>
-</section><!-- /Contact Section -->
+</section>
 
-<!-- FAQ Section -->
-<section id="faq" class="faq section light-background">
-  <div class="container">
-    <div class="section-title text-center">
-      <h2>Frequently Asked Questions</h2>
-      <p>Common questions about ordering and our products</p>
+<!-- Contact Main Section -->
+<section class="contact-main-section">
+    <div class="container">
+        <div class="contact-wrapper">
+            <!-- Left Column: Contact Form -->
+            <div class="contact-form-panel">
+                <!-- Form Container -->
+                <div class="form-container">
+                    <div class="form-header">
+                        <h3>Send Your Inquiry</h3>
+                        <p>Fill out the form below for custom orders, price quotations, or any questions about our products.</p>
+                    </div>
+
+                    <form class="contact-form" id="contactForm">
+                        <!-- Inquiry Type -->
+                        <div class="form-group">
+                            <label class="form-label required">Inquiry Type</label>
+                            <div class="select-wrapper">
+                                <select class="form-control form-select" id="inquiryType" name="inquiry_type" required>
+                                    <option value="">Select Inquiry Type</option>
+                                    <option value="custom_order">Custom Order Request</option>
+                                    <option value="price_quote">Price Quotation</option>
+                                    <option value="product_info">Product Information</option>
+                                    <option value="design_consult">Design Consultation</option>
+                                    <option value="general">General Inquiry</option>
+                                    <option value="wholesale">Wholesale/Bulk Orders</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Personal Information -->
+                        <div class="form-row-compact">
+                            <div class="form-group">
+                                <label class="form-label required">Full Name</label>
+                                <input type="text" 
+                                       class="form-control" 
+                                       id="fullName" 
+                                       name="full_name" 
+                                       placeholder="Enter your full name"
+                                       required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Company/Organization</label>
+                                <input type="text" 
+                                       class="form-control" 
+                                       id="company" 
+                                       name="company" 
+                                       placeholder="Optional">
+                            </div>
+                        </div>
+
+                        <!-- Contact Information -->
+                        <div class="form-row-compact">
+                            <div class="form-group">
+                                <label class="form-label required">Email Address</label>
+                                <input type="email" 
+                                       class="form-control" 
+                                       id="email" 
+                                       name="email" 
+                                       placeholder="your.email@example.com"
+                                       required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label required">Phone Number</label>
+                                <input type="tel" 
+                                       class="form-control" 
+                                       id="phone" 
+                                       name="phone" 
+                                       placeholder="+1 (123) 456-7890"
+                                       required>
+                            </div>
+                        </div>
+
+                        <!-- Country Selection -->
+                        <div class="form-group">
+                            <label class="form-label required">Country</label>
+                            <div class="select-wrapper">
+                                <select class="form-control form-select" id="country" name="country" required>
+                                    <option value="">Select Country</option>
+                                    <option value="US">United States</option>
+                                    <option value="UK">United Kingdom</option>
+                                    <option value="CA">Canada</option>
+                                    <option value="AU">Australia</option>
+                                    <option value="NP">Nepal</option>
+                                    <option value="other">Other Country</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Product Interest -->
+                        <div class="form-group">
+                            <label class="form-label">Product Interest</label>
+                            <div class="select-wrapper">
+                                <select class="form-control form-select" id="productInterest" name="product_interest">
+                                    <option value="">Select Product Category</option>
+                                    <option value="traditional">Traditional Tibetan Carpets</option>
+                                    <option value="antique">Antique Reproduction</option>
+                                    <option value="contemporary">Contemporary Designs</option>
+                                    <option value="all">All Collections</option>
+                                    <option value="custom">Custom Design</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Project Details -->
+                        <div class="form-group">
+                            <label class="form-label">Project Details</label>
+                            <textarea class="form-control" 
+                                      id="projectDetails" 
+                                      name="project_details" 
+                                      rows="3"
+                                      placeholder="Tell us about your project requirements, size, design preferences, timeline..."></textarea>
+                        </div>
+
+                        <!-- Message -->
+                        <div class="form-group">
+                            <label class="form-label required">Your Message</label>
+                            <textarea class="form-control" 
+                                      id="message" 
+                                      name="message" 
+                                      rows="4"
+                                      placeholder="Please provide details about your inquiry..."
+                                      required></textarea>
+                        </div>
+
+                        <!-- File Upload -->
+                        <div class="form-group">
+                            <label class="form-label">Design References (Optional)</label>
+                            <div class="file-upload-wrapper">
+                                <label class="file-upload-label" for="designFiles">
+                                    <i class="bi bi-cloud-arrow-up"></i>
+                                    <span>Click to upload files</span>
+                                </label>
+                                <input type="file" 
+                                       class="file-upload-input" 
+                                       id="designFiles" 
+                                       name="design_files" 
+                                       multiple 
+                                       accept=".jpg,.jpeg,.png,.pdf,.doc,.docx">
+                                <div class="file-preview" id="filePreview"></div>
+                            </div>
+                            <small class="text-muted">Upload images, PDFs, or design files (Max 10MB total)</small>
+                        </div>
+
+                        <!-- Form Status Messages -->
+                        <div class="form-status">
+                            <div class="loading-message" id="loadingMessage">
+                                <div class="loading-spinner"></div>
+                                <span>Sending your message...</span>
+                            </div>
+                            <div class="error-message" id="errorMessage">
+                                <i class="bi bi-exclamation-triangle me-2"></i>
+                                <span>There was an error sending your message. Please try again.</span>
+                            </div>
+                            <div class="success-message" id="successMessage">
+                                <i class="bi bi-check-circle me-2"></i>
+                                <span>Your message has been sent successfully! We'll get back to you within 24 hours.</span>
+                            </div>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <button type="submit" class="submit-btn">
+                            <i class="bi bi-send-fill"></i>
+                            <span>Send Message</span>
+                        </button>
+
+                        <!-- Response Time Notice -->
+                        <div class="response-notice">
+                            <p>
+                                <i class="bi bi-info-circle"></i>
+                                We typically respond within 24 hours on business days
+                            </p>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Map Container - Now below the form -->
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3533.6831799566726!2d85.27959847539507!3d27.66723427620269!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb191ff587b2e9%3A0x83d2f18526d8e6cf!2sThankot%2C%2044600%2C%20Nepal!5e0!3m2!1sen!2snp!4v1700000000000!5m2!1sen!2snp" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade"
+                            title="Everest Memorial Carpet Industry Location">
+                    </iframe>
+                </div>
+            </div>
+
+            <!-- Right Column: Contact Info -->
+            <div class="contact-info-panel">
+                <div class="info-panel-pattern"></div>
+                
+                <div class="info-panel-header">
+                    <h3>Contact Information</h3>
+                    <p>We're here to help you create the perfect carpet for your space. Reach out through any channel below.</p>
+                </div>
+                
+                <div class="contact-info-cards">
+                    <!-- Nepal Office -->
+                    <div class="info-card contact-card" onclick="copyToClipboard('Thankot-1, Kathmandu, Nepal G.P.O. Box: 6459')">
+                        <div class="card-icon">
+                            <i class="bi bi-pin-map-fill"></i>
+                        </div>
+                        <div class="card-content">
+                            <h4>Head Office - Nepal</h4>
+                            <p>Thankot-1, Kathmandu, Nepal</p>
+                            <p>G.P.O. Box: 6459</p>
+                            <small>Click to copy address</small>
+                        </div>
+                    </div>
+
+                    <!-- US Office -->
+                    <div class="info-card contact-card" onclick="copyToClipboard('31-12, 23rd Street, Long Island City, New York - 11102')">
+                        <div class="card-icon">
+                            <i class="bi bi-pin-map-fill"></i>
+                        </div>
+                        <div class="card-content">
+                            <h4>US Office</h4>
+                            <p>31-12, 23rd Street</p>
+                            <p>Long Island City, New York - 11102</p>
+                            <small>Click to copy address</small>
+                        </div>
+                    </div>
+
+                    <!-- Email -->
+                    <div class="info-card contact-card" onclick="copyToClipboard('info@everestcarpets.com')">
+                        <div class="card-icon">
+                            <i class="bi bi-envelope-open"></i>
+                        </div>
+                        <div class="card-content">
+                            <h4>Email Us</h4>
+                            <p>info@everestcarpets.com</p>
+                            <p>sales@everestcarpets.com</p>
+                            <small>Click to copy email</small>
+                        </div>
+                    </div>
+
+                    <!-- Phone Numbers -->
+                    <div class="info-card contact-card" onclick="copyToClipboard('+977-1-415414')">
+                        <div class="card-icon">
+                            <i class="bi bi-telephone-fill"></i>
+                        </div>
+                        <div class="card-content">
+                            <h4>Call Us</h4>
+                            <p>Nepal: +977-1-415414</p>
+                            <p>USA: +1 (718) 545-2460</p>
+                            <small>Click to copy Nepal number</small>
+                        </div>
+                    </div>
+
+                    <!-- Working Hours -->
+                    <div class="info-card contact-card">
+                        <div class="card-icon">
+                            <i class="bi bi-clock-history"></i>
+                        </div>
+                        <div class="card-content">
+                            <h4>Working Hours</h4>
+                            <p>Sunday-Friday: 9AM - 6PM NPT</p>
+                            <p>Saturday: 10AM - 4PM NPT</p>
+                        </div>
+                    </div>
+
+                    <!-- WhatsApp -->
+                    <div class="info-card contact-card" onclick="window.open('https://wa.me/9779841XXXXXX', '_blank')">
+                        <div class="card-icon">
+                            <i class="bi bi-whatsapp"></i>
+                        </div>
+                        <div class="card-content">
+                            <h4>WhatsApp Business</h4>
+                            <p>+977-9841XXXXXX</p>
+                            <p>For urgent inquiries</p>
+                            <small>Click to chat on WhatsApp</small>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Department Contacts -->
+                <div class="department-contacts">
+                    <h5>Department Contacts</h5>
+                    <div class="dept-list">
+                        <div class="dept-item">
+                            <strong>Sales Department:</strong> 
+                            <a href="mailto:sales@everestcarpets.com">sales@everestcarpets.com</a>
+                        </div>
+                        <div class="dept-item">
+                            <strong>Custom Orders:</strong> 
+                            <a href="mailto:custom@everestcarpets.com">custom@everestcarpets.com</a>
+                        </div>
+                        <div class="dept-item">
+                            <strong>Customer Support:</strong> 
+                            <a href="mailto:support@everestcarpets.com">support@everestcarpets.com</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Social Links -->
+                <div class="social-links-panel">
+                    <h5>Follow Our Journey</h5>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon">
+                            <i class="bi bi-facebook"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="bi bi-instagram"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="bi bi-pinterest"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="bi bi-youtube"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="bi bi-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FAQ Section -->
+        <div class="faq-section">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <p class="section-subtitle">Common questions about ordering and our products</p>
+            
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h4>How long does it take to make a custom carpet?</h4>
+                    <p>Production time varies by quality: 60 knots/sq inch - 45 days, 80 knots/sq inch - 60 days, 100 knots/sq inch - 90 days. Additional time may be needed for complex designs.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h4>Do you ship internationally?</h4>
+                    <p>Yes, we ship worldwide. We handle all export documentation and work with reliable shipping partners to ensure safe delivery to any destination.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h4>Can I get samples before ordering?</h4>
+                    <p>Yes, we provide wool samples and color swatches. For custom designs, we can create small sample swatches before full production begins.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h4>What payment methods do you accept?</h4>
+                    <p>We accept bank transfers, credit cards (via secure payment gateway), and in some cases, PayPal. Terms vary for wholesale/bulk orders.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h4>Can I customize the size and design?</h4>
+                    <p>Absolutely! All our carpets are custom-made. You can specify any size up to 15×20 feet and choose from our extensive design library or provide your own designs.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h4>Do you provide maintenance guidance?</h4>
+                    <p>Yes, with every purchase we provide detailed care instructions. We also offer professional cleaning services for our carpets.</p>
+                </div>
+            </div>
+        </div>
     </div>
+</section>
 
-    <div class="faq-content">
-      <div class="row g-4">
-        <div class="col-lg-6">
-          <div class="faq-item">
-            <h4>How long does it take to make a custom carpet?</h4>
-            <p>Production time varies by quality: 60 knots/sq inch - 45 days, 80 knots/sq inch - 60 days, 100 knots/sq inch - 90 days. Additional time may be needed for complex designs.</p>
-          </div>
-        </div>
-        <div class="col-lg-6">
-          <div class="faq-item">
-            <h4>Do you ship internationally?</h4>
-            <p>Yes, we ship worldwide. We handle all export documentation and work with reliable shipping partners to ensure safe delivery to any destination.</p>
-          </div>
-        </div>
-        <div class="col-lg-6">
-          <div class="faq-item">
-            <h4>Can I get samples before ordering?</h4>
-            <p>Yes, we provide wool samples and color swatches. For custom designs, we can create small sample swatches before full production begins.</p>
-          </div>
-        </div>
-        <div class="col-lg-6">
-          <div class="faq-item">
-            <h4>What payment methods do you accept?</h4>
-            <p>We accept bank transfers, credit cards (via secure payment gateway), and in some cases, PayPal. Terms vary for wholesale/bulk orders.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section><!-- /FAQ Section -->
+{% endblock %}
 
-{% include 'base/footer.html' %}
+{% block extra_js %}
+<script>
+function copyToClipboard(text) {
+    navigator.clipboard.writeText(text).then(() => {
+        alert('Copied to clipboard: ' + text);
+    }).catch(err => {
+        console.error('Failed to copy: ', err);
+    });
+}
+
+// File upload preview
+document.getElementById('designFiles').addEventListener('change', function(e) {
+    const preview = document.getElementById('filePreview');
+    preview.innerHTML = '';
+    
+    Array.from(e.target.files).forEach(file => {
+        const fileItem = document.createElement('div');
+        fileItem.className = 'file-item';
+        
+        const fileName = document.createElement('span');
+        fileName.textContent = file.name;
+        
+        const removeBtn = document.createElement('span');
+        removeBtn.className = 'file-remove';
+        removeBtn.innerHTML = '&times;';
+        removeBtn.onclick = () => {
+            fileItem.remove();
+        };
+        
+        fileItem.appendChild(fileName);
+        fileItem.appendChild(removeBtn);
+        preview.appendChild(fileItem);
+    });
+});
+
+// Form submission
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const loadingMsg = document.getElementById('loadingMessage');
+    const errorMsg = document.getElementById('errorMessage');
+    const successMsg = document.getElementById('successMessage');
+    
+    loadingMsg.style.display = 'flex';
+    errorMsg.style.display = 'none';
+    successMsg.style.display = 'none';
+    
+    // Simulate form submission
+    setTimeout(() => {
+        loadingMsg.style.display = 'none';
+        successMsg.style.display = 'block';
+        document.getElementById('contactForm').reset();
+        document.getElementById('filePreview').innerHTML = '';
+        
+        // Scroll to success message
+        successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }, 2000);
+});
+</script>
 {% endblock %}

@@ -1,71 +1,342 @@
 {% load static %}
-<footer id="footer" class="footer dark-background">
+<!-- ==================== ENHANCED FOOTER ==================== -->
+<footer id="footer" class="footer dark-background position-relative overflow-hidden">
 
-    <div class="container footer-top">
-      <div class="row gy-4">
-        <div class="col-lg-5 col-md-12 footer-about">
-          <a href="{% url 'homepage' %}" class="logo d-flex align-items-center">
-            <span class="sitename">EMCI</span>
-            <span class="logo-subtitle">Everest Memorial Carpet Industry</span>
+  <!-- Background Pattern -->
+  <div class="footer-pattern"></div>
+
+  <div class="container footer-top py-5">
+    <div class="row gy-5">
+      
+      <!-- Company Info -->
+      <div class="col-lg-5 col-md-12 footer-about">
+        <div class="footer-brand mb-4">
+          <a href="{% url 'homepage' %}" class="logo d-flex align-items-center text-decoration-none">
+            {% if '01_manufacturing_logo.png' %}
+            <div class="logo-wrapper position-relative me-3">
+              <img src="{% static 'assets/img/01_manufacturing_logo.png' %}" 
+                   alt="Everest Memorial Carpet Industry"
+                   class="footer-logo"
+                   style="height: 60px; width: auto; filter: brightness(0) invert(1);">
+            </div>
+            {% endif %}
+            <div class="brand-text">
+              <span class="sitename d-block fs-4 fw-bold text-white mb-1">EMCI</span>
+              <span class="logo-subtitle d-block text-light" style="opacity: 0.9; font-size: 0.9rem;">
+                Everest Memorial Carpet Industry
+              </span>
+            </div>
           </a>
-          <p>Since 1986, we have been crafting authentic handmade Tibetan carpets that preserve cultural heritage while meeting modern standards of quality and design. Specializing in traditional Tibetan patterns with exclusive weaving techniques.</p>
-          <div class="social-links d-flex mt-4">
-            <a href="#"><i class="bi bi-facebook"></i></a>
-            <a href="#"><i class="bi bi-instagram"></i></a>
-            <a href="#"><i class="bi bi-linkedin"></i></a>
-            <a href="#"><i class="bi bi-pinterest"></i></a>
+        </div>
+        
+        <p class="company-description mb-4" style="color: rgba(255, 255, 255, 0.8); line-height: 1.7;">
+          Since 1986, we have been crafting authentic handmade Tibetan carpets that preserve cultural heritage 
+          while meeting modern standards of quality and design. Specializing in traditional Tibetan patterns 
+          with exclusive weaving techniques.
+        </p>
+        
+        <div class="social-links d-flex gap-3 mt-4">
+          <a href="#" class="social-icon d-flex align-items-center justify-content-center" 
+             style="width: 40px; height: 40px; border-radius: 50%; background: rgba(255, 255, 255, 0.1); 
+                    color: white; text-decoration: none; transition: all 0.3s ease;">
+            <i class="bi bi-facebook"></i>
+          </a>
+          <a href="#" class="social-icon d-flex align-items-center justify-content-center" 
+             style="width: 40px; height: 40px; border-radius: 50%; background: rgba(255, 255, 255, 0.1); 
+                    color: white; text-decoration: none; transition: all 0.3s ease;">
+            <i class="bi bi-instagram"></i>
+          </a>
+          <a href="#" class="social-icon d-flex align-items-center justify-content-center" 
+             style="width: 40px; height: 40px; border-radius: 50%; background: rgba(255, 255, 255, 0.1); 
+                    color: white; text-decoration: none; transition: all 0.3s ease;">
+            <i class="bi bi-linkedin"></i>
+          </a>
+          <a href="#" class="social-icon d-flex align-items-center justify-content-center" 
+             style="width: 40px; height: 40px; border-radius: 50%; background: rgba(255, 255, 255, 0.1); 
+                    color: white; text-decoration: none; transition: all 0.3s ease;">
+            <i class="bi bi-pinterest"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="col-lg-2 col-6 footer-links">
+        <h4 class="footer-title mb-4" style="color: white; font-size: 1.1rem; position: relative; padding-bottom: 10px;">
+          Quick Links
+          <span style="position: absolute; bottom: 0; left: 0; width: 40px; height: 2px; background: rgba(255, 255, 255, 0.3);"></span>
+        </h4>
+        <ul class="list-unstyled" style="line-height: 2.2;">
+          <li><a href="{% url 'homepage' %}" class="footer-link">Home</a></li>
+          <li><a href="{% url 'history' %}" class="footer-link">Our History</a></li>
+          <li><a href="{% url 'manufacturing' %}" class="footer-link">Manufacturing Process</a></li>
+          <li><a href="{% url 'gallery' %}" class="footer-link">Gallery</a></li>
+          <li><a href="{% url 'products' %}" class="footer-link">Products</a></li>
+        </ul>
+      </div>
+
+      <!-- Specialties -->
+      <div class="col-lg-2 col-6 footer-links">
+        <h4 class="footer-title mb-4" style="color: white; font-size: 1.1rem; position: relative; padding-bottom: 10px;">
+          Our Specialties
+          <span style="position: absolute; bottom: 0; left: 0; width: 40px; height: 2px; background: rgba(255, 255, 255, 0.3);"></span>
+        </h4>
+        <ul class="list-unstyled" style="line-height: 2.2;">
+          <li><a href="{% url 'products' %}" class="footer-link">Traditional Tibetan</a></li>
+          <li><a href="{% url 'products' %}" class="footer-link">Antique Reproduction</a></li>
+          <li><a href="{% url 'products' %}" class="footer-link">Contemporary Designs</a></li>
+          <li><a href="{% url 'products' %}" class="footer-link">Custom Orders</a></li>
+          <li><a href="{% url 'manufacturing' %}" class="footer-link">Quality Standards</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact Information -->
+      <div class="col-lg-3 col-md-12 footer-contact">
+        <h4 class="footer-title mb-4" style="color: white; font-size: 1.1rem; position: relative; padding-bottom: 10px;">
+          Contact Information
+          <span style="position: absolute; bottom: 0; left: 0; width: 40px; height: 2px; background: rgba(255, 255, 255, 0.3);"></span>
+        </h4>
+        
+        <div class="contact-info">
+          <div class="mb-3">
+            <p class="mb-1" style="color: white; font-weight: 500;">Head Office Nepal:</p>
+            <p class="mb-1" style="color: rgba(255, 255, 255, 0.8); font-size: 0.9rem;">Thankot-1, Kathmandu, Nepal</p>
+            <p class="mb-0" style="color: rgba(255, 255, 255, 0.8); font-size: 0.9rem;">G.P.O. Box: 6459</p>
+          </div>
+          
+          <div class="mb-3">
+            <p class="mb-1" style="color: white; font-weight: 500;">US Office:</p>
+            <p class="mb-1" style="color: rgba(255, 255, 255, 0.8); font-size: 0.9rem;">31-12, 23rd Street</p>
+            <p class="mb-0" style="color: rgba(255, 255, 255, 0.8); font-size: 0.9rem;">Long Island City, New York - 11102</p>
+          </div>
+          
+          <div class="contact-details">
+            <p class="mb-1" style="color: rgba(255, 255, 255, 0.8);">
+              <span style="color: white; font-weight: 500;">Phone (Nepal):</span> +977-1-415414
+            </p>
+            <p class="mb-1" style="color: rgba(255, 255, 255, 0.8);">
+              <span style="color: white; font-weight: 500;">Phone (USA):</span> +1 (718) 545-2460
+            </p>
+            <p class="mb-1" style="color: rgba(255, 255, 255, 0.8);">
+              <span style="color: white; font-weight: 500;">Email:</span> info@everestcarpets.com
+            </p>
+            <p class="mb-0" style="color: rgba(255, 255, 255, 0.8);">
+              <span style="color: white; font-weight: 500;">WhatsApp:</span> +977-9841XXXXXX
+            </p>
           </div>
         </div>
+      </div>
 
-        <div class="col-lg-2 col-6 footer-links">
-          <h4>Quick Links</h4>
-          <ul>
-            <li><a href="{% url 'homepage' %}">Home</a></li>
-            <li><a href="{% url 'history' %}">Our History</a></li>
-            <li><a href="{% url 'manufacturing' %}">Manufacturing Process</a></li>
-            <li><a href="{% url 'gallery' %}">Gallery</a></li>
-            <li><a href="{% url 'products' %}">Products</a></li>
-          </ul>
+    </div>
+  </div>
+
+  <!-- Copyright -->
+  <div class="footer-bottom py-4" style="background: rgba(0, 0, 0, 0.2); border-top: 1px solid rgba(255, 255, 255, 0.05);">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+          <p class="copyright-text mb-0" style="color: rgba(255, 255, 255, 0.7); font-size: 0.9rem;">
+            © <span class="current-year">1986-2024</span> 
+            <strong style="color: white; font-weight: 600;">Everest Memorial Carpet Industry</strong> 
+            All Rights Reserved
+          </p>
         </div>
-
-        <div class="col-lg-2 col-6 footer-links">
-          <h4>Our Specialties</h4>
-          <ul>
-            <li><a href="{% url 'products' %}">Traditional Tibetan</a></li>
-            <li><a href="{% url 'products' %}">Antique Reproduction</a></li>
-            <li><a href="{% url 'products' %}">Contemporary Designs</a></li>
-            <li><a href="{% url 'products' %}">Custom Orders</a></li>
-            <li><a href="{% url 'manufacturing' %}">Quality Standards</a></li>
-          </ul>
+        <div class="col-md-6 text-center text-md-end">
+          <div class="footer-links d-flex justify-content-center justify-content-md-end gap-3 flex-wrap">
+            <a href="#" class="legal-link" style="color: rgba(255, 255, 255, 0.7); text-decoration: none; font-size: 0.9rem; transition: color 0.3s ease;">Terms & Conditions</a>
+            <span style="color: rgba(255, 255, 255, 0.3);">|</span>
+            <a href="#" class="legal-link" style="color: rgba(255, 255, 255, 0.7); text-decoration: none; font-size: 0.9rem; transition: color 0.3s ease;">Privacy Policy</a>
+            <span style="color: rgba(255, 255, 255, 0.3);">|</span>
+            <a href="{% url 'contact_us' %}" class="legal-link" style="color: rgba(255, 255, 255, 0.7); text-decoration: none; font-size: 0.9rem; transition: color 0.3s ease;">Contact Us</a>
+          </div>
         </div>
-
-        <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
-          <h4>Contact Information</h4>
-          <p><strong>Head Office Nepal:</strong></p>
-          <p>Thankot-1, Kathmandu, Nepal</p>
-          <p>G.P.O. Box: 6459</p>
-          
-          <p class="mt-3"><strong>US Office:</strong></p>
-          <p>31-12, 23rd Street</p>
-          <p>Long Island City, New York - 11102</p>
-          
-          <p class="mt-4"><strong>Phone (Nepal):</strong> <span>+977-1-415414</span></p>
-          <p><strong>Phone (USA):</strong> <span>+1 (718) 545-2460</span></p>
-          <p><strong>Email:</strong> <span>info@everestcarpets.com</span></p>
-          <p class="mt-2"><strong>WhatsApp:</strong> <span>+977-9841XXXXXX</span></p>
-        </div>
-
       </div>
     </div>
+  </div>
 
-    <div class="container copyright text-center mt-4">
-      <p>© <span>Copyright</span> <strong class="px-1 sitename">Everest Memorial Carpet Industry</strong> <span>All Rights Reserved</span> 1986-2024</p>
-      <div class="credits">
-        <a href="#">Terms & Conditions</a> | 
-        <a href="#">Privacy Policy</a> | 
-        <a href="{% url 'contact_us' %}">Contact Us</a>
-        <!-- Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> -->
-      </div>
-    </div>
+  <!-- Back to Top Button -->
+  <a href="#header" class="back-to-top position-fixed d-flex align-items-center justify-content-center" 
+     style="right: 30px; bottom: 30px; width: 50px; height: 50px; background: rgba(255, 255, 255, 0.1); 
+            backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2); color: white; 
+            border-radius: 50%; text-decoration: none; z-index: 1000; opacity: 0; visibility: hidden; 
+            transform: translateY(20px); transition: all 0.3s ease;">
+    <i class="bi bi-arrow-up"></i>
+  </a>
 
 </footer>
+
+<!-- Minimal Styles -->
+<style>
+/* Footer Variables */
+:root {
+  --primary-navy: #0a192f;
+  --dark-navy: #071528;
+  --medium-navy: #1e3a5f;
+  --light-navy: #2c5282;
+  --white: #ffffff;
+}
+
+/* Footer Base */
+.footer {
+  background: linear-gradient(180deg, var(--primary-navy) 0%, var(--dark-navy) 100%);
+}
+
+/* Pattern Background */
+.footer-pattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0.03;
+  background-image: 
+    radial-gradient(circle at 20% 80%, var(--light-navy) 1px, transparent 1px),
+    radial-gradient(circle at 80% 20%, var(--light-navy) 1px, transparent 1px);
+  background-size: 50px 50px;
+  pointer-events: none;
+}
+
+/* Social Icons Hover */
+.social-icon:hover {
+  background: var(--light-navy) !important;
+  transform: translateY(-3px) !important;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Footer Links */
+.footer-link {
+  color: rgba(255, 255, 255, 0.8) !important;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 2px;
+}
+
+.footer-link:hover {
+  color: var(--white) !important;
+  padding-left: 5px;
+}
+
+.footer-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--light-navy);
+  transition: width 0.3s ease;
+}
+
+.footer-link:hover::after {
+  width: 100%;
+}
+
+/* Legal Links Hover */
+.legal-link:hover {
+  color: var(--white) !important;
+}
+
+/* Back to Top Button */
+.back-to-top.active {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: translateY(0) !important;
+}
+
+.back-to-top:hover {
+  background: var(--light-navy) !important;
+  border-color: var(--light-navy) !important;
+  transform: translateY(-5px) !important;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .footer-top {
+    padding: 3rem 0 !important;
+  }
+  
+  .footer-links,
+  .footer-contact {
+    margin-top: 2rem;
+  }
+  
+  .footer-title::after {
+    width: 30px !important;
+  }
+}
+
+/* Smooth Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.footer-top > .row > div {
+  animation: fadeInUp 0.6s ease-out;
+  animation-fill-mode: both;
+}
+
+.footer-top > .row > div:nth-child(1) { animation-delay: 0.1s; }
+.footer-top > .row > div:nth-child(2) { animation-delay: 0.2s; }
+.footer-top > .row > div:nth-child(3) { animation-delay: 0.3s; }
+.footer-top > .row > div:nth-child(4) { animation-delay: 0.4s; }
+</style>
+
+<!-- Lightweight JavaScript -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Back to top button
+  const backToTop = document.querySelector('.back-to-top');
+  
+  window.addEventListener('scroll', function() {
+    if (window.scrollY > 300) {
+      backToTop.classList.add('active');
+    } else {
+      backToTop.classList.remove('active');
+    }
+  });
+  
+  backToTop.addEventListener('click', function(e) {
+    e.preventDefault();
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
+  
+  // Update current year
+  const currentYear = new Date().getFullYear();
+  document.querySelector('.current-year').textContent = `1986-${currentYear}`;
+  
+  // Social icon hover effects
+  const socialIcons = document.querySelectorAll('.social-icon');
+  socialIcons.forEach(icon => {
+    icon.addEventListener('mouseenter', function() {
+      this.style.transform = 'translateY(-3px)';
+    });
+    
+    icon.addEventListener('mouseleave', function() {
+      this.style.transform = '';
+    });
+  });
+  
+  // Footer link hover effects
+  const footerLinks = document.querySelectorAll('.footer-link');
+  footerLinks.forEach(link => {
+    link.addEventListener('mouseenter', function() {
+      this.style.paddingLeft = '5px';
+    });
+    
+    link.addEventListener('mouseleave', function() {
+      this.style.paddingLeft = '';
+    });
+  });
+});
+</script>
