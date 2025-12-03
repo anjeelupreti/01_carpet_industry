@@ -1,0 +1,1166 @@
+{% extends 'base/index.html' %}
+{% load static %}
+
+{% block title %}Our Collections - Everest Carpet Industry{% endblock %}
+{% block description %}Explore our exquisite collection of handmade Tibetan carpets. Traditional designs, antique reproductions, and contemporary patterns. Custom orders available.{% endblock %}
+{% block body_class %}products-page{% endblock %}
+
+{% block content %}
+{% include 'base/header.html' %}
+<!-- Page Header -->
+<section class="page-header">
+  <div class="container">
+    <div class="page-header-content">
+      <nav class="breadcrumbs" aria-label="breadcrumb">
+        <ol>
+          <li><a href="{% url 'homepage' %}">Home</a></li>
+          <li class="active">Collections</li>
+        </ol>
+      </nav>
+      <h1 class="page-title">Our <span class="text-primary">Collections</span></h1>
+      <p class="page-subtitle">Explore exquisite handmade Tibetan carpets crafted with 35+ years of expertise</p>
+    </div>
+  </div>
+</section>
+
+<!-- Collections Filter -->
+<section id="collections-filter" class="collections-filter section">
+  <div class="container">
+    <div class="filter-wrapper" data-aos="fade-up">
+      <div class="filter-header text-center mb-4">
+        <h3 class="filter-title">Browse By Category</h3>
+        <p class="filter-subtitle">Discover our three distinctive carpet collections</p>
+      </div>
+      
+      <div class="filter-options">
+        <div class="filter-buttons">
+          <button class="filter-btn active" data-filter="all">
+            <i class="bi bi-grid-3x3-gap me-2"></i>
+            All Collections
+          </button>
+          <button class="filter-btn" data-filter="traditional">
+            <i class="bi bi-flower1 me-2"></i>
+            Traditional Tibetan
+          </button>
+          <button class="filter-btn" data-filter="antique">
+            <i class="bi bi-clock-history me-2"></i>
+            Antique Reproduction
+          </button>
+          <button class="filter-btn" data-filter="contemporary">
+            <i class="bi bi-stars me-2"></i>
+            Contemporary & Modern
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Collections Grid -->
+<section id="collections-grid" class="collections-grid section light-background">
+  <div class="container">
+    <div class="products-grid">
+      <!-- Product 1 -->
+      <div class="product-card" data-aos="fade-up" data-category="traditional">
+        <div class="product-badge">Best Seller</div>
+        <div class="product-image">
+          <img src="https://images.unsplash.com/photo-1600166898405-da9535204843?w=600&auto=format&fit=crop" 
+               alt="Dragon & Lotus Carpet" 
+               class="img-fluid">
+          <div class="product-overlay">
+            <a href="{% url 'product_detail' %}" class="view-btn">
+              <i class="bi bi-eye"></i> View Details
+            </a>
+          </div>
+        </div>
+        <div class="product-content">
+          <div class="product-meta">
+            <span class="product-category traditional">Traditional Tibetan</span>
+            <div class="product-rating">
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+            </div>
+          </div>
+          <h3 class="product-title">Dragon & Lotus Carpet</h3>
+          <p class="product-description">
+            Featuring traditional Tibetan dragon motifs intertwined with lotus flowers, symbolizing power and purity.
+          </p>
+          <div class="product-specs">
+            <div class="spec-item">
+              <i class="bi bi-rulers"></i>
+              <span>8×10 ft</span>
+            </div>
+            <div class="spec-item">
+              <i class="bi bi-node-plus"></i>
+              <span>80 knots/sq in</span>
+            </div>
+            <div class="spec-item">
+              <i class="bi bi-clock"></i>
+              <span>60 Days</span>
+            </div>
+          </div>
+          <div class="product-footer">
+            <div class="quality-badge premium">
+              <i class="bi bi-award"></i>
+              Premium Quality
+            </div>
+            <a href="{% url 'product_detail' %}" class="product-link">
+              View Details <i class="bi bi-arrow-right ms-2"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product 2 -->
+      <div class="product-card" data-aos="fade-up" data-aos-delay="100" data-category="antique">
+        <div class="product-badge featured">Featured</div>
+        <div class="product-image">
+          <img src="https://images.unsplash.com/photo-1604079628049-cce582c2e69a?w=600&auto=format&fit=crop" 
+               alt="Persian Palace Carpet" 
+               class="img-fluid">
+          <div class="product-overlay">
+            <a href="{% url 'product_detail' %}" class="view-btn">
+              <i class="bi bi-eye"></i> View Details
+            </a>
+          </div>
+        </div>
+        <div class="product-content">
+          <div class="product-meta">
+            <span class="product-category antique">Antique Reproduction</span>
+            <div class="product-rating">
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-half"></i>
+            </div>
+          </div>
+          <h3 class="product-title">Persian Palace Carpet</h3>
+          <p class="product-description">
+            Faithful reproduction of 18th-century Persian palace carpet with intricate floral patterns and aged finish.
+          </p>
+          <div class="product-specs">
+            <div class="spec-item">
+              <i class="bi bi-rulers"></i>
+              <span>9×12 ft</span>
+            </div>
+            <div class="spec-item">
+              <i class="bi bi-node-plus"></i>
+              <span>100 knots/sq in</span>
+            </div>
+            <div class="spec-item">
+              <i class="bi bi-clock"></i>
+              <span>90 Days</span>
+            </div>
+          </div>
+          <div class="product-footer">
+            <div class="quality-badge luxury">
+              <i class="bi bi-gem"></i>
+              Luxury Quality
+            </div>
+            <a href="{% url 'product_detail' %}" class="product-link">
+              View Details <i class="bi bi-arrow-right ms-2"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product 3 -->
+      <div class="product-card" data-aos="fade-up" data-aos-delay="200" data-category="contemporary">
+        <div class="product-badge new">New Arrival</div>
+        <div class="product-image">
+          <img src="https://images.unsplash.com/photo-1616486498800-903dfcac41d2?w=600&auto=format&fit=crop" 
+               alt="Modern Geometric Carpet" 
+               class="img-fluid">
+          <div class="product-overlay">
+            <a href="{% url 'product_detail' %}" class="view-btn">
+              <i class="bi bi-eye"></i> View Details
+            </a>
+          </div>
+        </div>
+        <div class="product-content">
+          <div class="product-meta">
+            <span class="product-category contemporary">Contemporary & Modern</span>
+            <div class="product-rating">
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star"></i>
+            </div>
+          </div>
+          <h3 class="product-title">Modern Geometric Carpet</h3>
+          <p class="product-description">
+            Abstract geometric patterns in earthy tones, perfect for modern minimalist interiors.
+          </p>
+          <div class="product-specs">
+            <div class="spec-item">
+              <i class="bi bi-rulers"></i>
+              <span>6×9 ft</span>
+            </div>
+            <div class="spec-item">
+              <i class="bi bi-node-plus"></i>
+              <span>60 knots/sq in</span>
+            </div>
+            <div class="spec-item">
+              <i class="bi bi-clock"></i>
+              <span>45 Days</span>
+            </div>
+          </div>
+          <div class="product-footer">
+            <div class="quality-badge standard">
+              <i class="bi bi-shield-check"></i>
+              Standard Quality
+            </div>
+            <a href="{% url 'product_detail' %}" class="product-link">
+              View Details <i class="bi bi-arrow-right ms-2"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product 4 -->
+      <div class="product-card" data-aos="fade-up" data-category="traditional">
+        <div class="product-badge popular">Popular</div>
+        <div class="product-image">
+          <img src="https://images.unsplash.com/photo-1594041680534-e8c8cdebd659?w=600&auto=format&fit=crop" 
+               alt="Snow Lion Thangka Carpet" 
+               class="img-fluid">
+          <div class="product-overlay">
+            <a href="{% url 'product_detail' %}" class="view-btn">
+              <i class="bi bi-eye"></i> View Details
+            </a>
+          </div>
+        </div>
+        <div class="product-content">
+          <div class="product-meta">
+            <span class="product-category traditional">Traditional Tibetan</span>
+            <div class="product-rating">
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+            </div>
+          </div>
+          <h3 class="product-title">Snow Lion Thangka Carpet</h3>
+          <p class="product-description">
+            Inspired by Tibetan thangka paintings, featuring snow lions and cloud motifs in vibrant natural dyes.
+          </p>
+          <div class="product-specs">
+            <div class="spec-item">
+              <i class="bi bi-rulers"></i>
+              <span>10×14 ft</span>
+            </div>
+            <div class="spec-item">
+              <i class="bi bi-node-plus"></i>
+              <span>80 knots/sq in</span>
+            </div>
+            <div class="spec-item">
+              <i class="bi bi-clock"></i>
+              <span>60 Days</span>
+            </div>
+          </div>
+          <div class="product-footer">
+            <div class="quality-badge premium">
+              <i class="bi bi-award"></i>
+              Premium Quality
+            </div>
+            <a href="{% url 'product_detail' %}" class="product-link">
+              View Details <i class="bi bi-arrow-right ms-2"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product 5 -->
+      <div class="product-card" data-aos="fade-up" data-aos-delay="100" data-category="antique">
+        <div class="product-badge custom">Custom Order</div>
+        <div class="product-image">
+          <img src="https://images.unsplash.com/photo-1535437675319-9b7f50b6d0e3?w=600&auto=format&fit=crop" 
+               alt="Turkish Oushak Carpet" 
+               class="img-fluid">
+          <div class="product-overlay">
+            <a href="{% url 'product_detail' %}" class="view-btn">
+              <i class="bi bi-eye"></i> View Details
+            </a>
+          </div>
+        </div>
+        <div class="product-content">
+          <div class="product-meta">
+            <span class="product-category antique">Antique Reproduction</span>
+            <div class="product-rating">
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-half"></i>
+            </div>
+          </div>
+          <h3 class="product-title">Turkish Oushak Carpet</h3>
+          <p class="product-description">
+            Reproduction of classic Turkish Oushak design with soft pastel colors and large-scale geometric patterns.
+          </p>
+          <div class="product-specs">
+            <div class="spec-item">
+              <i class="bi bi-rulers"></i>
+              <span>8×11 ft</span>
+            </div>
+            <div class="spec-item">
+              <i class="bi bi-node-plus"></i>
+              <span>100 knots/sq in</span>
+            </div>
+            <div class="spec-item">
+              <i class="bi bi-clock"></i>
+              <span>90 Days</span>
+            </div>
+          </div>
+          <div class="product-footer">
+            <div class="quality-badge luxury">
+              <i class="bi bi-gem"></i>
+              Luxury Quality
+            </div>
+            <a href="{% url 'product_detail' %}" class="product-link">
+              View Details <i class="bi bi-arrow-right ms-2"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product 6 -->
+      <div class="product-card" data-aos="fade-up" data-aos-delay="200" data-category="contemporary">
+        <div class="product-badge limited">Limited Edition</div>
+        <div class="product-image">
+          <img src="https://images.unsplash.com/photo-1616486498803-2d3f4172c925?w=600&auto=format&fit=crop" 
+               alt="Abstract Watercolor Carpet" 
+               class="img-fluid">
+          <div class="product-overlay">
+            <a href="{% url 'product_detail' %}" class="view-btn">
+              <i class="bi bi-eye"></i> View Details
+            </a>
+          </div>
+        </div>
+        <div class="product-content">
+          <div class="product-meta">
+            <span class="product-category contemporary">Contemporary & Modern</span>
+            <div class="product-rating">
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star"></i>
+            </div>
+          </div>
+          <h3 class="product-title">Abstract Watercolor Carpet</h3>
+          <p class="product-description">
+            Soft watercolor-inspired abstract design with gradient colors, handmade using natural vegetable dyes.
+          </p>
+          <div class="product-specs">
+            <div class="spec-item">
+              <i class="bi bi-rulers"></i>
+              <span>7×10 ft</span>
+            </div>
+            <div class="spec-item">
+              <i class="bi bi-node-plus"></i>
+              <span>60 knots/sq in</span>
+            </div>
+            <div class="spec-item">
+              <i class="bi bi-clock"></i>
+              <span>45 Days</span>
+            </div>
+          </div>
+          <div class="product-footer">
+            <div class="quality-badge standard">
+              <i class="bi bi-shield-check"></i>
+              Standard Quality
+            </div>
+            <a href="{% url 'product_detail' %}" class="product-link">
+              View Details <i class="bi bi-arrow-right ms-2"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pagination -->
+    <div class="pagination-wrapper mt-5" data-aos="fade-up">
+      <nav aria-label="Page navigation">
+        <ul class="pagination justify-content-center">
+          <li class="page-item disabled">
+            <a class="page-link" href="#" tabindex="-1" aria-disabled="true">
+              <i class="bi bi-chevron-left"></i>
+            </a>
+          </li>
+          <li class="page-item active"><a class="page-link" href="#">1</a></li>
+          <li class="page-item"><a class="page-link" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item">
+            <a class="page-link" href="#">
+              <i class="bi bi-chevron-right"></i>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</section>
+
+<!-- Custom Orders Section -->
+<section id="custom-orders" class="custom-orders section">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6" data-aos="fade-right">
+        <div class="custom-content">
+          <div class="section-label">
+            <span>Custom Orders</span>
+          </div>
+          
+          <h2 class="section-title mb-4">Create Your <span class="text-primary">Dream Carpet</span></h2>
+          
+          <p class="lead mb-4">
+            All our products are custom orders. We don't carry stock goods, ensuring each piece is unique to your specifications.
+          </p>
+          
+          <p class="mb-4">
+            With our production capacity of 20,000 square feet per month, we can create carpets in any size, design, and color combination you desire. Our unique Tibetan knotting technique allows designers to focus on intricate patterns and textures.
+          </p>
+          
+          <div class="custom-features">
+            <div class="feature-item" data-aos="fade-up" data-aos-delay="100">
+              <div class="feature-icon">
+                <i class="bi bi-rulers"></i>
+              </div>
+              <div class="feature-content">
+                <h5>Any Size Available</h5>
+                <p>Up to 15×20 feet and custom dimensions</p>
+              </div>
+            </div>
+            
+            <div class="feature-item" data-aos="fade-up" data-aos-delay="200">
+              <div class="feature-icon">
+                <i class="bi bi-palette"></i>
+              </div>
+              <div class="feature-content">
+                <h5>Custom Colors</h5>
+                <p>Chemical and vegetable dye options available</p>
+              </div>
+            </div>
+            
+            <div class="feature-item" data-aos="fade-up" data-aos-delay="300">
+              <div class="feature-icon">
+                <i class="bi bi-brush"></i>
+              </div>
+              <div class="feature-content">
+                <h5>Exclusive Designs</h5>
+                <p>Your own pattern or choose from our extensive library</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-lg-6" data-aos="fade-left" data-aos-delay="200">
+        <div class="custom-form">
+          <div class="form-card">
+            <div class="form-header text-center mb-4">
+              <h3 class="form-title">Start Your Custom Order</h3>
+              <p class="form-subtitle">Get a quote for your custom carpet project</p>
+            </div>
+            
+            <form class="contact-form">
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <input type="text" class="form-control" placeholder="Your Name" required>
+                </div>
+                <div class="col-md-6">
+                  <input type="email" class="form-control" placeholder="Your Email" required>
+                </div>
+                <div class="col-12">
+                  <select class="form-control" required>
+                    <option value="">Select Product Type</option>
+                    <option value="traditional">Traditional Tibetan</option>
+                    <option value="antique">Antique Reproduction</option>
+                    <option value="contemporary">Contemporary Design</option>
+                    <option value="custom">Fully Custom Design</option>
+                  </select>
+                </div>
+                <div class="col-md-6">
+                  <input type="text" class="form-control" placeholder="Dimensions (e.g., 8x10 ft)">
+                </div>
+                <div class="col-md-6">
+                  <select class="form-control" required>
+                    <option value="">Select Quality</option>
+                    <option value="60">Standard: 60 knots/sq in</option>
+                    <option value="80">Premium: 80 knots/sq in</option>
+                    <option value="100">Luxury: 100 knots/sq in</option>
+                  </select>
+                </div>
+                <div class="col-12">
+                  <textarea class="form-control" rows="4" placeholder="Project details, design preferences, timeline..." required></textarea>
+                </div>
+              </div>
+              
+              <button type="submit" class="btn btn-primary w-100 mt-4">
+                <i class="bi bi-send me-2"></i> Request Custom Quote
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+/* Page Header */
+.page-header {
+  padding: 100px 0 60px;
+  background: linear-gradient(135deg, rgba(248, 249, 250, 0.9) 0%, rgba(233, 236, 239, 0.9) 100%);
+  text-align: center;
+}
+
+.page-header-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.breadcrumbs {
+  margin-bottom: 20px;
+}
+
+.breadcrumbs ol {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  gap: 10px;
+  font-size: 0.9rem;
+}
+
+.breadcrumbs li {
+  display: flex;
+  align-items: center;
+}
+
+.breadcrumbs li a {
+  color: var(--default-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.breadcrumbs li a:hover {
+  color: var(--accent-color);
+}
+
+.breadcrumbs li.active {
+  color: var(--accent-color);
+  font-weight: 500;
+}
+
+.breadcrumbs li+li::before {
+  content: "/";
+  margin-right: 10px;
+  color: color-mix(in srgb, var(--default-color), transparent 50%);
+}
+
+.page-title {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 15px;
+  color: var(--heading-color);
+}
+
+.page-subtitle {
+  font-size: 1.2rem;
+  color: color-mix(in srgb, var(--default-color), transparent 30%);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Section Common */
+.section {
+  padding: 80px 0;
+}
+
+.light-background {
+  background: var(--background-color);
+}
+
+.section-label {
+  margin-bottom: 15px;
+}
+
+.section-label span {
+  color: var(--accent-color);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.9rem;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--heading-color);
+  margin-bottom: 15px;
+}
+
+.section-subtitle {
+  font-size: 1.1rem;
+  color: color-mix(in srgb, var(--default-color), transparent 30%);
+  max-width: 600px;
+  margin: 0 auto 30px;
+}
+
+.lead {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: color-mix(in srgb, var(--default-color), transparent 20%);
+}
+
+/* Collections Filter */
+.filter-wrapper {
+  background: var(--surface-color);
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.filter-title {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: var(--heading-color);
+}
+
+.filter-subtitle {
+  color: color-mix(in srgb, var(--default-color), transparent 30%);
+  margin-bottom: 30px;
+}
+
+.filter-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+}
+
+.filter-btn {
+  display: flex;
+  align-items: center;
+  padding: 12px 25px;
+  background: var(--surface-color);
+  border: 2px solid color-mix(in srgb, var(--default-color), transparent 80%);
+  border-radius: 50px;
+  color: var(--default-color);
+  font-weight: 500;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.filter-btn:hover {
+  border-color: var(--accent-color);
+  color: var(--accent-color);
+  transform: translateY(-2px);
+}
+
+.filter-btn.active {
+  background: var(--accent-color);
+  border-color: var(--accent-color);
+  color: var(--contrast-color);
+}
+
+.filter-btn i {
+  font-size: 1.1rem;
+}
+
+/* Collections Grid */
+.products-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+}
+
+@media (min-width: 768px) {
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1200px) {
+  .products-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.product-card {
+  background: var(--surface-color);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.product-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.product-badge {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  padding: 6px 15px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  z-index: 2;
+}
+
+.product-badge:not(.quality-badge) {
+  color: var(--contrast-color);
+}
+
+.product-badge.bestseller {
+  background: linear-gradient(135deg, #ffd700, #ffaa00);
+}
+
+.product-badge.featured {
+  background: linear-gradient(135deg, var(--accent-color), color-mix(in srgb, var(--accent-color), #000 20%));
+}
+
+.product-badge.new {
+  background: linear-gradient(135deg, #17a2b8, #138496);
+}
+
+.product-badge.popular {
+  background: linear-gradient(135deg, #28a745, #1e7e34);
+}
+
+.product-badge.custom {
+  background: linear-gradient(135deg, #6f42c1, #563d7c);
+}
+
+.product-badge.limited {
+  background: linear-gradient(135deg, #fd7e14, #e8590c);
+}
+
+.product-image {
+  position: relative;
+  height: 250px;
+  overflow: hidden;
+}
+
+.product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.product-card:hover .product-image img {
+  transform: scale(1.1);
+}
+
+.product-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-card:hover .product-overlay {
+  opacity: 1;
+}
+
+.view-btn {
+  background: var(--contrast-color);
+  color: var(--accent-color);
+  padding: 10px 25px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+}
+
+.view-btn:hover {
+  background: var(--accent-color);
+  color: var(--contrast-color);
+  transform: scale(1.1);
+}
+
+.product-content {
+  padding: 25px;
+}
+
+.product-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.product-category {
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.product-category.traditional {
+  background: rgba(0, 0, 128, 0.1);
+  color: #000080;
+}
+
+.product-category.antique {
+  background: rgba(139, 69, 19, 0.1);
+  color: #8b4513;
+}
+
+.product-category.contemporary {
+  background: rgba(106, 90, 205, 0.1);
+  color: #6a5acd;
+}
+
+.product-rating {
+  color: #ffc107;
+  font-size: 0.9rem;
+}
+
+.product-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: var(--heading-color);
+  line-height: 1.3;
+}
+
+.product-description {
+  color: color-mix(in srgb, var(--default-color), transparent 30%);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+.product-specs {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.spec-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.85rem;
+  color: color-mix(in srgb, var(--default-color), transparent 40%);
+}
+
+.spec-item i {
+  color: var(--accent-color);
+}
+
+.product-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 15px;
+  border-top: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+}
+
+.quality-badge {
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.quality-badge.standard {
+  background: rgba(40, 167, 69, 0.1);
+  color: #28a745;
+}
+
+.quality-badge.premium {
+  background: rgba(0, 0, 128, 0.1);
+  color: #000080;
+}
+
+.quality-badge.luxury {
+  background: rgba(255, 193, 7, 0.1);
+  color: #d4a017;
+}
+
+.product-link {
+  color: var(--accent-color);
+  text-decoration: none;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.product-link:hover {
+  gap: 10px;
+}
+
+/* Pagination */
+.pagination-wrapper {
+  padding-top: 40px;
+}
+
+.pagination {
+  gap: 5px;
+}
+
+.page-link {
+  border: 2px solid color-mix(in srgb, var(--default-color), transparent 80%);
+  color: var(--default-color);
+  border-radius: 8px;
+  padding: 8px 16px;
+  transition: all 0.3s ease;
+  min-width: 45px;
+  text-align: center;
+}
+
+.page-link:hover {
+  border-color: var(--accent-color);
+  color: var(--accent-color);
+  background: transparent;
+}
+
+.page-item.active .page-link {
+  background: var(--accent-color);
+  border-color: var(--accent-color);
+  color: var(--contrast-color);
+}
+
+.page-item.disabled .page-link {
+  color: color-mix(in srgb, var(--default-color), transparent 50%);
+  border-color: color-mix(in srgb, var(--default-color), transparent 80%);
+}
+
+/* Custom Orders Section */
+.custom-features {
+  margin-top: 30px;
+}
+
+.feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.feature-icon {
+  width: 50px;
+  height: 50px;
+  background: rgba(var(--accent-color-rgb), 0.1);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.feature-icon i {
+  font-size: 1.5rem;
+  color: var(--accent-color);
+}
+
+.feature-content h5 {
+  font-size: 1.1rem;
+  margin-bottom: 5px;
+  color: var(--heading-color);
+}
+
+.feature-content p {
+  font-size: 0.95rem;
+  color: color-mix(in srgb, var(--default-color), transparent 30%);
+  margin: 0;
+}
+
+.form-card {
+  background: var(--surface-color);
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.05);
+}
+
+.form-title {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: var(--heading-color);
+}
+
+.form-subtitle {
+  color: color-mix(in srgb, var(--default-color), transparent 30%);
+  margin-bottom: 30px;
+}
+
+.form-control {
+  padding: 12px 15px;
+  border: 2px solid color-mix(in srgb, var(--default-color), transparent 80%);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  font-size: 0.95rem;
+}
+
+.form-control:focus {
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 3px rgba(var(--accent-color-rgb), 0.1);
+}
+
+.btn {
+  padding: 12px 30px;
+  font-weight: 500;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background: var(--accent-color);
+  border-color: var(--accent-color);
+}
+
+.btn-primary:hover {
+  background: color-mix(in srgb, var(--accent-color), #000 15%);
+  border-color: color-mix(in srgb, var(--accent-color), #000 15%);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(var(--accent-color-rgb), 0.2);
+}
+
+.btn-outline-primary {
+  border-color: var(--accent-color);
+  color: var(--accent-color);
+}
+
+.btn-outline-primary:hover {
+  background: var(--accent-color);
+  color: var(--contrast-color);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .page-title {
+    font-size: 2.2rem;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+  }
+  
+  .filter-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .filter-btn {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .products-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .form-card {
+    padding: 30px 25px;
+  }
+}
+</style>
+
+<script>
+// Initialize AOS animations
+AOS.init({
+  duration: 800,
+  easing: 'ease-in-out',
+  once: true,
+  offset: 100
+});
+
+// Filter functionality
+document.addEventListener('DOMContentLoaded', function() {
+  const filterButtons = document.querySelectorAll('.filter-btn');
+  const productCards = document.querySelectorAll('.product-card');
+  
+  filterButtons.forEach(button => {
+    button.addEventListener('click', function() {
+      // Remove active class from all buttons
+      filterButtons.forEach(btn => btn.classList.remove('active'));
+      
+      // Add active class to clicked button
+      this.classList.add('active');
+      
+      const filterValue = this.getAttribute('data-filter');
+      
+      // Filter products
+      productCards.forEach(card => {
+        if (filterValue === 'all') {
+          card.style.display = 'block';
+          setTimeout(() => {
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0)';
+          }, 10);
+        } else {
+          if (card.getAttribute('data-category') === filterValue) {
+            card.style.display = 'block';
+            setTimeout(() => {
+              card.style.opacity = '1';
+              card.style.transform = 'translateY(0)';
+            }, 10);
+          } else {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            setTimeout(() => {
+              card.style.display = 'none';
+            }, 300);
+          }
+        }
+      });
+    });
+  });
+  
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    });
+  });
+  
+  // Form submission
+  document.querySelector('.contact-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    // Add your form submission logic here
+    alert('Thank you for your custom order request! We will contact you within 24 hours.');
+    this.reset();
+  });
+});
+</script>
+{% include 'base/footer.html' %}
+{% endblock %}

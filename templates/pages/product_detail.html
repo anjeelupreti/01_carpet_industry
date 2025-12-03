@@ -1,0 +1,1049 @@
+{% extends 'base/index.html' %}
+{% load static %}
+
+{% block title %}{{ product.name }} - Everest Carpet Industry{% endblock %}
+{% block description %}{{ product.description|truncatechars:160 }}{% endblock %}
+{% block body_class %}product-detail-page{% endblock %}
+
+{% block content %}
+{% include 'base/header.html' %}
+<!-- Page Header -->
+<section class="page-header">
+  <div class="container">
+    <div class="page-header-content">
+      <nav class="breadcrumbs" aria-label="breadcrumb">
+        <ol>
+          <li><a href="{% url 'homepage' %}">Home</a></li>
+          <li><a href="{% url 'products' %}">Collections</a></li>
+          <li class="active">{{ product.name }}</li>
+        </ol>
+      </nav>
+      <h1 class="page-title">{{ product.name }}</h1>
+      <p class="page-subtitle">{{ product.category }}</p>
+    </div>
+  </div>
+</section>
+
+<!-- Product Detail Section -->
+<section id="product-detail" class="product-detail section">
+  <div class="container">
+    <div class="row g-5">
+      <!-- Product Images -->
+      <div class="col-lg-7" data-aos="fade-right">
+        <div class="product-gallery">
+          <div class="main-image">
+            <img src="https://images.unsplash.com/photo-1594041680534-e8c8cdebd659?w=800&auto=format&fit=crop" 
+                 alt="{{ product.name }}" 
+                 class="img-fluid rounded-4">
+            <div class="product-badge">Best Seller</div>
+            <a href="https://images.unsplash.com/photo-1594041680534-e8c8cdebd659?w=1200&auto=format&fit=crop" 
+               class="enlarge-btn" 
+               data-glightbox 
+               data-title="{{ product.name }}">
+              <i class="bi bi-zoom-in"></i>
+            </a>
+          </div>
+          
+          <div class="thumbnail-gallery mt-3">
+            <div class="row g-2">
+              <div class="col-3">
+                <a href="#" class="thumbnail-item active" data-image="https://images.unsplash.com/photo-1594041680534-e8c8cdebd659?w=800&auto=format&fit=crop">
+                  <img src="https://images.unsplash.com/photo-1594041680534-e8c8cdebd659?w=200&auto=format&fit=crop" alt="Front View" class="img-fluid rounded-2">
+                </a>
+              </div>
+              <div class="col-3">
+                <a href="#" class="thumbnail-item" data-image="https://images.unsplash.com/photo-1604537529428-15bcbeecfe4d?w=800&auto=format&fit=crop">
+                  <img src="https://images.unsplash.com/photo-1604537529428-15bcbeecfe4d?w=200&auto=format&fit=crop" alt="Weaving Process" class="img-fluid rounded-2">
+                </a>
+              </div>
+              <div class="col-3">
+                <a href="#" class="thumbnail-item" data-image="https://images.unsplash.com/photo-1616486498803-2d3f4172c925?w=800&auto=format&fit=crop">
+                  <img src="https://images.unsplash.com/photo-1616486498803-2d3f4172c925?w=200&auto=format&fit=crop" alt="Texture Detail" class="img-fluid rounded-2">
+                </a>
+              </div>
+              <div class="col-3">
+                <a href="#" class="thumbnail-item" data-image="https://images.unsplash.com/photo-1616486498800-903dfcac41d2?w=800&auto=format&fit=crop">
+                  <img src="https://images.unsplash.com/photo-1616486498800-903dfcac41d2?w=200&auto=format&fit=crop" alt="Room Setting" class="img-fluid rounded-2">
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Product Info -->
+      <div class="col-lg-5" data-aos="fade-left" data-aos-delay="200">
+        <div class="product-info">
+          <div class="product-header mb-4">
+            <span class="product-category badge">{{ product.category }}</span>
+            <h1 class="product-title">{{ product.name }}</h1>
+            <div class="product-rating">
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-half"></i>
+              <span class="rating-text ms-2">{{ product.rating }} ({{ product.reviews_count }} reviews)</span>
+            </div>
+          </div>
+          
+          <div class="product-description mb-4">
+            <p class="lead">{{ product.description }}</p>
+            <p>Handcrafted by master weavers using techniques passed down through generations, preserving traditional Tibetan craftsmanship.</p>
+          </div>
+          
+          <!-- Product Specifications -->
+          <div class="product-specs mb-4">
+            <h4 class="mb-3">Specifications</h4>
+            <div class="specs-grid">
+              <div class="spec-item">
+                <i class="bi bi-snow spec-icon"></i>
+                <div class="spec-content">
+                  <strong>Material</strong>
+                  <p>{{ product.material }}</p>
+                </div>
+              </div>
+              <div class="spec-item">
+                <i class="bi bi-node-plus spec-icon"></i>
+                <div class="spec-content">
+                  <strong>Knot Density</strong>
+                  <p>{{ product.knot_density }}</p>
+                </div>
+              </div>
+              <div class="spec-item">
+                <i class="bi bi-rulers spec-icon"></i>
+                <div class="spec-content">
+                  <strong>Size</strong>
+                  <p>{{ product.size }}</p>
+                </div>
+              </div>
+              <div class="spec-item">
+                <i class="bi bi-palette spec-icon"></i>
+                <div class="spec-content">
+                  <strong>Dyes</strong>
+                  <p>{{ product.dyes }}</p>
+                </div>
+              </div>
+              <div class="spec-item">
+                <i class="bi bi-speedometer spec-icon"></i>
+                <div class="spec-content">
+                  <strong>Weight</strong>
+                  <p>{{ product.weight }}</p>
+                </div>
+              </div>
+              <div class="spec-item">
+                <i class="bi bi-clock spec-icon"></i>
+                <div class="spec-content">
+                  <strong>Production Time</strong>
+                  <p>{{ product.production_time }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Price Section -->
+          <div class="price-section mb-4">
+            <div class="price-display mb-4">
+              <h3 class="current-price">{{ product.price }}</h3>
+              <p class="price-note text-muted">(Custom orders only - price varies with specifications)</p>
+            </div>
+            
+            <!-- Quality Badge -->
+            <div class="quality-badge premium mb-4">
+              <i class="bi bi-award"></i>
+              Premium Quality - {{ product.warranty }} Warranty
+            </div>
+          </div>
+          
+          <!-- Action Buttons -->
+          <div class="product-actions mb-4">
+            <a href="{% url 'contact_us' %}" class="btn btn-primary btn-lg w-100 mb-3">
+              <i class="bi bi-envelope me-2"></i> Request Custom Quote
+            </a>
+            <a href="{% url 'products' %}" class="btn btn-outline-primary w-100">
+              <i class="bi bi-arrow-left me-2"></i> Back to Collections
+            </a>
+          </div>
+          
+          <!-- Additional Info -->
+          <div class="additional-info">
+            <div class="info-item">
+              <div class="info-icon">
+                <i class="bi bi-truck"></i>
+              </div>
+              <div class="info-content">
+                <strong>Worldwide Shipping</strong>
+                <p>Secure packaging & delivery included</p>
+              </div>
+            </div>
+            <div class="info-item">
+              <div class="info-icon">
+                <i class="bi bi-shield-check"></i>
+              </div>
+              <div class="info-content">
+                <strong>{{ product.warranty }} Warranty</strong>
+                <p>Quality guaranteed against defects</p>
+              </div>
+            </div>
+            <div class="info-item">
+              <div class="info-icon">
+                <i class="bi bi-clock-history"></i>
+              </div>
+              <div class="info-content">
+                <strong>{{ product.production_time }} Production</strong>
+                <p>Handcrafted to order</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Product Tabs -->
+    <div class="product-tabs mt-5" data-aos="fade-up">
+      <div class="tab-navigation">
+        <div class="nav nav-tabs" role="tablist">
+          <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#description-tab">
+            <i class="bi bi-file-text me-2"></i> Description
+          </button>
+          <button class="nav-link" data-bs-toggle="tab" data-bs-target="#specifications-tab">
+            <i class="bi bi-list-check me-2"></i> Specifications
+          </button>
+          <button class="nav-link" data-bs-toggle="tab" data-bs-target="#care-tab">
+            <i class="bi bi-heart me-2"></i> Care Instructions
+          </button>
+          <button class="nav-link" data-bs-toggle="tab" data-bs-target="#reviews-tab">
+            <i class="bi bi-star me-2"></i> Reviews
+          </button>
+        </div>
+      </div>
+      
+      <div class="tab-content mt-4">
+        <!-- Description Tab -->
+        <div class="tab-pane fade show active" id="description-tab">
+          <div class="tab-content-inner">
+            <h4>Design & Symbolism</h4>
+            <p>The dragon in Tibetan Buddhism represents the power of enlightenment and protection. Combined with lotus flowers (symbolizing purity and spiritual awakening), this carpet brings harmony and positive energy to any space.</p>
+            
+            <h4 class="mt-4">Craftsmanship</h4>
+            <p>Each carpet is hand-knotted by skilled artisans using the traditional Tibetan knotting technique. The 100% Tibetan wool provides natural luster and durability, while vegetable dyes create rich, long-lasting colors.</p>
+            
+            <h4 class="mt-4">Cultural Significance</h4>
+            <p>This design is inspired by traditional Tibetan thangka paintings and monastery artwork, preserving cultural heritage while creating functional art for modern homes.</p>
+          </div>
+        </div>
+        
+        <!-- Specifications Tab -->
+        <div class="tab-pane fade" id="specifications-tab">
+          <div class="specs-table">
+            <table class="table">
+              <tbody>
+                <tr>
+                  <td><strong>Material Composition</strong></td>
+                  <td>100% High-altitude Tibetan sheep wool</td>
+                </tr>
+                <tr>
+                  <td><strong>Knot Density</strong></td>
+                  <td>80 knots per square inch (320,000 total knots)</td>
+                </tr>
+                <tr>
+                  <td><strong>Pile Height</strong></td>
+                  <td>0.5 inches (12mm)</td>
+                </tr>
+                <tr>
+                  <td><strong>Total Weight</strong></td>
+                  <td>Approximately 25 kg (55 lbs)</td>
+                </tr>
+                <tr>
+                  <td><strong>Dye Type</strong></td>
+                  <td>Natural vegetable dyes (madder root, indigo, walnut)</td>
+                </tr>
+                <tr>
+                  <td><strong>Weaving Technique</strong></td>
+                  <td>Tibetan loop knot (asymmetric knot)</td>
+                </tr>
+                <tr>
+                  <td><strong>Production Time</strong></td>
+                  <td>{{ product.production_time }} for standard size</td>
+                </tr>
+                <tr>
+                  <td><strong>Warranty</strong></td>
+                  <td>{{ product.warranty }} against manufacturing defects</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        
+        <!-- Care Instructions Tab -->
+        <div class="tab-pane fade" id="care-tab">
+          <div class="care-instructions">
+            <h4>Caring for Your Tibetan Carpet</h4>
+            <div class="care-tips">
+              <div class="care-tip">
+                <div class="tip-icon">
+                  <i class="bi bi-shuffle"></i>
+                </div>
+                <div class="tip-content">
+                  <h5>Rotation</h5>
+                  <p>Rotate carpet every 6 months for even wear</p>
+                </div>
+              </div>
+              <div class="care-tip">
+                <div class="tip-icon">
+                  <i class="bi bi-droplet"></i>
+                </div>
+                <div class="tip-content">
+                  <h5>Cleaning</h5>
+                  <p>Vacuum regularly, professional cleaning recommended annually</p>
+                </div>
+              </div>
+              <div class="care-tip">
+                <div class="tip-icon">
+                  <i class="bi bi-sun"></i>
+                </div>
+                <div class="tip-content">
+                  <h5>Sun Protection</h5>
+                  <p>Avoid direct sunlight to prevent fading</p>
+                </div>
+              </div>
+              <div class="care-tip">
+                <div class="tip-icon">
+                  <i class="bi bi-wind"></i>
+                </div>
+                <div class="tip-content">
+                  <h5>Ventilation</h5>
+                  <p>Ensure good air circulation to prevent moisture</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Reviews Tab -->
+        <div class="tab-pane fade" id="reviews-tab">
+          <div class="reviews-section">
+            <div class="average-rating mb-4">
+              <h4>Overall Rating: {{ product.rating }}/5</h4>
+              <div class="stars mb-2">
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-half"></i>
+              </div>
+              <p class="text-muted">Based on {{ product.reviews_count }} customer reviews</p>
+            </div>
+            
+            <div class="review-list">
+              <div class="review-item">
+                <div class="review-header">
+                  <div class="reviewer">
+                    <strong>Sarah M.</strong>
+                    <div class="review-stars">
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                    </div>
+                  </div>
+                  <span class="review-date">March 15, 2024</span>
+                </div>
+                <div class="review-body">
+                  <p>"Absolutely stunning craftsmanship! The colors are even more vibrant in person. It's the centerpiece of our living room."</p>
+                </div>
+              </div>
+              
+              <div class="review-item">
+                <div class="review-header">
+                  <div class="reviewer">
+                    <strong>James L.</strong>
+                    <div class="review-stars">
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-half"></i>
+                    </div>
+                  </div>
+                  <span class="review-date">February 28, 2024</span>
+                </div>
+                <div class="review-body">
+                  <p>"Excellent quality and the customer service was outstanding. They helped me customize the size perfectly for my office."</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Related Products -->
+    <div class="related-products mt-5" data-aos="fade-up">
+      <div class="section-header mb-4">
+        <h3 class="section-title">You May Also Like</h3>
+        <p class="section-subtitle">Explore more from our collections</p>
+      </div>
+      
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="related-card">
+            <div class="related-image">
+              <img src="https://images.unsplash.com/photo-1600166898405-da9535204843?w=400&auto=format&fit=crop" 
+                   alt="Phoenix Design Carpet" 
+                   class="img-fluid">
+            </div>
+            <div class="related-content">
+              <h5>Phoenix & Dragon Carpet</h5>
+              <p>Traditional Tibetan design featuring mythical creatures</p>
+              <a href="{% url 'product_detail' %}" class="btn btn-sm btn-outline-primary">
+                View Details
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-4">
+          <div class="related-card">
+            <div class="related-image">
+              <img src="https://images.unsplash.com/photo-1604079628049-cce582c2e69a?w=400&auto=format&fit=crop" 
+                   alt="Geometric Pattern Carpet" 
+                   class="img-fluid">
+            </div>
+            <div class="related-content">
+              <h5>Geometric Mandala Carpet</h5>
+              <p>Contemporary Tibetan geometric patterns</p>
+              <a href="{% url 'product_detail' %}" class="btn btn-sm btn-outline-primary">
+                View Details
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-4">
+          <div class="related-card">
+            <div class="related-image">
+              <img src="https://images.unsplash.com/photo-1616486498800-903dfcac41d2?w=400&auto=format&fit=crop" 
+                   alt="Floral Border Carpet" 
+                   class="img-fluid">
+            </div>
+            <div class="related-content">
+              <h5>Floral Border Carpet</h5>
+              <p>Antique reproduction with intricate floral borders</p>
+              <a href="{% url 'product_detail' %}" class="btn btn-sm btn-outline-primary">
+                View Details
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+/* Page Header */
+.page-header {
+  padding: 100px 0 60px;
+  background: linear-gradient(135deg, rgba(248, 249, 250, 0.9) 0%, rgba(233, 236, 239, 0.9) 100%);
+  text-align: center;
+}
+
+.page-header-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.breadcrumbs {
+  margin-bottom: 20px;
+}
+
+.breadcrumbs ol {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  gap: 10px;
+  font-size: 0.9rem;
+}
+
+.breadcrumbs li {
+  display: flex;
+  align-items: center;
+}
+
+.breadcrumbs li a {
+  color: var(--default-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.breadcrumbs li a:hover {
+  color: var(--accent-color);
+}
+
+.breadcrumbs li.active {
+  color: var(--accent-color);
+  font-weight: 500;
+}
+
+.breadcrumbs li+li::before {
+  content: "/";
+  margin-right: 10px;
+  color: color-mix(in srgb, var(--default-color), transparent 50%);
+}
+
+.page-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: var(--heading-color);
+}
+
+.page-subtitle {
+  font-size: 1.1rem;
+  color: color-mix(in srgb, var(--default-color), transparent 30%);
+}
+
+/* Product Detail Section */
+.section {
+  padding: 80px 0;
+}
+
+.product-gallery .main-image {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.product-gallery .main-image img {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.product-gallery .main-image:hover img {
+  transform: scale(1.02);
+}
+
+.product-badge {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: linear-gradient(135deg, var(--accent-color), color-mix(in srgb, var(--accent-color), #000 20%));
+  color: var(--contrast-color);
+  padding: 8px 20px;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  z-index: 2;
+}
+
+.enlarge-btn {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-color);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.enlarge-btn:hover {
+  background: var(--accent-color);
+  color: var(--contrast-color);
+  transform: scale(1.1);
+}
+
+.thumbnail-gallery .thumbnail-item {
+  display: block;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.thumbnail-gallery .thumbnail-item.active,
+.thumbnail-gallery .thumbnail-item:hover {
+  border-color: var(--accent-color);
+}
+
+.thumbnail-gallery .thumbnail-item img {
+  width: 100%;
+  height: 80px;
+  object-fit: cover;
+}
+
+/* Product Info */
+.product-info .product-category.badge {
+  background: rgba(var(--accent-color-rgb), 0.1);
+  color: var(--accent-color);
+  padding: 6px 15px;
+  border-radius: 20px;
+  font-weight: 500;
+  font-size: 0.9rem;
+  margin-bottom: 15px;
+  display: inline-block;
+}
+
+.product-info .product-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: var(--heading-color);
+}
+
+.product-rating {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: #ffc107;
+  margin-bottom: 20px;
+}
+
+.product-rating .rating-text {
+  color: color-mix(in srgb, var(--default-color), transparent 30%);
+  font-size: 0.9rem;
+}
+
+.lead {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: color-mix(in srgb, var(--default-color), transparent 20%);
+}
+
+/* Specifications Grid */
+.specs-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
+.spec-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  padding: 15px;
+  background: var(--surface-color);
+  border-radius: 10px;
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+}
+
+.spec-icon {
+  font-size: 1.5rem;
+  color: var(--accent-color);
+  flex-shrink: 0;
+}
+
+.spec-content strong {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--heading-color);
+  margin-bottom: 5px;
+}
+
+.spec-content p {
+  font-size: 0.9rem;
+  color: color-mix(in srgb, var(--default-color), transparent 30%);
+  margin: 0;
+}
+
+/* Price Section */
+.current-price {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--accent-color);
+  margin-bottom: 5px;
+}
+
+.price-note {
+  font-size: 0.9rem;
+}
+
+.quality-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-weight: 600;
+}
+
+.quality-badge.premium {
+  background: rgba(0, 0, 128, 0.1);
+  color: #000080;
+}
+
+.quality-badge i {
+  font-size: 1.2rem;
+}
+
+/* Action Buttons */
+.btn-lg {
+  padding: 12px 30px;
+  font-size: 1.1rem;
+  border-radius: 10px;
+}
+
+.btn-primary {
+  background: var(--accent-color);
+  border-color: var(--accent-color);
+}
+
+.btn-primary:hover {
+  background: color-mix(in srgb, var(--accent-color), #000 15%);
+  border-color: color-mix(in srgb, var(--accent-color), #000 15%);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(var(--accent-color-rgb), 0.2);
+}
+
+.btn-outline-primary {
+  border-color: var(--accent-color);
+  color: var(--accent-color);
+}
+
+.btn-outline-primary:hover {
+  background: var(--accent-color);
+  color: var(--contrast-color);
+}
+
+/* Additional Info */
+.additional-info {
+  margin-top: 30px;
+  padding-top: 30px;
+  border-top: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.info-item:last-child {
+  margin-bottom: 0;
+}
+
+.info-icon {
+  width: 40px;
+  height: 40px;
+  background: rgba(var(--accent-color-rgb), 0.1);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.info-icon i {
+  font-size: 1.2rem;
+  color: var(--accent-color);
+}
+
+.info-content strong {
+  display: block;
+  font-size: 0.95rem;
+  color: var(--heading-color);
+  margin-bottom: 3px;
+}
+
+.info-content p {
+  font-size: 0.85rem;
+  color: color-mix(in srgb, var(--default-color), transparent 40%);
+  margin: 0;
+}
+
+/* Product Tabs */
+.tab-navigation .nav-tabs {
+  border-bottom: 2px solid color-mix(in srgb, var(--default-color), transparent 90%);
+}
+
+.tab-navigation .nav-link {
+  border: none;
+  background: transparent;
+  color: color-mix(in srgb, var(--default-color), transparent 50%);
+  font-weight: 500;
+  padding: 12px 25px;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -2px;
+}
+
+.tab-navigation .nav-link:hover {
+  color: var(--accent-color);
+  border-color: color-mix(in srgb, var(--accent-color), transparent 50%);
+}
+
+.tab-navigation .nav-link.active {
+  color: var(--accent-color);
+  border-color: var(--accent-color);
+  background: transparent;
+}
+
+.tab-content-inner h4 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: var(--heading-color);
+}
+
+.tab-content-inner p {
+  color: color-mix(in srgb, var(--default-color), transparent 30%);
+  line-height: 1.6;
+}
+
+/* Specifications Table */
+.specs-table .table {
+  background: var(--surface-color);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.specs-table .table tr {
+  border-bottom: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+}
+
+.specs-table .table tr:last-child {
+  border-bottom: none;
+}
+
+.specs-table .table td {
+  padding: 15px;
+  vertical-align: top;
+}
+
+/* Care Tips */
+.care-tips {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.care-tip {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+}
+
+.tip-icon {
+  width: 40px;
+  height: 40px;
+  background: rgba(var(--accent-color-rgb), 0.1);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.tip-icon i {
+  font-size: 1.2rem;
+  color: var(--accent-color);
+}
+
+.tip-content h5 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: var(--heading-color);
+}
+
+.tip-content p {
+  font-size: 0.9rem;
+  color: color-mix(in srgb, var(--default-color), transparent 40%);
+  margin: 0;
+}
+
+/* Reviews Section */
+.review-item {
+  padding: 20px;
+  background: var(--surface-color);
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.review-item:last-child {
+  margin-bottom: 0;
+}
+
+.review-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.reviewer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.reviewer strong {
+  font-size: 1rem;
+  color: var(--heading-color);
+}
+
+.review-stars {
+  color: #ffc107;
+  font-size: 0.9rem;
+}
+
+.review-date {
+  font-size: 0.85rem;
+  color: color-mix(in srgb, var(--default-color), transparent 50%);
+}
+
+.review-body p {
+  margin: 0;
+  color: color-mix(in srgb, var(--default-color), transparent 30%);
+  line-height: 1.6;
+}
+
+/* Related Products */
+.section-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: var(--heading-color);
+}
+
+.section-subtitle {
+  font-size: 1.1rem;
+  color: color-mix(in srgb, var(--default-color), transparent 30%);
+}
+
+.related-card {
+  background: var(--surface-color);
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+  height: 100%;
+}
+
+.related-card:hover {
+  transform: translateY(-5px);
+}
+
+.related-image {
+  height: 200px;
+  overflow: hidden;
+}
+
+.related-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.related-card:hover .related-image img {
+  transform: scale(1.05);
+}
+
+.related-content {
+  padding: 20px;
+}
+
+.related-content h5 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: var(--heading-color);
+}
+
+.related-content p {
+  font-size: 0.9rem;
+  color: color-mix(in srgb, var(--default-color), transparent 30%);
+  margin-bottom: 15px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .page-title {
+    font-size: 2rem;
+  }
+  
+  .specs-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .care-tips {
+    grid-template-columns: 1fr;
+  }
+  
+  .thumbnail-gallery .thumbnail-item img {
+    height: 60px;
+  }
+  
+  .product-gallery .main-image img {
+    height: 300px;
+  }
+}
+</style>
+
+<script>
+// Initialize AOS animations
+AOS.init({
+  duration: 800,
+  easing: 'ease-in-out',
+  once: true,
+  offset: 100
+});
+
+// Thumbnail image switching
+document.addEventListener('DOMContentLoaded', function() {
+  const thumbnailItems = document.querySelectorAll('.thumbnail-item');
+  const mainImage = document.getElementById('main-product-image');
+  
+  thumbnailItems.forEach(item => {
+    item.addEventListener('click', function(e) {
+      e.preventDefault();
+      
+      // Remove active class from all thumbnails
+      thumbnailItems.forEach(thumb => thumb.classList.remove('active'));
+      
+      // Add active class to clicked thumbnail
+      this.classList.add('active');
+      
+      // Update main image
+      const newImageSrc = this.getAttribute('data-image');
+      mainImage.src = newImageSrc;
+      mainImage.alt = this.querySelector('img').alt;
+    });
+  });
+  
+  // Initialize GLightbox
+  const lightbox = GLightbox({
+    touchNavigation: true,
+    loop: true,
+    autoplayVideos: true
+  });
+  
+  // Tab functionality
+  const tabLinks = document.querySelectorAll('.nav-link');
+  tabLinks.forEach(link => {
+    link.addEventListener('click', function() {
+      tabLinks.forEach(tab => tab.classList.remove('active'));
+      this.classList.add('active');
+    });
+  });
+});
+</script>
+{% include 'base/footer.html' %}
+{% endblock %}

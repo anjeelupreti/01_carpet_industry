@@ -1,0 +1,228 @@
+{% extends 'index.html' %}
+
+{% block title %}Page Not Found - Everest Memorial Carpet Industry{% endblock %}
+{% block description %}The page you are looking for might have been removed or is temporarily unavailable.{% endblock %}
+{% block body_class %}page-404{% endblock %}
+
+{% block content %}
+<!-- Page Title -->
+<div class="page-title light-background">
+  <div class="container d-lg-flex justify-content-between align-items-center">
+    <h1 class="mb-2 mb-lg-0">404 - Page Not Found</h1>
+    <nav class="breadcrumbs">
+      <ol>
+        <li><a href="{% url 'homepage' %}">Home</a></li>
+        <li class="current">404 Error</li>
+      </ol>
+    </nav>
+  </div>
+</div><!-- End Page Title -->
+
+<!-- Error 404 Section -->
+<section id="error-404" class="error-404 section">
+
+  <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+    <div class="text-center">
+      <!-- Error Icon -->
+      <div class="error-icon mb-4" data-aos="zoom-in" data-aos-delay="200">
+        <i class="bi bi-exclamation-triangle"></i>
+      </div>
+
+      <!-- Error Code -->
+      <h1 class="error-code mb-4" data-aos="fade-up" data-aos-delay="300">404</h1>
+
+      <!-- Error Title -->
+      <h2 class="error-title mb-3" data-aos="fade-up" data-aos-delay="400">Oops! Page Not Found</h2>
+
+      <!-- Error Text -->
+      <p class="error-text mb-4" data-aos="fade-up" data-aos-delay="500">
+        The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.
+      </p>
+
+      <!-- Alternative Text -->
+      <p class="alternative-text mb-4" data-aos="fade-up" data-aos-delay="550">
+        Perhaps you were looking for one of these pages instead?
+      </p>
+
+      <!-- Suggested Pages -->
+      <div class="suggested-pages mb-5" data-aos="fade-up" data-aos-delay="600">
+        <div class="row justify-content-center g-3">
+          <div class="col-md-4">
+            <div class="suggested-card">
+              <i class="bi bi-house"></i>
+              <h5>Home Page</h5>
+              <p>Return to our main homepage</p>
+              <a href="{% url 'homepage' %}" class="btn btn-outline-primary btn-sm">Go to Home</a>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="suggested-card">
+              <i class="bi bi-grid-3x3-gap"></i>
+              <h5>Products</h5>
+              <p>Browse our carpet collections</p>
+              <a href="{% url 'products' %}" class="btn btn-outline-primary btn-sm">View Products</a>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="suggested-card">
+              <i class="bi bi-envelope"></i>
+              <h5>Contact Us</h5>
+              <p>Get in touch with our team</p>
+              <a href="{% url 'contact' %}" class="btn btn-outline-primary btn-sm">Contact</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Search Box -->
+      <div class="search-box mb-4" data-aos="fade-up" data-aos-delay="700">
+        <p class="mb-3">Or try searching for what you need:</p>
+        <form action="#" class="search-form">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search for products, information..." aria-label="Search">
+            <button class="btn search-btn" type="submit">
+              <i class="bi bi-search"></i>
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Main Action Button -->
+      <div class="error-action" data-aos="fade-up" data-aos-delay="800">
+        <a href="{% url 'homepage' %}" class="btn btn-primary btn-lg">
+          <i class="bi bi-arrow-left me-2"></i> Back to Homepage
+        </a>
+      </div>
+
+      <!-- Contact Help -->
+      <div class="contact-help mt-5" data-aos="fade-up" data-aos-delay="900">
+        <p class="mb-2">Still can't find what you're looking for?</p>
+        <p>Contact our support team at <a href="mailto:support@everestcarpets.com">support@everestcarpets.com</a></p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section><!-- /Error 404 Section -->
+
+<!-- Styling for the 404 page -->
+<style>
+.error-icon {
+  font-size: 5rem;
+  color: #e74c3c;
+}
+
+.error-code {
+  font-size: 8rem;
+  font-weight: 900;
+  color: #2c3e50;
+  line-height: 1;
+}
+
+.error-title {
+  color: #34495e;
+  font-weight: 600;
+}
+
+.error-text {
+  font-size: 1.2rem;
+  color: #7f8c8d;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.alternative-text {
+  color: #95a5a6;
+  font-style: italic;
+}
+
+.suggested-card {
+  background: #f8f9fa;
+  border-radius: 10px;
+  padding: 2rem;
+  height: 100%;
+  transition: transform 0.3s;
+  border: 1px solid #e9ecef;
+}
+
+.suggested-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.suggested-card i {
+  font-size: 2.5rem;
+  color: #3498db;
+  margin-bottom: 1rem;
+}
+
+.suggested-card h5 {
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+}
+
+.suggested-card p {
+  color: #7f8c8d;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.search-box {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.search-form .input-group {
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  border-radius: 50px;
+  overflow: hidden;
+}
+
+.search-form .form-control {
+  border: none;
+  padding: 1rem 1.5rem;
+  border-radius: 50px 0 0 50px;
+}
+
+.search-form .search-btn {
+  background: #3498db;
+  color: white;
+  border: none;
+  padding: 1rem 1.5rem;
+  border-radius: 0 50px 50px 0;
+}
+
+.search-form .search-btn:hover {
+  background: #2980b9;
+}
+
+.contact-help {
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 10px;
+  border-left: 4px solid #3498db;
+}
+
+.contact-help a {
+  color: #3498db;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.contact-help a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .error-code {
+    font-size: 6rem;
+  }
+  
+  .suggested-card {
+    margin-bottom: 1rem;
+  }
+}
+</style>
+{% endblock %}

@@ -1,0 +1,75 @@
+{% load static %}
+<header id="header" class="header">
+
+    <!-- Top Bar (Simplified) -->
+    <div class="topbar py-2">
+      <div class="container d-flex justify-content-between align-items-center">
+        <div class="contact-info d-flex align-items-center gap-3">
+          <div class="contact-item">
+            <i class="bi bi-envelope me-1"></i>
+            <a href="mailto:info@everestcarpets.com" class="text-white text-decoration-none">info@everestcarpets.com</a>
+          </div>
+          <div class="contact-item">
+            <i class="bi bi-telephone me-1"></i>
+            <span class="text-white">+977-1-415414</span>
+          </div>
+        </div>
+        
+        <!-- Optional: Language selector or social icons -->
+        <div class="topbar-actions">
+          <!-- <div class="dropdown">
+            <button class="btn btn-sm btn-outline-light dropdown-toggle" type="button" data-bs-toggle="dropdown">
+              <i class="bi bi-globe"></i> EN
+            </button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">English</a></li>
+              <li><a class="dropdown-item" href="#">नेपाली</a></li>
+            </ul>
+          </div> -->
+        </div>
+      </div>
+    </div><!-- End Top Bar -->
+
+    <!-- Main Navigation Bar -->
+    <div class="main-navbar py-3">
+      <div class="container">
+        <div class="d-flex align-items-center justify-content-between">
+          
+          <div class="navbar-brand d-flex align-items-center me-4">
+  <img src="{% static 'assets/img/01_manufacturing_logo.png' %}" 
+       alt="Everest Carpet Industry Logo" 
+       class="logo-img me-3"
+       style="max-height: 120px; /* Maximum height */
+  max-width: 120px; /* Maximum width */
+  width: auto;
+  height: auto;">
+  <div class="brand-text-wrapper d-flex flex-column">
+    <span class="brand-name fw-bold fs-4">Everest Carpet Industry</span>
+    <small class="brand-tagline text-muted fs-6 fst-italic">Quality Carpets Since 1985</small>
+  </div>
+</div>
+
+          <!-- Desktop Navigation -->
+          <div class="d-none d-lg-flex align-items-center">
+            {% include 'base/navbar.html' %}
+          </div>
+
+          <!-- Mobile Menu Toggle -->
+          <button class="navbar-toggler d-lg-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#mobileNavbar">
+            <i class="bi bi-list" style="font-size: 1.5rem;"></i>
+          </button>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation (Collapsible) -->
+    <div class="collapse d-lg-none" id="mobileNavbar">
+      <div class="container py-3">
+        <div class="mobile-nav">
+          {% include 'base/navbar.html' %}
+        </div>
+      </div>
+    </div>
+
+</header>
