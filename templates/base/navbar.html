@@ -1090,6 +1090,50 @@
 #mainNavbar {
   animation: fadeInDown 0.5s ease-out;
 }
+
+
+/* Fix dropdown alignment issues */
+.dropdown-item .d-flex {
+  position: relative;
+  width: 100%;
+}
+
+.dropdown-item .flex-grow-1 {
+  flex: 1;
+  min-width: 0; /* Prevent text overflow */
+}
+
+.dropdown-item .badge {
+  flex-shrink: 0;
+  white-space: nowrap;
+  margin-left: 0.5rem !important;
+}
+
+/* Fix for premium access items to ensure proper spacing */
+.premium-access .d-flex {
+  padding-right: 1.5rem; /* Make room for lock icon */
+}
+
+/* Adjust lock icon positioning to not interfere with layout */
+.premium-access::after {
+  content: '\F4D1';
+  font-family: 'bootstrap-icons';
+  position: absolute;
+  right: 1rem; /* Fixed position from right */
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--primary-navy);
+  opacity: 0.5;
+  font-size: 0.9rem;
+  transition: opacity 0.3s ease;
+  pointer-events: none; /* Don't interfere with clicking */
+}
+
+.premium-access:hover::after {
+  opacity: 1;
+  animation: lockShake 0.5s ease;
+}
+
 </style>
 
 <!-- Enhanced JavaScript -->
