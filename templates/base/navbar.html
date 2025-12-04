@@ -94,67 +94,67 @@
           </ul>
         </li>
 
-        <!-- Products - Quality Dropdown -->
-        <li class="nav-item dropdown mx-1">
-          <a class="nav-link dropdown-toggle position-relative px-3" href="#" 
-             id="productsDropdown" role="button" data-bs-toggle="dropdown" 
-             aria-expanded="false">
-            <i class="bi bi-grid-3x3-gap me-1"></i>
-            <span>Products</span>
-            <div class="nav-underline"></div>
-          </a>
-          <ul class="dropdown-menu dropdown-menu-start shadow border-0" 
-              aria-labelledby="productsDropdown" style="min-width: 320px;">
-            <li>
-              <a class="dropdown-item py-3" href="{% url 'products' %}">
-                <div class="d-flex align-items-center">
-                  <div class="quality-badge quality-all me-3">ALL</div>
-                  <div>
-                    <div class="fw-bold">All Collections</div>
-                    <small class="text-muted">Browse complete catalog</small>
-                  </div>
-                </div>
-              </a>
-            </li>
-            <li><hr class="dropdown-divider my-2"></li>
-            <li>
-              <a class="dropdown-item py-3" href="{% url 'products' %}?quality=60">
-                <div class="d-flex align-items-center">
-                  <div class="quality-badge quality-60 me-3">60</div>
-                  <div>
-                    <div class="fw-bold">60 Knots Collection</div>
-                    <small class="text-muted">45 days delivery • Classic</small>
-                  </div>
-                  <span class="badge bg-success ms-auto">Popular</span>
-                </div>
-              </a>
-            </li>
-            <li>
-              <a class="dropdown-item py-3 premium-access" href="#" data-collection="80" data-bs-toggle="modal" data-bs-target="#loginModal">
-                <div class="d-flex align-items-center">
-                  <div class="quality-badge quality-80 me-3">80</div>
-                  <div>
-                    <div class="fw-bold">80 Knots Collection</div>
-                    <small class="text-muted">60 days delivery • Premium</small>
-                  </div>
-                  <span class="badge bg-primary ms-auto">Premium Access</span>
-                </div>
-              </a>
-            </li>
-            <li>
-              <a class="dropdown-item py-3 premium-access" href="#" data-collection="100" data-bs-toggle="modal" data-bs-target="#loginModal">
-                <div class="d-flex align-items-center">
-                  <div class="quality-badge quality-100 me-3">100</div>
-                  <div>
-                    <div class="fw-bold">100 Knots Collection</div>
-                    <small class="text-muted">90 days delivery • Exclusive</small>
-                  </div>
-                  <span class="badge bg-purple ms-auto">VIP Access</span>
-                </div>
-              </a>
-            </li>
-          </ul>
-        </li>
+      <!-- Products - Quality Dropdown -->
+<li class="nav-item dropdown mx-1">
+  <a class="nav-link dropdown-toggle position-relative px-3" href="#" 
+     id="productsDropdown" role="button" data-bs-toggle="dropdown" 
+     aria-expanded="false">
+    <i class="bi bi-grid-3x3-gap me-1"></i>
+    <span>Products</span>
+    <div class="nav-underline"></div>
+  </a>
+  <ul class="dropdown-menu dropdown-menu-start shadow border-0" 
+      aria-labelledby="productsDropdown" style="min-width: 320px;">
+    <li>
+      <a class="dropdown-item py-3" href="{% url 'products' %}">
+        <div class="d-flex align-items-center position-relative">
+          <div class="quality-badge quality-all me-3">ALL</div>
+          <div class="flex-grow-1">
+            <div class="fw-bold">All Collections</div>
+            <small class="text-muted">Browse complete catalog</small>
+          </div>
+        </div>
+      </a>
+    </li>
+    <li><hr class="dropdown-divider my-2"></li>
+    <li>
+      <a class="dropdown-item py-3" href="{% url 'products' %}?quality=60">
+        <div class="d-flex align-items-center position-relative">
+          <div class="quality-badge quality-60 me-3">60</div>
+          <div class="flex-grow-1">
+            <div class="fw-bold">60 Knots Collection</div>
+            <small class="text-muted">45 days delivery • Classic</small>
+          </div>
+          <span class="badge bg-success ms-2">Popular</span>
+        </div>
+      </a>
+    </li>
+    <li>
+      <a class="dropdown-item py-3 premium-access" href="#" data-collection="80" data-bs-toggle="modal" data-bs-target="#loginModal">
+        <div class="d-flex align-items-center position-relative">
+          <div class="quality-badge quality-80 me-3">80</div>
+          <div class="flex-grow-1">
+            <div class="fw-bold">80 Knots Collection</div>
+            <small class="text-muted">60 days delivery • Premium</small>
+          </div>
+          <span class="badge bg-primary ms-2">Premium Access</span>
+        </div>
+      </a>
+    </li>
+    <li>
+      <a class="dropdown-item py-3 premium-access" href="#" data-collection="100" data-bs-toggle="modal" data-bs-target="#loginModal">
+        <div class="d-flex align-items-center position-relative">
+          <div class="quality-badge quality-100 me-3">100</div>
+          <div class="flex-grow-1">
+            <div class="fw-bold">100 Knots Collection</div>
+            <small class="text-muted">90 days delivery • Exclusive</small>
+          </div>
+          <span class="badge bg-purple ms-2">VIP Access</span>
+        </div>
+      </a>
+    </li>
+  </ul>
+</li>
 
         <!-- Gallery -->
         <li class="nav-item mx-1">
