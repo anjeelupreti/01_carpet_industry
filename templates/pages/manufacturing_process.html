@@ -1,0 +1,1723 @@
+{% extends 'base/index.html' %}
+{% load static %}
+
+{% block title %}Manufacturing Process - Everest Carpet Industry{% endblock %}
+{% block description %}Step-by-step guide to traditional Tibetan carpet making. Discover the ancient techniques, natural materials, and meticulous craftsmanship behind every handmade carpet.{% endblock %}
+{% block body_class %}manufacturing-page{% endblock %}
+
+{% block content %}
+{% include 'base/navbar.html' %}
+
+<!-- Hero Section -->
+<section class="process-hero py-6 bg-surface-color position-relative overflow-hidden">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-6" data-aos="fade-right">
+        <div class="hero-content">
+          <div class="badge mb-4">
+            <span class="d-inline-flex align-items-center px-4 py-2 rounded-pill bg-accent-color text-contrast-color">
+              <i class="bi bi-gear me-2"></i>Traditional Craftsmanship
+            </span>
+          </div>
+          
+          <h1 class="display-4 fw-bold mb-4">
+            The Art of Tibetan<br>
+            <span class="text-accent-color">Carpet Making</span>
+          </h1>
+          
+          <p class="lead mb-5">
+            Each carpet undergoes a meticulous 9-step journey, combining centuries-old techniques with master craftsmanship. 
+            Discover the tradition behind every knot.
+          </p>
+          
+          <div class="hero-stats d-flex flex-wrap gap-4 mb-5">
+            <div class="stat-item text-center">
+              <div class="stat-number display-5 fw-bold text-accent-color">9</div>
+              <div class="stat-label small text-muted">Steps</div>
+            </div>
+            <div class="stat-item text-center">
+              <div class="stat-number display-5 fw-bold text-accent-color">60-150</div>
+              <div class="stat-label small text-muted">Knots/sq.in</div>
+            </div>
+            <div class="stat-item text-center">
+              <div class="stat-number display-5 fw-bold text-accent-color">45-90</div>
+              <div class="stat-label small text-muted">Days</div>
+            </div>
+          </div>
+          
+          <a href="#process-timeline" class="btn btn-primary btn-lg px-5 scroll-to">
+            <i class="bi bi-arrow-down me-2"></i>Explore Process
+          </a>
+        </div>
+      </div>
+      
+      <div class="col-lg-6" data-aos="fade-left">
+        <div class="hero-visual position-relative">
+          <div class="main-image rounded-4 overflow-hidden shadow-lg">
+            <img src="https://images.unsplash.com/photo-1600166898405-da9535204843?auto=format&fit=crop&w=800&h=600&q=80" 
+                 alt="Tibetan Carpet Weaving" 
+                 class="img-fluid w-100">
+          </div>
+          <div class="floating-badge bg-surface-color border border-accent-color border-opacity-25 rounded-4 p-3 shadow position-absolute bottom-4 end-4">
+            <div class="d-flex align-items-center">
+              <i class="bi bi-hand-index-thumb text-accent-color fs-4 me-3"></i>
+              <div>
+                <div class="fw-bold">100% Handmade</div>
+                <div class="small text-muted">Each knot tied by hand</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Process Timeline -->
+<section class="process-timeline py-6 bg-background-color" id="process-timeline">
+  <div class="container">
+    <div class="text-center mb-6" data-aos="fade-up">
+      <div class="section-label mb-3">
+        <span class="text-accent-color fw-semibold text-uppercase letter-spacing-2">9-STEP JOURNEY</span>
+      </div>
+      <h2 class="display-5 fw-bold mb-4">From Wool to <span class="text-accent-color">Masterpiece</span></h2>
+      <p class="lead mx-auto" style="max-width: 700px;">
+        Follow the complete journey of how we transform raw Tibetan wool into exquisite hand-knotted carpets
+      </p>
+    </div>
+    
+    <div class="timeline-container">
+      <!-- Step 1 -->
+      <div class="timeline-step" data-aos="fade-up">
+        <div class="step-number">
+          <span class="number">01</span>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-content">
+          <div class="step-header">
+            <span class="step-badge bg-accent-color text-contrast-color">Foundation</span>
+            <h3 class="step-title">Wool Selection & Preparation</h3>
+          </div>
+          <div class="step-body">
+            <div class="row align-items-center">
+              <div class="col-lg-6">
+                <div class="step-visual rounded-4 overflow-hidden mb-4 mb-lg-0">
+                  <img src="https://images.unsplash.com/photo-1600166898405-da9535204843?auto=format&fit=crop&w=600&h=400&q=80" 
+                       alt="Wool Preparation" 
+                       class="img-fluid w-100">
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="step-details">
+                  <h4 class="fw-bold mb-3">The Journey Begins</h4>
+                  <div class="process-steps">
+                    <div class="process-item">
+                      <div class="process-icon">
+                        <i class="bi bi-snow"></i>
+                      </div>
+                      <div class="process-text">
+                        <h6>Wool Sourcing</h6>
+                        <p class="small mb-0">High-altitude Tibetan sheep wool ("Changpel") or New Zealand wool</p>
+                      </div>
+                    </div>
+                    <div class="process-item">
+                      <div class="process-icon">
+                        <i class="bi bi-water"></i>
+                      </div>
+                      <div class="process-text">
+                        <h6>Cleaning & Sorting</h6>
+                        <p class="small mb-0">Washed to remove dirt, sorted by fiber length and softness</p>
+                      </div>
+                    </div>
+                    <div class="process-item">
+                      <div class="process-icon">
+                        <i class="bi bi-brush"></i>
+                      </div>
+                      <div class="process-text">
+                        <h6>Carding & Spinning</h6>
+                        <p class="small mb-0">Fibers aligned and hand-spun into yarn of precise thickness</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="material-tags mt-4">
+                    <span class="tag">Tibetan Wool</span>
+                    <span class="tag">Yak Wool</span>
+                    <span class="tag">Natural Fibers</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Step 2 -->
+      <div class="timeline-step" data-aos="fade-up">
+        <div class="step-number">
+          <span class="number">02</span>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-content">
+          <div class="step-header">
+            <span class="step-badge bg-accent-color text-contrast-color">Color</span>
+            <h3 class="step-title">Natural Dyeing Process</h3>
+          </div>
+          <div class="step-body">
+            <div class="row align-items-center flex-lg-row-reverse">
+              <div class="col-lg-6">
+                <div class="step-visual rounded-4 overflow-hidden mb-4 mb-lg-0">
+                  <img src="https://images.unsplash.com/photo-1600166898405-da9535204843?auto=format&fit=crop&w=600&h=400&q=80" 
+                       alt="Natural Dyeing" 
+                       class="img-fluid w-100">
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="step-details">
+                  <h4 class="fw-bold mb-3">Rich, Lasting Colors</h4>
+                  <div class="color-palette mb-4">
+                    <div class="color-item" style="background-color: #dc2626;">
+                      <span class="color-label">Madder Red</span>
+                    </div>
+                    <div class="color-item" style="background-color: #2563eb;">
+                      <span class="color-label">Indigo Blue</span>
+                    </div>
+                    <div class="color-item" style="background-color: #ca8a04;">
+                      <span class="color-label">Saffron Yellow</span>
+                    </div>
+                    <div class="color-item" style="background-color: #7c2d12;">
+                      <span class="color-label">Walnut Brown</span>
+                    </div>
+                  </div>
+                  <div class="process-steps">
+                    <div class="process-item">
+                      <div class="process-icon">
+                        <i class="bi bi-droplet"></i>
+                      </div>
+                      <div class="process-text">
+                        <h6>Natural Dyes</h6>
+                        <p class="small mb-0">Madder root, indigo, walnut shells, saffron for authentic colors</p>
+                      </div>
+                    </div>
+                    <div class="process-item">
+                      <div class="process-icon">
+                        <i class="bi bi-thermometer-sun"></i>
+                      </div>
+                      <div class="process-text">
+                        <h6>Dyeing Process</h6>
+                        <p class="small mb-0">Yarn boiled with dye for hours, then sun-dried to fix colors</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Step 3 -->
+      <div class="timeline-step" data-aos="fade-up">
+        <div class="step-number">
+          <span class="number">03</span>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-content">
+          <div class="step-header">
+            <span class="step-badge bg-accent-color text-contrast-color">Design</span>
+            <h3 class="step-title">Traditional Pattern Design</h3>
+          </div>
+          <div class="step-body">
+            <div class="row align-items-center">
+              <div class="col-lg-6">
+                <div class="step-visual rounded-4 overflow-hidden mb-4 mb-lg-0">
+                  <img src="https://images.unsplash.com/photo-1600166898405-da9535204843?auto=format&fit=crop&w=600&h=400&q=80" 
+                       alt="Pattern Design" 
+                       class="img-fluid w-100">
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="step-details">
+                  <h4 class="fw-bold mb-3">Thangka-Inspired Patterns</h4>
+                  <div class="motif-grid mb-4">
+                    <div class="motif-item">
+                      <div class="motif-icon">
+                        <i class="bi bi-fire"></i>
+                      </div>
+                      <div class="motif-label">Dragon</div>
+                    </div>
+                    <div class="motif-item">
+                      <div class="motif-icon">
+                        <i class="bi bi-flower1"></i>
+                      </div>
+                      <div class="motif-label">Lotus</div>
+                    </div>
+                    <div class="motif-item">
+                      <div class="motif-icon">
+                        <i class="bi bi-shield-check"></i>
+                      </div>
+                      <div class="motif-label">Snow Lion</div>
+                    </div>
+                    <div class="motif-item">
+                      <div class="motif-icon">
+                        <i class="bi bi-border-inner"></i>
+                      </div>
+                      <div class="motif-label">Geometric</div>
+                    </div>
+                  </div>
+                  <div class="process-steps">
+                    <div class="process-item">
+                      <div class="process-icon">
+                        <i class="bi bi-palette"></i>
+                      </div>
+                      <div class="process-text">
+                        <h6>Cartoon Making</h6>
+                        <p class="small mb-0">Graph paper blueprint guides weavers with exact patterns</p>
+                      </div>
+                    </div>
+                    <div class="process-item">
+                      <div class="process-icon">
+                        <i class="bi bi-pencil-square"></i>
+                      </div>
+                      <div class="process-text">
+                        <h6>Symbolism</h6>
+                        <p class="small mb-0">Each motif carries deep cultural and spiritual meaning</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Step 4 -->
+      <div class="timeline-step" data-aos="fade-up">
+        <div class="step-number">
+          <span class="number">04</span>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-content">
+          <div class="step-header">
+            <span class="step-badge bg-accent-color text-contrast-color">Setup</span>
+            <h3 class="step-title">Loom Preparation</h3>
+          </div>
+          <div class="step-body">
+            <div class="row align-items-center flex-lg-row-reverse">
+              <div class="col-lg-6">
+                <div class="step-visual rounded-4 overflow-hidden mb-4 mb-lg-0">
+                  <img src="https://images.unsplash.com/photo-1600166898405-da9535204843?auto=format&fit=crop&w=600&h=400&q=80" 
+                       alt="Loom Setup" 
+                       class="img-fluid w-100">
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="step-details">
+                  <h4 class="fw-bold mb-3">The Vertical Loom</h4>
+                  <div class="feature-cards mb-4">
+                    <div class="feature-card">
+                      <div class="feature-icon">
+                        <i class="bi bi-square"></i>
+                      </div>
+                      <div class="feature-text">
+                        <h6>Wooden Frame</h6>
+                        <p class="small mb-0">Traditional vertical loom structure</p>
+                      </div>
+                    </div>
+                    <div class="feature-card">
+                      <div class="feature-icon">
+                        <i class="bi bi-rulers"></i>
+                      </div>
+                      <div class="feature-text">
+                        <h6>Warp Threads</h6>
+                        <p class="small mb-0">Cotton or hemp threads stretched vertically</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="process-steps">
+                    <div class="process-item">
+                      <div class="process-icon">
+                        <i class="bi bi-tools"></i>
+                      </div>
+                      <div class="process-text">
+                        <h6>Unique to Tibet</h6>
+                        <p class="small mb-0">Vertical looms differ from Persian horizontal looms</p>
+                      </div>
+                    </div>
+                    <div class="process-item">
+                      <div class="process-icon">
+                        <i class="bi bi-tension"></i>
+                      </div>
+                      <div class="process-text">
+                        <h6>Manual Tension</h6>
+                        <p class="small mb-0">Each warp thread carefully adjusted by hand</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Step 5 -->
+      <div class="timeline-step featured" data-aos="fade-up">
+        <div class="step-number">
+          <span class="number">05</span>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-content">
+          <div class="step-header">
+            <span class="step-badge bg-accent-color text-contrast-color">Core Technique</span>
+            <h3 class="step-title">Tibetan Knotting</h3>
+          </div>
+          <div class="step-body">
+            <div class="knotting-demo mb-5">
+              <div class="demo-header text-center mb-4">
+                <h4 class="fw-bold text-accent-color">The Tibetan Loop Technique</h4>
+                <p class="text-muted">Unique method that creates durable, soft pile</p>
+              </div>
+              <div class="demo-steps">
+                <div class="demo-step">
+                  <div class="step-icon">
+                    <i class="bi bi-1-circle"></i>
+                  </div>
+                  <div class="step-text">
+                    <h6>Rod Placement</h6>
+                    <p>Metal rod placed before warp threads</p>
+                  </div>
+                </div>
+                <div class="demo-step">
+                  <div class="step-icon">
+                    <i class="bi bi-2-circle"></i>
+                  </div>
+                  <div class="step-text">
+                    <h6>Loop Creation</h6>
+                    <p>Yarn looped around warp threads and rod</p>
+                  </div>
+                </div>
+                <div class="demo-step">
+                  <div class="step-icon">
+                    <i class="bi bi-3-circle"></i>
+                  </div>
+                  <div class="step-text">
+                    <h6>Rod Removal</h6>
+                    <p>Rod removed after row completion</p>
+                  </div>
+                </div>
+                <div class="demo-step">
+                  <div class="step-icon">
+                    <i class="bi bi-4-circle"></i>
+                  </div>
+                  <div class="step-text">
+                    <h6>Cutting Loops</h6>
+                    <p>Loops cut to create soft pile surface</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="feature-box bg-surface-color rounded-3 p-4 h-100">
+                  <div class="feature-icon mb-3">
+                    <i class="bi bi-speedometer2 text-accent-color fs-2"></i>
+                  </div>
+                  <h5 class="fw-bold mb-2">Faster Technique</h5>
+                  <p class="small mb-0">Tibetan knotting is faster than Turkish or Persian methods while creating superior pile quality.</p>
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="feature-box bg-surface-color rounded-3 p-4 h-100">
+                  <div class="feature-icon mb-3">
+                    <i class="bi bi-gem text-accent-color fs-2"></i>
+                  </div>
+                  <h5 class="fw-bold mb-2">Durable & Soft</h5>
+                  <p class="small mb-0">Creates a thick, durable pile with unique loftiness and superior softness that lasts generations.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Step 6 -->
+      <div class="timeline-step" data-aos="fade-up">
+        <div class="step-number">
+          <span class="number">06</span>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-content">
+          <div class="step-header">
+            <span class="step-badge bg-accent-color text-contrast-color">Strength</span>
+            <h3 class="step-title">Beating & Weft Insertion</h3>
+          </div>
+          <div class="step-body">
+            <div class="row align-items-center">
+              <div class="col-lg-6">
+                <div class="step-visual rounded-4 overflow-hidden mb-4 mb-lg-0">
+                  <img src="https://images.unsplash.com/photo-1600166898405-da9535204843?auto=format&fit=crop&w=600&h=400&q=80" 
+                       alt="Beating Process" 
+                       class="img-fluid w-100">
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="step-details">
+                  <h4 class="fw-bold mb-3">Securing the Knots</h4>
+                  <div class="process-steps">
+                    <div class="process-item">
+                      <div class="process-icon">
+                        <i class="bi bi-arrow-repeat"></i>
+                      </div>
+                      <div class="process-text">
+                        <h6>Weft Insertion</h6>
+                        <p class="small mb-0">Horizontal thread inserted after each knot row</p>
+                      </div>
+                    </div>
+                    <div class="process-item">
+                      <div class="process-icon">
+                        <i class="bi bi-hammer"></i>
+                      </div>
+                      <div class="process-text">
+                        <h6>Beating Process</h6>
+                        <p class="small mb-0">Heavy comb compresses knots for maximum strength</p>
+                      </div>
+                    </div>
+                    <div class="process-item">
+                      <div class="process-icon">
+                        <i class="bi bi-shield-check"></i>
+                      </div>
+                      <div class="process-text">
+                        <h6>Structural Integrity</h6>
+                        <p class="small mb-0">Creates dense, durable carpet that withstands generations</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Step 7 -->
+      <div class="timeline-step" data-aos="fade-up">
+        <div class="step-number">
+          <span class="number">07</span>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-content">
+          <div class="step-header">
+            <span class="step-badge bg-accent-color text-contrast-color">Precision</span>
+            <h3 class="step-title">Trimming & Carving</h3>
+          </div>
+          <div class="step-body">
+            <div class="row align-items-center flex-lg-row-reverse">
+              <div class="col-lg-6">
+                <div class="step-visual rounded-4 overflow-hidden mb-4 mb-lg-0">
+                  <img src="https://images.unsplash.com/photo-1600166898405-da9535204843?auto=format&fit=crop&w=600&h=400&q=80" 
+                       alt="Carving Process" 
+                       class="img-fluid w-100">
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="step-details">
+                  <h4 class="fw-bold mb-3">Artistic Refinement</h4>
+                  <div class="carving-demo mb-4">
+                    <div class="carving-step">
+                      <div class="carving-icon">
+                        <i class="bi bi-scissors"></i>
+                      </div>
+                      <div class="carving-text">
+                        <h6>Surface Shearing</h6>
+                        <p class="small mb-0">Even shearing creates uniform pile height</p>
+                      </div>
+                    </div>
+                    <div class="carving-step">
+                      <div class="carving-icon">
+                        <i class="bi bi-pen"></i>
+                      </div>
+                      <div class="carving-text">
+                        <h6>Contour Carving</h6>
+                        <p class="small mb-0">Artisans carve around motifs for depth and clarity</p>
+                      </div>
+                    </div>
+                  </div>
+                  <p class="small text-muted">
+                    This meticulous step transforms the woven carpet into a work of art, 
+                    revealing the intricate patterns and adding three-dimensional depth.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Step 8 -->
+      <div class="timeline-step" data-aos="fade-up">
+        <div class="step-number">
+          <span class="number">08</span>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-content">
+          <div class="step-header">
+            <span class="step-badge bg-accent-color text-contrast-color">Finishing</span>
+            <h3 class="step-title">Washing & Final Touches</h3>
+          </div>
+          <div class="step-body">
+            <div class="row align-items-center">
+              <div class="col-lg-6">
+                <div class="step-visual rounded-4 overflow-hidden mb-4 mb-lg-0">
+                  <img src="https://images.unsplash.com/photo-1600166898405-da9535204843?auto=format&fit=crop&w=600&h=400&q=80" 
+                       alt="Washing Process" 
+                       class="img-fluid w-100">
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="step-details">
+                  <h4 class="fw-bold mb-3">Natural Cleansing</h4>
+                  <div class="finishing-steps">
+                    <div class="finishing-item">
+                      <div class="finishing-icon">
+                        <i class="bi bi-water"></i>
+                      </div>
+                      <div>
+                        <h6>Natural Washing</h6>
+                        <p class="small mb-2">Soap and water cleansing, beaten on rocks to remove fibers</p>
+                      </div>
+                    </div>
+                    <div class="finishing-item">
+                      <div class="finishing-icon">
+                        <i class="bi bi-sun"></i>
+                      </div>
+                      <div>
+                        <h6>Sun Drying</h6>
+                        <p class="small mb-2">Stretched on frames and naturally sun-dried</p>
+                      </div>
+                    </div>
+                    <div class="finishing-item">
+                      <div class="finishing-icon">
+                        <i class="bi bi-brush"></i>
+                      </div>
+                      <div>
+                        <h6>Edge Binding</h6>
+                        <p class="small mb-2">Edges bound, fringe trimmed, imperfections repaired</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Step 9 -->
+      <div class="timeline-step" data-aos="fade-up">
+        <div class="step-number">
+          <span class="number">09</span>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-content">
+          <div class="step-header">
+            <span class="step-badge bg-accent-color text-contrast-color">Quality</span>
+            <h3 class="step-title">Final Quality Control</h3>
+          </div>
+          <div class="step-body">
+            <div class="quality-checklist">
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="quality-item text-center">
+                    <div class="quality-icon mb-3">
+                      <i class="bi bi-grid-3x3-gap text-accent-color fs-1"></i>
+                    </div>
+                    <h5 class="fw-bold mb-2">Knot Density</h5>
+                    <p class="small mb-0">60-150 knots per square inch checked</p>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="quality-item text-center">
+                    <div class="quality-icon mb-3">
+                      <i class="bi bi-palette text-accent-color fs-1"></i>
+                    </div>
+                    <h5 class="fw-bold mb-2">Color Consistency</h5>
+                    <p class="small mb-0">Natural dye consistency across entire carpet</p>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="quality-item text-center">
+                    <div class="quality-icon mb-3">
+                      <i class="bi bi-rulers text-accent-color fs-1"></i>
+                    </div>
+                    <h5 class="fw-bold mb-2">Pattern Accuracy</h5>
+                    <p class="small mb-0">Design precision and motif alignment verified</p>
+                  </div>
+                </div>
+              </div>
+              <div class="final-note text-center mt-5">
+                <div class="icon-wrapper bg-accent-color bg-opacity-10 rounded-circle p-3 mb-3 d-inline-flex">
+                  <i class="bi bi-check-circle text-accent-color fs-3"></i>
+                </div>
+                <h4 class="fw-bold mb-3">Ready for Generations</h4>
+                <p class="lead mb-0" style="max-width: 600px; margin: 0 auto;">
+                  Each carpet undergoes multiple quality checks before being certified as a 
+                  genuine Tibetan masterpiece, ready to be cherished for generations.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Process Infographic -->
+<section class="process-infographic py-6 bg-surface-color">
+  <div class="container">
+    <div class="text-center mb-6" data-aos="fade-up">
+      <div class="section-label mb-3">
+        <span class="text-accent-color fw-semibold text-uppercase letter-spacing-2">THE COMPLETE CYCLE</span>
+      </div>
+      <h2 class="display-5 fw-bold mb-4">From Start to <span class="text-accent-color">Finish</span></h2>
+    </div>
+    
+    <div class="infographic-wrapper">
+      <div class="infographic-circle" data-aos="zoom-in">
+        <div class="circle-step step-1">
+          <div class="step-dot"></div>
+          <div class="step-label">Wool Prep</div>
+        </div>
+        <div class="circle-step step-2">
+          <div class="step-dot"></div>
+          <div class="step-label">Dyeing</div>
+        </div>
+        <div class="circle-step step-3">
+          <div class="step-dot"></div>
+          <div class="step-label">Design</div>
+        </div>
+        <div class="circle-step step-4">
+          <div class="step-dot"></div>
+          <div class="step-label">Loom Setup</div>
+        </div>
+        <div class="circle-step step-5">
+          <div class="step-dot"></div>
+          <div class="step-label">Knotting</div>
+        </div>
+        <div class="circle-step step-6">
+          <div class="step-dot"></div>
+          <div class="step-label">Beating</div>
+        </div>
+        <div class="circle-step step-7">
+          <div class="step-dot"></div>
+          <div class="step-label">Trimming</div>
+        </div>
+        <div class="circle-step step-8">
+          <div class="step-dot"></div>
+          <div class="step-label">Washing</div>
+        </div>
+        <div class="circle-step step-9">
+          <div class="step-dot"></div>
+          <div class="step-label">Quality</div>
+        </div>
+        
+        <div class="circle-center">
+          <div class="center-content">
+            <i class="bi bi-heart-fill text-accent-color"></i>
+            <div class="center-text">Handcrafted</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Master Craftsmen -->
+<section class="craftsmen-section py-6 bg-background-color">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-6" data-aos="fade-right">
+        <div class="craftsmen-content">
+          <div class="section-label mb-3">
+            <span class="text-accent-color fw-semibold text-uppercase letter-spacing-2">MASTER CRAFTSMEN</span>
+          </div>
+          <h2 class="display-5 fw-bold mb-4">Generations of <span class="text-accent-color">Skill</span></h2>
+          <p class="lead mb-4">
+            Our weavers inherit techniques passed down through generations. 
+            Each artisan trains for years to master the Tibetan knotting technique.
+          </p>
+          
+          <div class="craftsmen-stats mb-5">
+            <div class="row">
+              <div class="col-6">
+                <div class="stat-box text-center p-3">
+                  <div class="stat-number display-4 fw-bold text-accent-color">10+</div>
+                  <div class="stat-label small text-muted">Years Training</div>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="stat-box text-center p-3">
+                  <div class="stat-number display-4 fw-bold text-accent-color">50+</div>
+                  <div class="stat-label small text-muted">Artisans</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="craftsmen-features">
+            <div class="feature-item d-flex mb-3">
+              <i class="bi bi-check-circle-fill text-accent-color mt-1 me-3 flex-shrink-0"></i>
+              <span>Traditional techniques preserved</span>
+            </div>
+            <div class="feature-item d-flex mb-3">
+              <i class="bi bi-check-circle-fill text-accent-color mt-1 me-3 flex-shrink-0"></i>
+              <span>Apprenticeship-based training</span>
+            </div>
+            <div class="feature-item d-flex">
+              <i class="bi bi-check-circle-fill text-accent-color mt-1 me-3 flex-shrink-0"></i>
+              <span>Each carpet signed by its creator</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-lg-6" data-aos="fade-left">
+        <div class="craftsmen-visual position-relative">
+          <div class="main-image rounded-4 overflow-hidden shadow-lg">
+            <img src="https://images.unsplash.com/photo-1600166898405-da9535204843?auto=format&fit=crop&w=800&h=600&q=80" 
+                 alt="Master Craftsman" 
+                 class="img-fluid w-100">
+          </div>
+          <div class="floating-card bg-surface-color border border-accent-color border-opacity-25 rounded-3 p-4 shadow position-absolute bottom-4 end-4" style="max-width: 300px;">
+            <div class="d-flex align-items-start">
+              <div class="icon-wrapper bg-accent-color bg-opacity-10 rounded-circle p-2 me-3">
+                <i class="bi bi-person-check text-accent-color"></i>
+              </div>
+              <div>
+                <h5 class="fw-bold mb-2">Artisan Signature</h5>
+                <p class="small mb-0">Each carpet carries the unique signature of its creator, ensuring authenticity.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Process CTA -->
+<section class="process-cta py-6 bg-accent-color text-contrast-color">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8 text-center">
+        <h2 class="display-5 fw-bold mb-4">Witness the Craftsmanship</h2>
+        <p class="lead mb-5 opacity-75">
+          See our artisans at work. Schedule a visit to our workshop or watch our 
+          documentary on traditional Tibetan carpet making.
+        </p>
+        <div class="d-flex flex-wrap justify-content-center gap-3">
+          <a href="{% url 'contact_us' %}" class="btn btn-light btn-lg px-5">
+            <i class="bi bi-calendar-check me-2"></i>Schedule Visit
+          </a>
+          <a href="#" class="btn btn-outline-light btn-lg px-5">
+            <i class="bi bi-play-circle me-2"></i>Watch Documentary
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+/* ==================== MANUFACTURING PROCESS STYLES ==================== */
+
+/* Hero Section */
+.process-hero {
+  background: linear-gradient(135deg, var(--surface-color) 0%, color-mix(in srgb, var(--surface-color), var(--background-color) 50%) 100%);
+}
+
+.hero-stats {
+  display: flex;
+  gap: 40px;
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-number {
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.stat-label {
+  color: color-mix(in srgb, var(--default-color), transparent 30%);
+  font-size: 0.875rem;
+}
+
+/* Timeline */
+.timeline-container {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-left: 80px;
+}
+
+.timeline-container::before {
+  content: '';
+  position: absolute;
+  left: 40px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, 
+    var(--accent-color) 0%, 
+    color-mix(in srgb, var(--accent-color), transparent 50%) 100%);
+}
+
+.timeline-step {
+  position: relative;
+  margin-bottom: 80px;
+}
+
+.timeline-step:last-child {
+  margin-bottom: 0;
+}
+
+.timeline-step.featured .step-content {
+  border-color: var(--accent-color);
+  background: linear-gradient(135deg, 
+    color-mix(in srgb, var(--accent-color), transparent 98%) 0%,
+    color-mix(in srgb, var(--surface-color), transparent 100%) 100%);
+}
+
+.step-number {
+  position: absolute;
+  left: -80px;
+  top: 0;
+  width: 80px;
+  text-align: center;
+}
+
+.step-number .number {
+  display: inline-block;
+  width: 60px;
+  height: 60px;
+  background: var(--accent-color);
+  color: var(--contrast-color);
+  border-radius: 50%;
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 60px;
+  position: relative;
+  z-index: 2;
+}
+
+.step-line {
+  position: absolute;
+  left: 50%;
+  top: 60px;
+  bottom: -80px;
+  width: 2px;
+  background: var(--accent-color);
+  transform: translateX(-50%);
+}
+
+.timeline-step:last-child .step-line {
+  display: none;
+}
+
+.step-content {
+  background: var(--surface-color);
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+}
+
+.step-header {
+  margin-bottom: 30px;
+}
+
+.step-badge {
+  display: inline-block;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.step-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--heading-color);
+  margin: 0;
+}
+
+.step-visual {
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.step-visual img {
+  transition: transform 0.5s ease;
+}
+
+.step-visual:hover img {
+  transform: scale(1.05);
+}
+
+/* Process Steps */
+.process-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.process-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+}
+
+.process-icon {
+  width: 40px;
+  height: 40px;
+  background: color-mix(in srgb, var(--accent-color), transparent 90%);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.process-icon i {
+  color: var(--accent-color);
+  font-size: 1.25rem;
+}
+
+.process-text h6 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+  color: var(--heading-color);
+}
+
+.process-text p {
+  color: color-mix(in srgb, var(--default-color), transparent 30%);
+  font-size: 0.875rem;
+  margin: 0;
+}
+
+/* Material Tags */
+.material-tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.tag {
+  background: color-mix(in srgb, var(--accent-color), transparent 90%);
+  color: var(--accent-color);
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+/* Color Palette */
+.color-palette {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 25px;
+}
+
+.color-item {
+  flex: 1;
+  height: 80px;
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+}
+
+.color-label {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  right: 8px;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* Motif Grid */
+.motif-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.motif-item {
+  text-align: center;
+  padding: 15px;
+  background: color-mix(in srgb, var(--accent-color), transparent 95%);
+  border-radius: 8px;
+}
+
+.motif-icon {
+  width: 50px;
+  height: 50px;
+  background: color-mix(in srgb, var(--accent-color), transparent 90%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 10px;
+}
+
+.motif-icon i {
+  color: var(--accent-color);
+  font-size: 1.5rem;
+}
+
+.motif-label {
+  font-weight: 600;
+  color: var(--heading-color);
+}
+
+/* Feature Cards */
+.feature-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.feature-card {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 15px;
+  background: color-mix(in srgb, var(--accent-color), transparent 95%);
+  border-radius: 8px;
+}
+
+.feature-icon {
+  width: 40px;
+  height: 40px;
+  background: color-mix(in srgb, var(--accent-color), transparent 90%);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.feature-icon i {
+  color: var(--accent-color);
+  font-size: 1.25rem;
+}
+
+.feature-text h6 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+  color: var(--heading-color);
+}
+
+.feature-text p {
+  color: color-mix(in srgb, var(--default-color), transparent 30%);
+  font-size: 0.875rem;
+  margin: 0;
+}
+
+/* Knotting Demo */
+.knotting-demo {
+  background: linear-gradient(135deg, 
+    color-mix(in srgb, var(--accent-color), transparent 95%) 0%,
+    color-mix(in srgb, var(--surface-color), transparent 100%) 100%);
+  border-radius: 12px;
+  padding: 30px;
+  margin-bottom: 30px;
+}
+
+.demo-steps {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.demo-step {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.step-icon {
+  width: 50px;
+  height: 50px;
+  background: var(--accent-color);
+  color: var(--contrast-color);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.step-icon i {
+  font-size: 1.5rem;
+}
+
+.step-text h6 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+  color: var(--heading-color);
+}
+
+.step-text p {
+  color: color-mix(in srgb, var(--default-color), transparent 30%);
+  margin: 0;
+}
+
+/* Feature Box */
+.feature-box {
+  border: 1px solid color-mix(in srgb, var(--accent-color), transparent 50%);
+}
+
+/* Carving Demo */
+.carving-demo {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.carving-step {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.carving-icon {
+  width: 50px;
+  height: 50px;
+  background: color-mix(in srgb, var(--accent-color), transparent 90%);
+  color: var(--accent-color);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.carving-icon i {
+  font-size: 1.5rem;
+}
+
+.carving-text h6 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+  color: var(--heading-color);
+}
+
+.carving-text p {
+  color: color-mix(in srgb, var(--default-color), transparent 30%);
+  margin: 0;
+  font-size: 0.875rem;
+}
+
+/* Finishing Steps */
+.finishing-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.finishing-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+}
+
+.finishing-icon {
+  width: 40px;
+  height: 40px;
+  background: color-mix(in srgb, var(--accent-color), transparent 90%);
+  color: var(--accent-color);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.finishing-icon i {
+  font-size: 1.25rem;
+}
+
+.finishing-item h6 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+  color: var(--heading-color);
+}
+
+.finishing-item p {
+  color: color-mix(in srgb, var(--default-color), transparent 30%);
+  font-size: 0.875rem;
+  margin: 0;
+}
+
+/* Quality Checklist */
+.quality-checklist {
+  background: var(--surface-color);
+  border-radius: 12px;
+  padding: 40px;
+}
+
+.quality-item {
+  padding: 20px;
+}
+
+.quality-icon i {
+  transition: transform 0.3s ease;
+}
+
+.quality-item:hover .quality-icon i {
+  transform: scale(1.1);
+}
+
+.quality-item h5 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--heading-color);
+}
+
+.quality-item p {
+  color: color-mix(in srgb, var(--default-color), transparent 30%);
+  font-size: 0.875rem;
+}
+
+.final-note {
+  padding-top: 30px;
+  border-top: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+}
+
+/* Infographic */
+.infographic-wrapper {
+  position: relative;
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.infographic-circle {
+  position: relative;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--accent-color), transparent 95%);
+}
+
+.circle-step {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  background: var(--surface-color);
+  border: 2px solid var(--accent-color);
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transform: translate(-50%, -50%);
+  animation: pulse 2s infinite;
+}
+
+.circle-step:nth-child(1) { top: 15%; left: 50%; }
+.circle-step:nth-child(2) { top: 30%; left: 80%; }
+.circle-step:nth-child(3) { top: 50%; left: 95%; }
+.circle-step:nth-child(4) { top: 70%; left: 80%; }
+.circle-step:nth-child(5) { top: 85%; left: 50%; }
+.circle-step:nth-child(6) { top: 70%; left: 20%; }
+.circle-step:nth-child(7) { top: 50%; left: 5%; }
+.circle-step:nth-child(8) { top: 30%; left: 20%; }
+.circle-step:nth-child(9) { top: 50%; left: 50%; }
+
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent-color), transparent 50%); }
+  50% { box-shadow: 0 0 0 10px color-mix(in srgb, var(--accent-color), transparent 0%); }
+}
+
+.step-dot {
+  width: 20px;
+  height: 20px;
+  background: var(--accent-color);
+  border-radius: 50%;
+  margin-bottom: 5px;
+}
+
+.step-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--heading-color);
+  text-align: center;
+}
+
+.circle-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 150px;
+  height: 150px;
+  background: var(--accent-color);
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--contrast-color);
+  box-shadow: 0 10px 30px color-mix(in srgb, var(--accent-color), transparent 50%);
+}
+
+.center-content i {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.center-text {
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+/* Craftsmen Section */
+.craftsmen-stats .stat-box {
+  background: var(--surface-color);
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+  border-radius: 8px;
+}
+
+.craftsmen-features .feature-item span {
+  color: var(--default-color);
+}
+
+.floating-card {
+  backdrop-filter: blur(10px);
+  background-color: color-mix(in srgb, var(--surface-color), transparent 10%);
+}
+
+/* CTA Section */
+.process-cta {
+  background: linear-gradient(135deg, var(--accent-color) 0%, color-mix(in srgb, var(--accent-color), var(--heading-color) 30%) 100%);
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .timeline-container {
+    padding-left: 60px;
+  }
+  
+  .timeline-container::before {
+    left: 30px;
+  }
+  
+  .step-number {
+    left: -60px;
+    width: 60px;
+  }
+  
+  .step-number .number {
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    font-size: 1rem;
+  }
+  
+  .infographic-circle {
+    width: 400px;
+    height: 400px;
+  }
+  
+  .circle-step {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .step-label {
+    font-size: 0.625rem;
+  }
+  
+  .circle-center {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+@media (max-width: 768px) {
+  .timeline-container {
+    padding-left: 0;
+  }
+  
+  .timeline-container::before {
+    display: none;
+  }
+  
+  .step-number {
+    position: relative;
+    left: 0;
+    width: auto;
+    margin-bottom: 20px;
+    text-align: left;
+  }
+  
+  .step-number .number {
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 0.875rem;
+  }
+  
+  .step-line {
+    display: none;
+  }
+  
+  .demo-steps {
+    grid-template-columns: 1fr;
+  }
+  
+  .infographic-circle {
+    width: 300px;
+    height: 300px;
+  }
+  
+  .circle-step {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .step-dot {
+    width: 15px;
+    height: 15px;
+  }
+  
+  .step-label {
+    font-size: 0.5rem;
+  }
+  
+  .circle-center {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .center-content i {
+    font-size: 2rem;
+  }
+  
+  .center-text {
+    font-size: 0.875rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .step-content {
+    padding: 20px;
+  }
+  
+  .hero-stats {
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .color-palette {
+    flex-direction: column;
+  }
+  
+  .motif-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .quality-checklist {
+    padding: 20px;
+  }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Initialize AOS animations
+  if (typeof AOS !== 'undefined') {
+    AOS.init({
+      duration: 800,
+      once: true,
+      offset: 100
+    });
+  }
+
+  // Smooth scroll to timeline
+  document.querySelectorAll('.scroll-to').forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        window.scrollTo({
+          top: target.offsetTop - 80,
+          behavior: 'smooth'
+        });
+      }
+    });
+  });
+
+  // Animate timeline steps on scroll
+  const observerOptions = {
+    threshold: 0.2,
+    rootMargin: '0px 0px -50px 0px'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animated');
+        
+        // Animate child elements sequentially
+        const items = entry.target.querySelectorAll('.process-item, .feature-card, .demo-step');
+        items.forEach((item, index) => {
+          setTimeout(() => {
+            item.classList.add('fade-in-up');
+          }, index * 100);
+        });
+      }
+    });
+  }, observerOptions);
+
+  // Observe timeline steps
+  document.querySelectorAll('.timeline-step').forEach(step => {
+    observer.observe(step);
+  });
+
+  // Infographic animation
+  const infographic = document.querySelector('.infographic-circle');
+  if (infographic) {
+    const infographicObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const steps = entry.target.querySelectorAll('.circle-step');
+          steps.forEach((step, index) => {
+            setTimeout(() => {
+              step.classList.add('animate-step');
+            }, index * 200);
+          });
+          infographicObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    infographicObserver.observe(infographic);
+  }
+
+  // Add step numbers to timeline
+  const steps = document.querySelectorAll('.timeline-step');
+  steps.forEach((step, index) => {
+    step.style.setProperty('--step-index', index);
+  });
+
+  // Image lazy loading
+  const images = document.querySelectorAll('.step-visual img');
+  images.forEach(img => {
+    img.addEventListener('load', function() {
+      this.parentElement.classList.add('loaded');
+    });
+  });
+});
+
+// Add CSS for animations
+const style = document.createElement('style');
+style.textContent = `
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .fade-in-up {
+    animation: fadeInUp 0.6s ease forwards;
+  }
+  
+  @keyframes stepIn {
+    0% {
+      transform: translate(-50%, -50%) scale(0);
+      opacity: 0;
+    }
+    50% {
+      transform: translate(-50%, -50%) scale(1.2);
+    }
+    100% {
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 1;
+    }
+  }
+  
+  .circle-step.animate-step {
+    animation: stepIn 0.6s ease forwards;
+  }
+  
+  .timeline-step .process-item,
+  .timeline-step .feature-card,
+  .timeline-step .demo-step {
+    opacity: 0;
+  }
+  
+  .timeline-step.animated .process-item.fade-in-up,
+  .timeline-step.animated .feature-card.fade-in-up,
+  .timeline-step.animated .demo-step.fade-in-up {
+    opacity: 1;
+  }
+  
+  .step-visual {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .step-visual::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, 
+      color-mix(in srgb, var(--accent-color), transparent 10%) 0%,
+      transparent 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+  }
+  
+  .step-visual:hover::before {
+    opacity: 1;
+  }
+  
+  .step-visual img {
+    position: relative;
+    z-index: 0;
+  }
+`;
+document.head.appendChild(style);
+</script>
+{% endblock %}

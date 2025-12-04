@@ -1,0 +1,841 @@
+{% extends 'base/index.html' %}
+{% load static %}
+
+{% block title %}Gallery - Everest Carpet Industry{% endblock %}
+{% block description %}Visual gallery of authentic Tibetan carpets. Browse through traditional, antique, and contemporary designs in a clean, image-focused layout.{% endblock %}
+{% block body_class %}gallery-page{% endblock %}
+
+{% block content %}
+{% include 'base/navbar.html' %}
+
+<!-- Gallery Header -->
+<section class="gallery-header py-4 bg-surface-color">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-8">
+        <h1 class="display-4 fw-bold mb-2">Carpet Gallery</h1>
+        <p class="lead text-muted mb-0">
+          Visual journey through our Tibetan carpet collection
+        </p>
+      </div>
+      <div class="col-lg-4 text-lg-end">
+        <div class="gallery-actions">
+          <button class="btn btn-sm btn-outline-primary" id="toggleFullscreen">
+            <i class="bi bi-fullscreen me-1"></i>Fullscreen
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Gallery Filters -->
+<div class="gallery-filters py-3 bg-background-color border-bottom">
+  <div class="container">
+    <div class="filter-buttons d-flex flex-wrap gap-2">
+      <button class="btn btn-sm filter-btn active" data-filter="all">
+        All
+      </button>
+      <button class="btn btn-sm filter-btn" data-filter="traditional">
+        Traditional
+      </button>
+      <button class="btn btn-sm filter-btn" data-filter="antique">
+        Antique
+      </button>
+      <button class="btn btn-sm filter-btn" data-filter="modern">
+        Modern
+      </button>
+      <button class="btn btn-sm filter-btn" data-filter="custom">
+        Custom
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Gallery Grid -->
+<section class="gallery-grid py-4">
+  <div class="container-fluid px-lg-5">
+    <div class="row g-2" id="galleryContainer">
+      <!-- Gallery items will be loaded here -->
+    </div>
+    
+    <!-- Loading -->
+    <div class="text-center py-5" id="loadingState">
+      <div class="spinner-border text-accent-color" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
+    
+    <!-- No Results -->
+    <div class="text-center py-5 d-none" id="noResults">
+      <i class="bi bi-image text-muted display-3 mb-3"></i>
+      <p class="text-muted">No images found</p>
+      <button class="btn btn-sm btn-outline-primary" id="resetFilters">
+        Clear Filters
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- Simple Lightbox -->
+<div class="lightbox-overlay" id="lightbox">
+  <div class="lightbox-content">
+    <button class="lightbox-close" id="closeLightbox">
+      <i class="bi bi-x-lg"></i>
+    </button>
+    <button class="lightbox-nav prev" id="prevImage">
+      <i class="bi bi-chevron-left"></i>
+    </button>
+    <button class="lightbox-nav next" id="nextImage">
+      <i class="bi bi-chevron-right"></i>
+    </button>
+    
+    <div class="lightbox-image-container">
+      <img src="" alt="" id="lightboxImage">
+    </div>
+    
+    <div class="lightbox-info">
+      <div class="lightbox-title" id="lightboxTitle"></div>
+      <div class="lightbox-category" id="lightboxCategory"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Gallery Data -->
+<script type="application/json" id="galleryData">
+[
+  {
+    "id": 1,
+    "title": "Dragon Harmony",
+    "category": "traditional",
+    "image": "https://images.unsplash.com/photo-1600166898405-da9535204843?auto=format&fit=crop&w=800&h=600&q=80",
+    "thumb": "https://images.unsplash.com/photo-1600166898405-da9535204843?auto=format&fit=crop&w=400&h=300&q=80"
+  },
+  {
+    "id": 2,
+    "title": "Floral Medallion",
+    "category": "antique",
+    "image": "https://images.unsplash.com/photo-1600166898405-da9535204843?auto=format&fit=crop&w=800&h=600&q=80",
+    "thumb": "https://images.unsplash.com/photo-1600166898405-da9535204843?auto=format&fit=crop&w=400&h=300&q=80"
+  },
+  {
+    "id": 3,
+    "title": "Geometric Waves",
+    "category": "modern",
+    "image": "https://images.unsplash.com/photo-1600166898405-da9535204843?auto=format&fit=crop&w=800&h=600&q=80",
+    "thumb": "https://images.unsplash.com/photo-1600166898405-da9535204843?auto=format&fit=crop&w=400&h=300&q=80"
+  },
+  {
+    "id": 4,
+    "title": "Lotus Garden",
+    "category": "traditional",
+    "image": "https://images.unsplash.com/photo-1600166898405-da9535204843?auto=format&fit=crop&w=800&h=600&q=80",
+    "thumb": "https://images.unsplash.com/photo-1600166898405-da9535204843?auto=format&fit=crop&w=400&h=300&q=80"
+  },
+  {
+    "id": 5,
+    "title": "Mountain Landscape",
+    "category": "custom",
+    "image": "https://images.unsplash.com/photo-1600166898405-da9535204843?auto=format&fit=crop&w=800&h=600&q=80",
+    "thumb": "https://images.unsplash.com/photo-1600166898405-da9535204843?auto=format&fit=crop&w=400&h=300&q=80"
+  },
+  {
+    "id": 6,
+    "title": "Tiger Rug",
+    "category": "traditional",
+    "image": "https://images.unsplash.com/photo-1600166898405-da9535204843?auto=format&fit=crop&w=800&h=600&q=80",
+    "thumb": "https://images.unsplash.com/photo-1600166898405-da9535204843?auto=format&fit=crop&w=400&h=300&q=80"
+  },
+  {
+    "id": 7,
+    "title": "Prayer Carpet",
+    "category": "antique",
+    "image": "https://images.unsplash.com/photo-1600166898405-da9535204843?auto=format&fit=crop&w=800&h=600&q=80",
+    "thumb": "https://images.unsplash.com/photo-1600166898405-da9535204843?auto=format&fit=crop&w=400&h=300&q=80"
+  },
+  {
+    "id": 8,
+    "title": "Abstract Lines",
+    "category": "modern",
+    "image": "https://images.unsplash.com/photo-1600166898405-da9535204843?auto=format&fit=crop&w=800&h=600&q=80",
+    "thumb": "https://images.unsplash.com/photo-1600166898405-da9535204843?auto=format&fit=crop&w=400&h=300&q=80"
+  },
+  {
+    "id": 9,
+    "title": "Dragon & Phoenix",
+    "category": "traditional",
+    "image": "https://images.unsplash.com/photo-1600166898405-da9535204843?auto=format&fit=crop&w=800&h=600&q=80",
+    "thumb": "https://images.unsplash.com/photo-1600166898405-da9535204843?auto=format&fit=crop&w=400&h=300&q=80"
+  },
+  {
+    "id": 10,
+    "title": "Classic Border",
+    "category": "antique",
+    "image": "https://images.unsplash.com/photo-1600166898405-da9535204843?auto=format&fit=crop&w=800&h=600&q=80",
+    "thumb": "https://images.unsplash.com/photo-1600166898405-da9535204843?auto=format&fit=crop&w=400&h=300&q=80"
+  },
+  {
+    "id": 11,
+    "title": "Minimalist Design",
+    "category": "modern",
+    "image": "https://images.unsplash.com/photo-1600166898405-da9535204843?auto=format&fit=crop&w=800&h=600&q=80",
+    "thumb": "https://images.unsplash.com/photo-1600166898405-da9535204843?auto=format&fit=crop&w=400&h=300&q=80"
+  },
+  {
+    "id": 12,
+    "title": "Custom Monogram",
+    "category": "custom",
+    "image": "https://images.unsplash.com/photo-1600166898405-da9535204843?auto=format&fit=crop&w=800&h=600&q=80",
+    "thumb": "https://images.unsplash.com/photo-1600166898405-da9535204843?auto=format&fit=crop&w=400&h=300&q=80"
+  }
+]
+</script>
+
+<style>
+/* ==================== LIGHTWEIGHT GALLERY STYLES ==================== */
+
+.gallery-page .gallery-header {
+  background: linear-gradient(135deg, var(--surface-color) 0%, color-mix(in srgb, var(--surface-color), var(--background-color) 50%) 100%);
+}
+
+/* Filter Buttons */
+.filter-buttons {
+  justify-content: center;
+}
+
+.filter-btn {
+  background: transparent;
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 80%);
+  color: var(--default-color);
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 0.875rem;
+  transition: all 0.2s ease;
+}
+
+.filter-btn:hover {
+  border-color: var(--accent-color);
+  color: var(--accent-color);
+}
+
+.filter-btn.active {
+  background: var(--accent-color);
+  border-color: var(--accent-color);
+  color: var(--contrast-color);
+}
+
+/* Gallery Grid */
+.gallery-grid {
+  min-height: 60vh;
+}
+
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  cursor: pointer;
+  aspect-ratio: 1;
+  transition: transform 0.3s ease;
+}
+
+.gallery-item:hover {
+  transform: scale(1.02);
+  z-index: 10;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.05);
+}
+
+/* Image Overlay (Badge) */
+.image-badge {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  background: color-mix(in srgb, var(--surface-color), transparent 20%);
+  backdrop-filter: blur(10px);
+  color: var(--heading-color);
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+}
+
+.gallery-item:hover .image-badge {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Grid Sizes - Responsive */
+.gallery-item.size-2 {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.gallery-item.size-2 img {
+  aspect-ratio: 2/1;
+}
+
+/* Lightbox */
+.lightbox-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.95);
+  z-index: 9999;
+  display: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.lightbox-overlay.active {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+}
+
+.lightbox-content {
+  position: relative;
+  width: 90%;
+  max-width: 1200px;
+  max-height: 90vh;
+}
+
+.lightbox-image-container {
+  width: 100%;
+  height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lightbox-image-container img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.lightbox-image-container img.loaded {
+  opacity: 1;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: -40px;
+  right: 0;
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 5px;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+.lightbox-close:hover {
+  opacity: 1;
+}
+
+.lightbox-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: color-mix(in srgb, white, transparent 80%);
+  border: none;
+  color: white;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0.5;
+  transition: all 0.2s;
+}
+
+.lightbox-nav:hover {
+  opacity: 1;
+  background: color-mix(in srgb, white, transparent 60%);
+}
+
+.lightbox-nav.prev {
+  left: 20px;
+}
+
+.lightbox-nav.next {
+  right: 20px;
+}
+
+.lightbox-info {
+  position: absolute;
+  bottom: -60px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  color: white;
+}
+
+.lightbox-title {
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.lightbox-category {
+  font-size: 0.875rem;
+  opacity: 0.7;
+}
+
+/* Grid Layout */
+@media (min-width: 768px) {
+  .gallery-grid .row {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 16px;
+  }
+  
+  .gallery-item.size-2 {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 767px) {
+  .gallery-grid .row {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 8px;
+  }
+  
+  .gallery-item {
+    aspect-ratio: 1;
+  }
+  
+  .lightbox-nav {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .lightbox-nav.prev {
+    left: 10px;
+  }
+  
+  .lightbox-nav.next {
+    right: 10px;
+  }
+}
+
+/* Loading Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.gallery-item {
+  animation: fadeIn 0.4s ease forwards;
+  animation-delay: calc(var(--item-index, 0) * 0.05s);
+  opacity: 0;
+}
+
+/* Fullscreen Mode */
+.gallery-grid.fullscreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--background-color);
+  z-index: 1000;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.gallery-grid.fullscreen .container-fluid {
+  max-width: 100%;
+}
+
+.gallery-grid.fullscreen .gallery-item {
+  aspect-ratio: auto;
+  height: auto;
+}
+
+/* Simple Loading Placeholder */
+.gallery-item.loading {
+  background: linear-gradient(90deg, 
+    color-mix(in srgb, var(--background-color), transparent 100%) 0%,
+    color-mix(in srgb, var(--background-color), transparent 85%) 50%,
+    color-mix(in srgb, var(--background-color), transparent 100%) 100%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Category Colors */
+.category-badge.traditional {
+  background: color-mix(in srgb, #22c55e, transparent 85%);
+  color: #166534;
+}
+
+.category-badge.antique {
+  background: color-mix(in srgb, #f59e0b, transparent 85%);
+  color: #92400e;
+}
+
+.category-badge.modern {
+  background: color-mix(in srgb, #3b82f6, transparent 85%);
+  color: #1e40af;
+}
+
+.category-badge.custom {
+  background: color-mix(in srgb, #8b5cf6, transparent 85%);
+  color: #5b21b6;
+}
+
+/* Image Hover Effect */
+.gallery-item::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(180deg, transparent 60%, rgba(0,0,0,0.3) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.gallery-item:hover::after {
+  opacity: 1;
+}
+
+/* Keyboard Shortcut Hint */
+.keyboard-hint {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: color-mix(in srgb, var(--accent-color), transparent 90%);
+  color: var(--accent-color);
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 0.75rem;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+  z-index: 100;
+}
+
+.keyboard-hint.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Gallery data
+  const galleryData = JSON.parse(document.getElementById('galleryData').textContent);
+  let filteredData = [...galleryData];
+  let currentFilter = 'all';
+  let currentImageIndex = 0;
+  let isFullscreen = false;
+  
+  // DOM Elements
+  const galleryContainer = document.getElementById('galleryContainer');
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImage = document.getElementById('lightboxImage');
+  const lightboxTitle = document.getElementById('lightboxTitle');
+  const lightboxCategory = document.getElementById('lightboxCategory');
+  const loadingState = document.getElementById('loadingState');
+  const noResults = document.getElementById('noResults');
+  
+  // Initialize gallery
+  function initGallery() {
+    renderGallery();
+    setupEventListeners();
+  }
+  
+  // Render gallery
+  function renderGallery() {
+    galleryContainer.innerHTML = '';
+    loadingState.classList.remove('d-none');
+    noResults.classList.add('d-none');
+    
+    // Filter data
+    filterGalleryData();
+    
+    // Check results
+    if (filteredData.length === 0) {
+      loadingState.classList.add('d-none');
+      noResults.classList.remove('d-none');
+      return;
+    }
+    
+    // Render items
+    setTimeout(() => {
+      loadingState.classList.add('d-none');
+      
+      filteredData.forEach((item, index) => {
+        const galleryItem = createGalleryItem(item, index);
+        galleryContainer.appendChild(galleryItem);
+      });
+    }, 300);
+  }
+  
+  // Create gallery item
+  function createGalleryItem(item, index) {
+    const itemElement = document.createElement('div');
+    itemElement.className = 'gallery-item';
+    itemElement.style.cssText = '--item-index: ' + index;
+    
+    // Random size for variety (optional)
+    const randomSize = Math.random() > 0.85 ? ' size-2' : '';
+    itemElement.className += randomSize;
+    
+    itemElement.dataset.id = item.id;
+    itemElement.dataset.category = item.category;
+    
+    itemElement.innerHTML = `
+      <img src="${item.thumb}" 
+           alt="${item.title}"
+           data-full="${item.image}"
+           loading="lazy">
+      <div class="image-badge category-badge ${item.category}">
+        ${formatCategory(item.category)}
+      </div>
+    `;
+    
+    // Click to open lightbox
+    itemElement.addEventListener('click', () => openLightbox(item));
+    
+    // Lazy load image
+    const img = itemElement.querySelector('img');
+    img.addEventListener('load', function() {
+      this.parentElement.classList.remove('loading');
+    });
+    
+    return itemElement;
+  }
+  
+  // Filter gallery data
+  function filterGalleryData() {
+    if (currentFilter === 'all') {
+      filteredData = [...galleryData];
+    } else {
+      filteredData = galleryData.filter(item => item.category === currentFilter);
+    }
+  }
+  
+  // Open lightbox
+  function openLightbox(item) {
+    currentImageIndex = filteredData.findIndex(img => img.id === item.id);
+    updateLightbox(item);
+    lightbox.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+  
+  // Update lightbox
+  function updateLightbox(item) {
+    lightboxImage.classList.remove('loaded');
+    
+    const fullImage = new Image();
+    fullImage.src = item.image;
+    fullImage.onload = function() {
+      lightboxImage.src = item.image;
+      lightboxImage.alt = item.title;
+      setTimeout(() => lightboxImage.classList.add('loaded'), 10);
+    };
+    
+    lightboxTitle.textContent = item.title;
+    lightboxCategory.textContent = formatCategory(item.category);
+    lightboxCategory.className = `lightbox-category category-badge ${item.category}`;
+  }
+  
+  // Setup event listeners
+  function setupEventListeners() {
+    // Filter buttons
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+        
+        currentFilter = this.dataset.filter;
+        renderGallery();
+      });
+    });
+    
+    // Lightbox controls
+    document.getElementById('closeLightbox').addEventListener('click', closeLightbox);
+    document.getElementById('prevImage').addEventListener('click', showPrevImage);
+    document.getElementById('nextImage').addEventListener('click', showNextImage);
+    
+    // Reset filters
+    document.getElementById('resetFilters')?.addEventListener('click', function() {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      document.querySelector('.filter-btn[data-filter="all"]').classList.add('active');
+      currentFilter = 'all';
+      renderGallery();
+    });
+    
+    // Fullscreen toggle
+    document.getElementById('toggleFullscreen')?.addEventListener('click', toggleFullscreen);
+    
+    // Keyboard navigation
+    document.addEventListener('keydown', handleKeyboard);
+    
+    // Close lightbox on overlay click
+    lightbox.addEventListener('click', function(e) {
+      if (e.target === lightbox) {
+        closeLightbox();
+      }
+    });
+    
+    // Preload first few images
+    preloadImages();
+  }
+  
+  // Lightbox navigation
+  function showPrevImage() {
+    if (currentImageIndex > 0) {
+      currentImageIndex--;
+      updateLightbox(filteredData[currentImageIndex]);
+    }
+  }
+  
+  function showNextImage() {
+    if (currentImageIndex < filteredData.length - 1) {
+      currentImageIndex++;
+      updateLightbox(filteredData[currentImageIndex]);
+    }
+  }
+  
+  function closeLightbox() {
+    lightbox.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+  
+  // Keyboard controls
+  function handleKeyboard(e) {
+    if (!lightbox.classList.contains('active')) return;
+    
+    switch(e.key) {
+      case 'Escape':
+        closeLightbox();
+        break;
+      case 'ArrowLeft':
+        showPrevImage();
+        break;
+      case 'ArrowRight':
+        showNextImage();
+        break;
+    }
+  }
+  
+  // Toggle fullscreen
+  function toggleFullscreen() {
+    const grid = document.querySelector('.gallery-grid');
+    isFullscreen = !isFullscreen;
+    
+    if (isFullscreen) {
+      grid.classList.add('fullscreen');
+      document.body.style.overflow = 'hidden';
+    } else {
+      grid.classList.remove('fullscreen');
+      document.body.style.overflow = '';
+    }
+  }
+  
+  // Helper functions
+  function formatCategory(category) {
+    const categories = {
+      'traditional': 'Traditional',
+      'antique': 'Antique',
+      'modern': 'Modern',
+      'custom': 'Custom'
+    };
+    return categories[category] || category;
+  }
+  
+  function preloadImages() {
+    // Preload first 4 images
+    galleryData.slice(0, 4).forEach(item => {
+      const img = new Image();
+      img.src = item.thumb;
+    });
+  }
+  
+  // Lazy load images as they enter viewport
+  function initLazyLoading() {
+    const images = document.querySelectorAll('.gallery-item img');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const img = entry.target;
+          img.src = img.dataset.src;
+          observer.unobserve(img);
+        }
+      });
+    }, { threshold: 0.1 });
+    
+    images.forEach(img => observer.observe(img));
+  }
+  
+  // Initialize
+  initGallery();
+  
+  // Show keyboard hint briefly
+  setTimeout(() => {
+    const hint = document.createElement('div');
+    hint.className = 'keyboard-hint';
+    hint.innerHTML = '<span>Press ← → to navigate in lightbox</span>';
+    document.body.appendChild(hint);
+    
+    setTimeout(() => hint.classList.add('show'), 100);
+    setTimeout(() => {
+      hint.classList.remove('show');
+      setTimeout(() => hint.remove(), 300);
+    }, 3000);
+  }, 2000);
+  
+  // Handle window resize
+  let resizeTimeout;
+  window.addEventListener('resize', function() {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(() => {
+      galleryContainer.style.gridAutoRows = '0'; // Reset
+      galleryContainer.style.gridTemplateRows = 'auto'; // Reset
+    }, 250);
+  });
+});
+</script>
+{% endblock %}

@@ -6,112 +6,98 @@
 {% block body_class %}home-page{% endblock %}
 
 {% block content %}
-{% include 'base/navbar.html' %}
 
-<!-- Hero Section -->
-<section class="hero-section position-relative overflow-hidden" style="padding-top: 0;">
-  <div class="container">
-    <div class="row align-items-center" style="min-height: calc(100vh - 70px);">
-      <div class="col-lg-6" data-aos="fade-right">
-        <div class="hero-content position-relative z-2 pt-5 pt-lg-0">
+
+<!-- Hero Section - Fixed Alignment -->
+<section class="hero-section position-relative overflow-hidden bg-light-subtle">
+  <div class="container position-relative">
+    <div class="row align-items-center min-vh-85">
+      <div class="col-lg-6 order-2 order-lg-1 py-5 py-lg-0" data-aos="fade-right">
+        <div class="hero-content-container bg-white bg-opacity-95 rounded-4 p-4 p-md-5 shadow-sm">
           <div class="badge mb-4">
-            <span class="d-inline-flex align-items-center px-4 py-2 rounded-pill bg-surface-color text-accent-color border border-accent-color border-opacity-25">
-              <i class="bi bi-award me-2"></i>Since 1986
+            <span class="d-inline-flex align-items-center px-3 py-2 rounded-pill bg-primary bg-opacity-10 text-primary border-0">
+              <i class="bi bi-award me-2"></i>Est. 1986
             </span>
           </div>
           
           <h1 class="display-4 fw-bold mb-4">
             <span class="d-block">Authentic</span>
-            <span class="d-block text-accent-color">Tibetan Carpets</span>
-            <span class="d-block">Handcrafted with Tradition</span>
+            <span class="d-block text-primary">Tibetan Carpets</span>
+            <span class="d-block fs-3 fw-normal text-muted mt-2">Handcrafted with Tradition</span>
           </h1>
           
-          <p class="lead mb-5 opacity-75">
+          <p class="lead mb-4 text-muted">
             Preserving the ancient art of Tibetan carpet weaving with traditional designs, 
             100% Tibetan wool, and expert craftsmanship for over three decades.
           </p>
           
-          <div class="hero-actions d-flex flex-wrap gap-3 mb-5">
-            <a href="{% url 'products' %}" class="btn btn-primary btn-lg px-5 py-3">
+          <div class="hero-actions d-flex flex-wrap gap-3 mb-4">
+            <a href="{% url 'products' %}" class="btn btn-primary btn-lg px-4 py-3">
               <i class="bi bi-grid me-2"></i> View Collections
             </a>
-            <a href="{% url 'contact_us' %}" class="btn btn-outline-primary btn-lg px-5 py-3">
+            <a href="{% url 'contact_us' %}" class="btn btn-outline-primary btn-lg px-4 py-3">
               <i class="bi bi-pencil-square me-2"></i> Custom Order
             </a>
           </div>
           
-          <div class="stats-container d-flex gap-4">
-            <div class="stat-item">
-              <div class="display-5 fw-bold text-accent-color" data-count="35">35+</div>
-              <div class="small">Years Experience</div>
+          <div class="stats-container d-flex flex-wrap gap-3 gap-md-4 pt-3 border-top">
+            <div class="stat-item text-center">
+              <div class="display-5 fw-bold text-primary mb-1">35+</div>
+              <div class="small text-muted">Years Experience</div>
             </div>
-            <div class="stat-item">
-              <div class="display-5 fw-bold text-accent-color" data-count="20">20K</div>
-              <div class="small">Sq Ft/Month</div>
+            <div class="stat-item text-center">
+              <div class="display-5 fw-bold text-primary mb-1">20K</div>
+              <div class="small text-muted">Sq Ft/Month</div>
             </div>
-            <div class="stat-item">
-              <div class="display-5 fw-bold text-accent-color" data-count="50">50+</div>
-              <div class="small">Countries Served</div>
+            <div class="stat-item text-center">
+              <div class="display-5 fw-bold text-primary mb-1">50+</div>
+              <div class="small text-muted">Countries Served</div>
             </div>
           </div>
         </div>
       </div>
       
-      <div class="col-lg-6" data-aos="fade-left" data-aos-delay="200">
-        <div class="hero-visual position-relative mt-5 mt-lg-0">
-          <div class="image-frame rounded-4 overflow-hidden shadow-lg">
-            <img src="https://images.unsplash.com/photo-1600166898405-da9535204843?auto=format&fit=crop&w=800&q=80" 
+      <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left" data-aos-delay="200">
+        <div class="hero-visual position-relative">
+          <div class="image-frame rounded-4 overflow-hidden shadow-lg" style="height: 500px;">
+            <img src="https://images.unsplash.com/photo-1600166898405-da9535204843?auto=format&fit=crop&w=800&h=600&q=80" 
                  alt="Traditional Tibetan Carpet Detail" 
-                 class="img-fluid w-100"
-                 loading="eager">
-          </div>
-          <div class="floating-badge bg-surface-color border border-accent-color border-opacity-25 rounded-pill px-4 py-2 position-absolute bottom-4 start-4 shadow-sm">
-            <i class="bi bi-star-fill text-accent-color me-2"></i>
-            <span>100% Handmade</span>
+                 class="img-fluid w-100 h-100 object-fit-cover"
+                 loading="eager"
+                 width="800"
+                 height="600">
+            <div class="floating-badge bg-white border border-primary border-opacity-25 rounded-pill px-3 py-2 d-inline-flex align-items-center position-absolute bottom-3 start-3 shadow-sm">
+              <i class="bi bi-star-fill text-primary me-2"></i>
+              <span class="fw-medium">100% Handmade</span>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-  
-  <!-- Scroll Indicator -->
-  <div class="scroll-indicator position-absolute bottom-0 start-50 translate-middle-x mb-3">
-    <a href="#heritage" class="text-decoration-none d-flex flex-column align-items-center">
-      <div class="scroll-arrow"></div>
-      <span class="text-muted small mt-1">Scroll</span>
-    </a>
-  </div>
 </section>
 
 <!-- Heritage Section -->
-<section id="heritage" class="heritage-section py-6 bg-surface-color">
+<section id="heritage" class="py-5 py-lg-6 bg-light">
   <div class="container">
-    <div class="row align-items-center g-5">
+    <div class="row align-items-center g-4 g-lg-5">
       <div class="col-lg-6" data-aos="fade-right">
         <div class="heritage-visual position-relative">
-          <div class="main-image rounded-4 overflow-hidden shadow">
+          <div class="main-image rounded-4 overflow-hidden shadow" style="height: 500px;">
             <img src="https://images.unsplash.com/photo-1600166898405-da9535204843?auto=format&fit=crop&w=800&h=600&q=80" 
                  alt="Tibetan Carpet Weaving Process" 
-                 class="img-fluid w-100"
-                 loading="lazy">
-          </div>
-          <div class="experience-badge bg-accent-color text-contrast-color rounded-4 p-4 shadow position-absolute top-4 end-4">
-            <div class="text-center">
-              <div class="display-4 fw-bold">35+</div>
-              <div class="small">Years of Excellence</div>
-            </div>
+                 class="img-fluid w-100 h-100 object-fit-cover"
+                 loading="lazy"
+                 width="800"
+                 height="600">
           </div>
         </div>
       </div>
       
       <div class="col-lg-6" data-aos="fade-left">
-        <div class="heritage-content ps-lg-4">
-          <div class="section-label mb-3">
-            <span class="text-accent-color fw-semibold text-uppercase letter-spacing-2">OUR HERITAGE</span>
-          </div>
-          
+        <div class="heritage-content">
           <h2 class="display-5 fw-bold mb-4">
-            Preserving <span class="text-accent-color">Tibetan Heritage</span> Through Craftsmanship
+            Preserving <span class="text-primary">Tibetan Heritage</span> Through Craftsmanship
           </h2>
           
           <p class="lead mb-4">
@@ -119,54 +105,30 @@
             knowledge to every carpet we create since 1986.
           </p>
           
-          <p class="mb-5">
-            We handle the entire manufacturing process under our own roof - from raw wool sorting 
-            to finished packaging. Each piece is a custom creation with exclusive patterns and 
-            traditional weaving techniques.
-          </p>
-          
           <div class="features-grid mb-5">
-            <div class="row g-4">
+            <div class="row g-3">
               <div class="col-md-6">
-                <div class="feature-card p-4 rounded-3 border border-default-color border-opacity-10 bg-background-color h-100">
-                  <div class="feature-icon bg-accent-color bg-opacity-10 rounded-3 p-3 mb-3 d-inline-flex">
-                    <i class="bi bi-flower1 text-accent-color fs-4"></i>
+                <div class="feature-card p-4 rounded-3 border border-light-subtle bg-white h-100">
+                  <div class="feature-icon bg-primary bg-opacity-10 rounded-3 p-3 mb-3 d-inline-flex">
+                    <i class="bi bi-flower1 text-primary fs-4"></i>
                   </div>
                   <h5 class="fw-bold mb-2">Traditional Designs</h5>
-                  <p class="small mb-0 opacity-75">Authentic Tibetan patterns with cultural significance</p>
+                  <p class="small mb-0 text-muted">Authentic Tibetan patterns with cultural significance</p>
                 </div>
               </div>
               <div class="col-md-6">
-                <div class="feature-card p-4 rounded-3 border border-default-color border-opacity-10 bg-background-color h-100">
-                  <div class="feature-icon bg-accent-color bg-opacity-10 rounded-3 p-3 mb-3 d-inline-flex">
-                    <i class="bi bi-droplet text-accent-color fs-4"></i>
+                <div class="feature-card p-4 rounded-3 border border-light-subtle bg-white h-100">
+                  <div class="feature-icon bg-primary bg-opacity-10 rounded-3 p-3 mb-3 d-inline-flex">
+                    <i class="bi bi-droplet text-primary fs-4"></i>
                   </div>
                   <h5 class="fw-bold mb-2">Natural Dyes</h5>
-                  <p class="small mb-0 opacity-75">Eco-friendly vegetable and mineral dyes</p>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="feature-card p-4 rounded-3 border border-default-color border-opacity-10 bg-background-color h-100">
-                  <div class="feature-icon bg-accent-color bg-opacity-10 rounded-3 p-3 mb-3 d-inline-flex">
-                    <i class="bi bi-snow text-accent-color fs-4"></i>
-                  </div>
-                  <h5 class="fw-bold mb-2">Tibetan Wool</h5>
-                  <p class="small mb-0 opacity-75">High-altitude wool for superior quality</p>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="feature-card p-4 rounded-3 border border-default-color border-opacity-10 bg-background-color h-100">
-                  <div class="feature-icon bg-accent-color bg-opacity-10 rounded-3 p-3 mb-3 d-inline-flex">
-                    <i class="bi bi-hand-index-thumb text-accent-color fs-4"></i>
-                  </div>
-                  <h5 class="fw-bold mb-2">Hand-Knotted</h5>
-                  <p class="small mb-0 opacity-75">Each knot tied with precision and care</p>
+                  <p class="small mb-0 text-muted">Eco-friendly vegetable and mineral dyes</p>
                 </div>
               </div>
             </div>
           </div>
           
-          <a href="{% url 'about_us' %}" class="btn btn-primary btn-lg px-5">
+          <a href="{% url 'about_us' %}" class="btn btn-primary btn-lg px-4">
             <i class="bi bi-book me-2"></i> Discover Our Story
           </a>
         </div>
@@ -176,282 +138,143 @@
 </section>
 
 <!-- Collections Section -->
-<section class="collections-section py-6 bg-background-color">
+<section class="collections-section py-5 py-lg-6">
   <div class="container">
-    <div class="text-center mb-6" data-aos="fade-up">
-      <div class="section-label mb-3">
-        <span class="text-accent-color fw-semibold text-uppercase letter-spacing-2">OUR COLLECTIONS</span>
-      </div>
-      <h2 class="display-5 fw-bold mb-4">Timeless <span class="text-accent-color">Masterpieces</span></h2>
-      <p class="lead mx-auto" style="max-width: 600px;">
-        Explore our three distinctive categories, each showcasing the pinnacle of Tibetan carpet artistry
+    <div class="text-center mb-5" data-aos="fade-up">
+      <h2 class="display-5 fw-bold mb-3">Timeless <span class="text-primary">Masterpieces</span></h2>
+      <p class="lead text-muted mx-auto" style="max-width: 600px;">
+        Explore our distinctive categories showcasing Tibetan carpet artistry
       </p>
     </div>
     
-    <div class="collections-grid">
-      <div class="row g-4 justify-content-center">
-        <!-- Traditional Collection -->
-        <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
-          <div class="collection-card rounded-4 overflow-hidden border border-default-color border-opacity-10 bg-surface-color h-100">
-            <div class="collection-image position-relative overflow-hidden" style="height: 280px;">
-              <img src="https://images.unsplash.com/photo-1600166898405-da9535204843?auto=format&fit=crop&w=600&h=400&q=80" 
-                   alt="Traditional Tibetan Carpets" 
-                   class="img-fluid w-100 h-100 object-fit-cover"
-                   loading="lazy">
-              <div class="collection-overlay position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center bg-accent-color bg-opacity-90">
-                <a href="{% url 'products' %}?category=traditional" class="btn btn-light btn-lg">
-                  View Collection
-                </a>
-              </div>
-            </div>
-            <div class="collection-content p-4">
-              <div class="d-flex justify-content-between align-items-center mb-3">
-                <span class="badge bg-accent-color bg-opacity-10 text-accent-color px-3 py-2 rounded-pill">Traditional</span>
-                <div class="rating">
-                  <i class="bi bi-star-fill text-accent-color"></i>
-                  <i class="bi bi-star-fill text-accent-color"></i>
-                  <i class="bi bi-star-fill text-accent-color"></i>
-                  <i class="bi bi-star-fill text-accent-color"></i>
-                  <i class="bi bi-star-fill text-accent-color"></i>
-                </div>
-              </div>
-              <h3 class="h4 fw-bold mb-3">Classic Tibetan Patterns</h3>
-              <p class="mb-4 opacity-75">
-                Dragons, lotus flowers, and auspicious symbols in vibrant colors. 
-                Each design tells a story of Tibetan heritage and spirituality.
-              </p>
-              <div class="d-flex justify-content-between align-items-center">
-                <a href="{% url 'products' %}?category=traditional" class="text-decoration-none fw-semibold text-accent-color">
-                  Explore Collection <i class="bi bi-arrow-right ms-2"></i>
-                </a>
-                <span class="badge bg-background-color text-default-color px-3 py-2">From 60 knots/sq.in</span>
-              </div>
-            </div>
+    <div class="row g-4 justify-content-center">
+      <div class="col-lg-4" data-aos="fade-up">
+        <div class="card border-0 shadow-sm h-100">
+          <div class="card-img-top overflow-hidden" style="height: 250px;">
+            <img src="https://images.unsplash.com/photo-1600166898405-da9535204843?auto=format&fit=crop&w=600&h=400&q=80" 
+                 alt="Traditional Tibetan Carpets" 
+                 class="img-fluid w-100 h-100 object-fit-cover"
+                 loading="lazy"
+                 width="600"
+                 height="400">
           </div>
-        </div>
-        
-        <!-- Antique Collection -->
-        <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
-          <div class="collection-card featured rounded-4 overflow-hidden border border-accent-color bg-surface-color h-100 position-relative">
-            <div class="featured-badge position-absolute top-0 start-50 translate-middle-x bg-accent-color text-contrast-color px-4 py-2 rounded-bottom">
-              Most Popular
-            </div>
-            <div class="collection-image position-relative overflow-hidden" style="height: 280px;">
-              <img src="https://images.unsplash.com/photo-1600166898405-da9535204843?auto=format&fit=crop&w=600&h=400&q=80" 
-                   alt="Antique Reproduction Carpets" 
-                   class="img-fluid w-100 h-100 object-fit-cover"
-                   loading="lazy">
-              <div class="collection-overlay position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center bg-accent-color bg-opacity-90">
-                <a href="{% url 'products' %}?category=antique" class="btn btn-light btn-lg">
-                  View Collection
-                </a>
-              </div>
-            </div>
-            <div class="collection-content p-4">
-              <div class="d-flex justify-content-between align-items-center mb-3">
-                <span class="badge bg-accent-color bg-opacity-10 text-accent-color px-3 py-2 rounded-pill">Antique</span>
-                <div class="rating">
-                  <i class="bi bi-star-fill text-accent-color"></i>
-                  <i class="bi bi-star-fill text-accent-color"></i>
-                  <i class="bi bi-star-fill text-accent-color"></i>
-                  <i class="bi bi-star-fill text-accent-color"></i>
-                  <i class="bi bi-star-half text-accent-color"></i>
-                </div>
-              </div>
-              <h3 class="h4 fw-bold mb-3">Historical Reproductions</h3>
-              <p class="mb-4 opacity-75">
-                Faithful recreations of antique carpets with authentic aging techniques. 
-                Perfect for collectors and historical enthusiasts.
-              </p>
-              <div class="d-flex justify-content-between align-items-center">
-                <a href="{% url 'products' %}?category=antique" class="text-decoration-none fw-semibold text-accent-color">
-                  Explore Collection <i class="bi bi-arrow-right ms-2"></i>
-                </a>
-                <span class="badge bg-background-color text-default-color px-3 py-2">From 80 knots/sq.in</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Modern Collection -->
-        <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
-          <div class="collection-card rounded-4 overflow-hidden border border-default-color border-opacity-10 bg-surface-color h-100">
-            <div class="collection-image position-relative overflow-hidden" style="height: 280px;">
-              <img src="https://images.unsplash.com/photo-1600166898405-da9535204843?auto=format&fit=crop&w=600&h=400&q=80" 
-                   alt="Contemporary Modern Carpets" 
-                   class="img-fluid w-100 h-100 object-fit-cover"
-                   loading="lazy">
-              <div class="collection-overlay position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center bg-accent-color bg-opacity-90">
-                <a href="{% url 'products' %}?category=contemporary" class="btn btn-light btn-lg">
-                  View Collection
-                </a>
-              </div>
-            </div>
-            <div class="collection-content p-4">
-              <div class="d-flex justify-content-between align-items-center mb-3">
-                <span class="badge bg-accent-color bg-opacity-10 text-accent-color px-3 py-2 rounded-pill">Modern</span>
-                <div class="rating">
-                  <i class="bi bi-star-fill text-accent-color"></i>
-                  <i class="bi bi-star-fill text-accent-color"></i>
-                  <i class="bi bi-star-fill text-accent-color"></i>
-                  <i class="bi bi-star-fill text-accent-color"></i>
-                  <i class="bi bi-star text-accent-color"></i>
-                </div>
-              </div>
-              <h3 class="h4 fw-bold mb-3">Contemporary Designs</h3>
-              <p class="mb-4 opacity-75">
-                Modern art-inspired patterns for contemporary interiors. 
-                Clean lines, abstract designs, and minimalist aesthetics.
-              </p>
-              <div class="d-flex justify-content-between align-items-center">
-                <a href="{% url 'products' %}?category=contemporary" class="text-decoration-none fw-semibold text-accent-color">
-                  Explore Collection <i class="bi bi-arrow-right ms-2"></i>
-                </a>
-                <span class="badge bg-background-color text-default-color px-3 py-2">From 60 knots/sq.in</span>
-              </div>
-            </div>
+          <div class="card-body p-4">
+            <h3 class="h5 fw-bold mb-3">Classic Tibetan Patterns</h3>
+            <p class="text-muted mb-3">
+              Dragons, lotus flowers, and auspicious symbols in vibrant colors.
+            </p>
+            <a href="{% url 'products' %}?category=traditional" class="btn btn-outline-primary w-100">
+              View Collection
+            </a>
           </div>
         </div>
       </div>
-    </div>
-    
-    <div class="text-center mt-6" data-aos="fade-up">
-      <a href="{% url 'products' %}" class="btn btn-outline-primary btn-lg px-5 py-3">
-        <i class="bi bi-grid-3x3-gap me-2"></i> View All Collections
-      </a>
+      
+      <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="card border-primary border-2 shadow-sm h-100">
+          <div class="card-img-top overflow-hidden" style="height: 250px;">
+            <img src="https://images.unsplash.com/photo-1600166898405-da9535204843?auto=format&fit=crop&w=600&h=400&q=80" 
+                 alt="Antique Reproduction Carpets" 
+                 class="img-fluid w-100 h-100 object-fit-cover"
+                 loading="lazy"
+                 width="600"
+                 height="400">
+          </div>
+          <div class="card-body p-4">
+            <h3 class="h5 fw-bold mb-3">Historical Reproductions</h3>
+            <p class="text-muted mb-3">
+              Faithful recreations of antique carpets with authentic aging techniques.
+            </p>
+            <a href="{% url 'products' %}?category=antique" class="btn btn-primary w-100">
+              View Collection
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="card border-0 shadow-sm h-100">
+          <div class="card-img-top overflow-hidden" style="height: 250px;">
+            <img src="https://images.unsplash.com/photo-1600166898405-da9535204843?auto=format&fit=crop&w=600&h=400&q=80" 
+                 alt="Contemporary Modern Carpets" 
+                 class="img-fluid w-100 h-100 object-fit-cover"
+                 loading="lazy"
+                 width="600"
+                 height="400">
+          </div>
+          <div class="card-body p-4">
+            <h3 class="h5 fw-bold mb-3">Contemporary Designs</h3>
+            <p class="text-muted mb-3">
+              Modern art-inspired patterns for contemporary interiors.
+            </p>
+            <a href="{% url 'products' %}?category=contemporary" class="btn btn-outline-primary w-100">
+              View Collection
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- Quality Standards -->
-<section class="quality-section py-6 bg-surface-color">
+<section class="quality-section py-5 py-lg-6 bg-light">
   <div class="container">
-    <div class="text-center mb-6" data-aos="fade-up">
-      <div class="section-label mb-3">
-        <span class="text-accent-color fw-semibold text-uppercase letter-spacing-2">QUALITY STANDARDS</span>
-      </div>
-      <h2 class="display-5 fw-bold mb-4">Crafted with <span class="text-accent-color">Precision</span></h2>
-      <p class="lead mx-auto" style="max-width: 600px;">
-        Choose from our three quality tiers, categorized by knot density per square inch
+    <div class="text-center mb-5" data-aos="fade-up">
+      <h2 class="display-5 fw-bold mb-3">Crafted with <span class="text-primary">Precision</span></h2>
+      <p class="lead text-muted mx-auto" style="max-width: 600px;">
+        Choose from our quality tiers by knot density per square inch
       </p>
     </div>
     
-    <div class="quality-cards">
-      <div class="row g-4 justify-content-center">
-        <!-- Standard Quality -->
-        <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
-          <div class="quality-card text-center p-5 rounded-4 border border-default-color border-opacity-10 bg-background-color h-100 d-flex flex-column">
-            <div class="quality-icon mb-4">
-              <div class="icon-wrapper bg-accent-color bg-opacity-10 rounded-circle p-4 mx-auto d-inline-flex">
-                <i class="bi bi-check-circle text-accent-color fs-2"></i>
-              </div>
-            </div>
-            <div class="quality-header mb-4">
-              <span class="badge bg-accent-color bg-opacity-10 text-accent-color px-4 py-2 rounded-pill mb-3">Standard</span>
-              <h3 class="display-3 fw-bold text-accent-color mb-2">60</h3>
-              <p class="text-uppercase letter-spacing-2 opacity-75 small">Knots per square inch</p>
-            </div>
-            <div class="quality-body mb-4 flex-grow-1">
-              <p class="mb-4">Perfect for everyday use with excellent durability and traditional craftsmanship</p>
-              <ul class="list-unstyled mb-4 text-start">
-                <li class="mb-3 d-flex align-items-start">
-                  <i class="bi bi-check-circle-fill text-accent-color mt-1 me-3 flex-shrink-0"></i>
-                  <span>45 Days Average Delivery</span>
-                </li>
-                <li class="mb-3 d-flex align-items-start">
-                  <i class="bi bi-check-circle-fill text-accent-color mt-1 me-3 flex-shrink-0"></i>
-                  <span>Excellent Durability for High Traffic</span>
-                </li>
-                <li class="d-flex align-items-start">
-                  <i class="bi bi-check-circle-fill text-accent-color mt-1 me-3 flex-shrink-0"></i>
-                  <span>Traditional Tibetan Craftsmanship</span>
-                </li>
-              </ul>
-            </div>
-            <div class="quality-footer">
-              <a href="{% url 'contact_us' %}" class="btn btn-outline-primary w-100 py-3">
-                Request Quote
-              </a>
-            </div>
+    <div class="row g-4 justify-content-center">
+      <div class="col-md-4" data-aos="fade-up">
+        <div class="card border-0 shadow-sm h-100">
+          <div class="card-body text-center p-4">
+            <h3 class="display-4 fw-bold text-primary mb-2">60</h3>
+            <p class="text-muted mb-3">Knots per square inch</p>
+            <ul class="list-unstyled text-start mb-4">
+              <li class="mb-2"><i class="bi bi-check-circle text-primary me-2"></i>45 Days Delivery</li>
+              <li class="mb-2"><i class="bi bi-check-circle text-primary me-2"></i>Excellent Durability</li>
+              <li><i class="bi bi-check-circle text-primary me-2"></i>Traditional Craftsmanship</li>
+            </ul>
+            <a href="{% url 'contact_us' %}" class="btn btn-outline-primary w-100">
+              Request Quote
+            </a>
           </div>
         </div>
-        
-        <!-- Premium Quality -->
-        <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
-          <div class="quality-card premium text-center p-5 rounded-4 border border-accent-color bg-background-color h-100 d-flex flex-column position-relative">
-            <div class="popular-badge position-absolute top-0 start-50 translate-middle-x bg-accent-color text-contrast-color px-4 py-2 rounded-bottom">
-              Recommended
-            </div>
-            <div class="quality-icon mb-4">
-              <div class="icon-wrapper bg-accent-color bg-opacity-10 rounded-circle p-4 mx-auto d-inline-flex">
-                <i class="bi bi-award text-accent-color fs-2"></i>
-              </div>
-            </div>
-            <div class="quality-header mb-4">
-              <span class="badge bg-accent-color bg-opacity-10 text-accent-color px-4 py-2 rounded-pill mb-3">Premium</span>
-              <h3 class="display-3 fw-bold text-accent-color mb-2">80</h3>
-              <p class="text-uppercase letter-spacing-2 opacity-75 small">Knots per square inch</p>
-            </div>
-            <div class="quality-body mb-4 flex-grow-1">
-              <p class="mb-4">Finer detail and denser pile. Ideal for decorative pieces and high-traffic areas</p>
-              <ul class="list-unstyled mb-4 text-start">
-                <li class="mb-3 d-flex align-items-start">
-                  <i class="bi bi-check-circle-fill text-accent-color mt-1 me-3 flex-shrink-0"></i>
-                  <span>60 Days Average Delivery</span>
-                </li>
-                <li class="mb-3 d-flex align-items-start">
-                  <i class="bi bi-check-circle-fill text-accent-color mt-1 me-3 flex-shrink-0"></i>
-                  <span>Finer Details in Complex Patterns</span>
-                </li>
-                <li class="d-flex align-items-start">
-                  <i class="bi bi-check-circle-fill text-accent-color mt-1 me-3 flex-shrink-0"></i>
-                  <span>Denser Pile for Enhanced Comfort</span>
-                </li>
-              </ul>
-            </div>
-            <div class="quality-footer">
-              <a href="{% url 'contact_us' %}" class="btn btn-primary w-100 py-3">
-                Request Quote
-              </a>
-            </div>
+      </div>
+      
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="card border-primary border-2 shadow-sm h-100">
+          <div class="card-body text-center p-4">
+            <h3 class="display-4 fw-bold text-primary mb-2">80</h3>
+            <p class="text-muted mb-3">Knots per square inch</p>
+            <ul class="list-unstyled text-start mb-4">
+              <li class="mb-2"><i class="bi bi-check-circle text-primary me-2"></i>60 Days Delivery</li>
+              <li class="mb-2"><i class="bi bi-check-circle text-primary me-2"></i>Finer Details</li>
+              <li><i class="bi bi-check-circle text-primary me-2"></i>Enhanced Comfort</li>
+            </ul>
+            <a href="{% url 'contact_us' %}" class="btn btn-primary w-100">
+              Request Quote
+            </a>
           </div>
         </div>
-        
-        <!-- Luxury Quality -->
-        <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
-          <div class="quality-card text-center p-5 rounded-4 border border-default-color border-opacity-10 bg-background-color h-100 d-flex flex-column">
-            <div class="quality-icon mb-4">
-              <div class="icon-wrapper bg-accent-color bg-opacity-10 rounded-circle p-4 mx-auto d-inline-flex">
-                <i class="bi bi-gem text-accent-color fs-2"></i>
-              </div>
-            </div>
-            <div class="quality-header mb-4">
-              <span class="badge bg-accent-color bg-opacity-10 text-accent-color px-4 py-2 rounded-pill mb-3">Luxury</span>
-              <h3 class="display-3 fw-bold text-accent-color mb-2">100</h3>
-              <p class="text-uppercase letter-spacing-2 opacity-75 small">Knots per square inch</p>
-            </div>
-            <div class="quality-body mb-4 flex-grow-1">
-              <p class="mb-4">Exquisite detail and superior softness. Heirloom quality pieces for luxury interiors</p>
-              <ul class="list-unstyled mb-4 text-start">
-                <li class="mb-3 d-flex align-items-start">
-                  <i class="bi bi-check-circle-fill text-accent-color mt-1 me-3 flex-shrink-0"></i>
-                  <span>90 Days Average Delivery</span>
-                </li>
-                <li class="mb-3 d-flex align-items-start">
-                  <i class="bi bi-check-circle-fill text-accent-color mt-1 me-3 flex-shrink-0"></i>
-                  <span>Superior Softness and Texture</span>
-                </li>
-                <li class="d-flex align-items-start">
-                  <i class="bi bi-check-circle-fill text-accent-color mt-1 me-3 flex-shrink-0"></i>
-                  <span>Heirloom Quality for Generations</span>
-                </li>
-              </ul>
-            </div>
-            <div class="quality-footer">
-              <a href="{% url 'contact_us' %}" class="btn btn-outline-primary w-100 py-3">
-                Request Quote
-              </a>
-            </div>
+      </div>
+      
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="card border-0 shadow-sm h-100">
+          <div class="card-body text-center p-4">
+            <h3 class="display-4 fw-bold text-primary mb-2">100</h3>
+            <p class="text-muted mb-3">Knots per square inch</p>
+            <ul class="list-unstyled text-start mb-4">
+              <li class="mb-2"><i class="bi bi-check-circle text-primary me-2"></i>90 Days Delivery</li>
+              <li class="mb-2"><i class="bi bi-check-circle text-primary me-2"></i>Superior Softness</li>
+              <li><i class="bi bi-check-circle text-primary me-2"></i>Heirloom Quality</li>
+            </ul>
+            <a href="{% url 'contact_us' %}" class="btn btn-outline-primary w-100">
+              Request Quote
+            </a>
           </div>
         </div>
       </div>
@@ -460,524 +283,366 @@
 </section>
 
 <!-- Process Timeline -->
-<section class="process-section py-6 bg-background-color">
+<section class="process-section py-5 py-lg-6">
   <div class="container">
-    <div class="text-center mb-6" data-aos="fade-up">
-      <div class="section-label mb-3">
-        <span class="text-accent-color fw-semibold text-uppercase letter-spacing-2">OUR PROCESS</span>
+    <div class="text-center mb-5" data-aos="fade-up">
+      <h2 class="display-5 fw-bold mb-3">The <span class="text-primary">Art</span> of Tibetan Carpet Making</h2>
+    </div>
+    
+    <div class="row g-3 g-md-4 justify-content-center">
+      <div class="col-6 col-md-4 col-lg-3" data-aos="fade-up">
+        <div class="process-step text-center p-3 rounded-3 border border-light-subtle bg-white h-100">
+          <div class="step-icon bg-primary bg-opacity-10 rounded-3 p-3 mb-3 d-inline-flex">
+            <i class="bi bi-snow text-primary fs-4"></i>
+          </div>
+          <h6 class="fw-bold mb-2">Wool Selection</h6>
+          <p class="small text-muted mb-0">High-altitude Tibetan sheep wool</p>
+        </div>
       </div>
-      <h2 class="display-5 fw-bold mb-4">The <span class="text-accent-color">Art</span> of Tibetan Carpet Making</h2>
-      <p class="lead mx-auto" style="max-width: 600px;">
-        Each carpet undergoes our meticulous 9-step process, combining ancient techniques with modern precision
+      
+      <div class="col-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+        <div class="process-step text-center p-3 rounded-3 border border-light-subtle bg-white h-100">
+          <div class="step-icon bg-primary bg-opacity-10 rounded-3 p-3 mb-3 d-inline-flex">
+            <i class="bi bi-droplet text-primary fs-4"></i>
+          </div>
+          <h6 class="fw-bold mb-2">Natural Dyeing</h6>
+          <p class="small text-muted mb-0">Traditional dye methods</p>
+        </div>
+      </div>
+      
+      <div class="col-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+        <div class="process-step text-center p-3 rounded-3 border border-light-subtle bg-white h-100">
+          <div class="step-icon bg-primary bg-opacity-10 rounded-3 p-3 mb-3 d-inline-flex">
+            <i class="bi bi-brush text-primary fs-4"></i>
+          </div>
+          <h6 class="fw-bold mb-2">Tibetan Knotting</h6>
+          <p class="small text-muted mb-0">Unique loop technique</p>
+        </div>
+      </div>
+      
+      <div class="col-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+        <div class="process-step text-center p-3 rounded-3 bg-primary text-white h-100">
+          <div class="step-icon bg-white bg-opacity-25 rounded-3 p-3 mb-3 d-inline-flex">
+            <i class="bi bi-play-circle fs-4"></i>
+          </div>
+          <h6 class="fw-bold mb-2">View Process</h6>
+          <a href="{% url 'manufacturing' %}" class="btn btn-sm btn-outline-light mt-2">
+            Learn More
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact Section - Full Width Form -->
+<section class="contact-section py-5 py-lg-6 bg-light">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <h2 class="display-5 fw-bold mb-3">Start Your <span class="text-primary">Journey</span></h2>
+      <p class="lead text-muted mb-5">
+        Contact us for custom orders, quotes, or questions about our Tibetan carpets
       </p>
     </div>
     
-    <div class="process-timeline">
-      <div class="row g-4">
-        <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
-          <div class="process-step p-4 rounded-4 border border-default-color border-opacity-10 bg-surface-color h-100">
-            <div class="step-number display-6 fw-bold text-default-color text-opacity-25 mb-3">01</div>
-            <div class="step-icon bg-accent-color bg-opacity-10 rounded-3 p-3 mb-3 d-inline-flex">
-              <i class="bi bi-snow text-accent-color fs-3"></i>
-            </div>
-            <h5 class="fw-bold mb-2">Wool Selection</h5>
-            <p class="small mb-0 opacity-75">High-altitude Tibetan sheep wool carefully selected for quality</p>
-          </div>
-        </div>
-        
-        <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
-          <div class="process-step p-4 rounded-4 border border-default-color border-opacity-10 bg-surface-color h-100">
-            <div class="step-number display-6 fw-bold text-default-color text-opacity-25 mb-3">02</div>
-            <div class="step-icon bg-accent-color bg-opacity-10 rounded-3 p-3 mb-3 d-inline-flex">
-              <i class="bi bi-droplet text-accent-color fs-3"></i>
-            </div>
-            <h5 class="fw-bold mb-2">Natural Dyeing</h5>
-            <p class="small mb-0 opacity-75">Vegetable and chemical dyes applied with traditional methods</p>
-          </div>
-        </div>
-        
-        <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
-          <div class="process-step p-4 rounded-4 border border-default-color border-opacity-10 bg-surface-color h-100">
-            <div class="step-number display-6 fw-bold text-default-color text-opacity-25 mb-3">03</div>
-            <div class="step-icon bg-accent-color bg-opacity-10 rounded-3 p-3 mb-3 d-inline-flex">
-              <i class="bi bi-brush text-accent-color fs-3"></i>
-            </div>
-            <h5 class="fw-bold mb-2">Tibetan Knotting</h5>
-            <p class="small mb-0 opacity-75">Unique loop technique tied by skilled artisans</p>
-          </div>
-        </div>
-        
-        <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="400">
-          <div class="process-step p-4 rounded-4 border border-accent-color bg-accent-color h-100">
-            <div class="step-icon bg-contrast-color bg-opacity-25 rounded-3 p-3 mb-3 d-inline-flex">
-              <i class="bi bi-play-circle text-contrast-color fs-3"></i>
-            </div>
-            <h5 class="fw-bold mb-2 text-contrast-color">Complete Process</h5>
-            <p class="small mb-0 text-contrast-color text-opacity-75">Discover all 9 steps of our traditional craft</p>
-            <div class="mt-4">
-              <a href="{% url 'manufacturing' %}" class="btn btn-outline-contrast-color btn-sm">
-                View Process
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <div class="text-center mt-6" data-aos="fade-up">
-        <a href="{% url 'manufacturing' %}" class="btn btn-primary btn-lg px-5 py-3">
-          <i class="bi bi-play-circle me-2"></i> Watch Complete Process
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Enhanced CTA Section -->
-<section class="cta-section py-6 bg-background-color">
-  <div class="container">
-    <div class="cta-card rounded-4 overflow-hidden border-0 shadow-lg" data-aos="fade-up">
-      <div class="row g-0">
-        <div class="col-lg-6 bg-accent-color text-contrast-color p-5 p-lg-6">
-          <div class="cta-content h-100 d-flex flex-column justify-content-center">
-            <h2 class="display-5 fw-bold mb-4">Get Your <span class="text-contrast-color">Custom Quote</span> Today</h2>
-            <p class="lead mb-5 opacity-75">
-              Start your journey to owning a masterpiece. Get a personalized quote for your custom Tibetan carpet.
-            </p>
-            
-            <div class="cta-features">
-              <div class="row g-4">
-                <div class="col-6">
-                  <div class="feature-item">
-                    <div class="feature-icon mb-3">
-                      <i class="bi bi-clock-history fs-3"></i>
+    <div class="row justify-content-center" data-aos="fade-up">
+      <div class="col-12">
+        <div class="card border-0 shadow-sm">
+          <div class="card-body p-4 p-lg-5">
+            <div class="row align-items-center">
+              <div class="col-lg-6 mb-4 mb-lg-0">
+                <h3 class="h3 fw-bold mb-3 text-primary">Get Your Custom Quote</h3>
+                <p class="text-muted mb-4">
+                  Fill out our enquiry form and our experts will get back to you within 24 hours with a personalized quote and design consultation.
+                </p>
+                <div class="contact-info">
+                  <div class="d-flex align-items-center mb-3">
+                    <div class="contact-icon bg-primary bg-opacity-10 rounded-circle p-2 me-3">
+                      <i class="bi bi-telephone text-primary fs-5"></i>
                     </div>
-                    <h6 class="fw-bold mb-2">Quick Response</h6>
-                    <p class="small opacity-75 mb-0">Within 24 hours</p>
+                    <div>
+                      <div class="small text-muted">Call Us</div>
+                      <div class="fw-bold">+977-1-415414</div>
+                    </div>
                   </div>
-                </div>
-                <div class="col-6">
-                  <div class="feature-item">
-                    <div class="feature-icon mb-3">
-                      <i class="bi bi-person-check fs-3"></i>
+                  <div class="d-flex align-items-center mb-3">
+                    <div class="contact-icon bg-primary bg-opacity-10 rounded-circle p-2 me-3">
+                      <i class="bi bi-whatsapp text-primary fs-5"></i>
                     </div>
-                    <h6 class="fw-bold mb-2">Expert Consultation</h6>
-                    <p class="small opacity-75 mb-0">Free design advice</p>
+                    <div>
+                      <div class="small text-muted">WhatsApp</div>
+                      <div class="fw-bold">+977-9841XXXXXX</div>
+                    </div>
+                  </div>
+                  <div class="d-flex align-items-center">
+                    <div class="contact-icon bg-primary bg-opacity-10 rounded-circle p-2 me-3">
+                      <i class="bi bi-envelope text-primary fs-5"></i>
+                    </div>
+                    <div>
+                      <div class="small text-muted">Email Us</div>
+                      <div class="fw-bold">info@everestcarpets.com</div>
+                    </div>
                   </div>
                 </div>
               </div>
+              
+              <div class="col-lg-6">
+                <form class="enquiry-form" method="post" action="{% url 'contact_us' %}">
+                  {% csrf_token %}
+                  <div class="row g-3">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label class="form-label small text-muted mb-2">Full Name *</label>
+                        <input type="text" class="form-control form-control-lg" name="name" placeholder="John Smith" required>
+                      </div>
+                    </div>
+                    
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label class="form-label small text-muted mb-2">Email Address *</label>
+                        <input type="email" class="form-control form-control-lg" name="email" placeholder="john@example.com" required>
+                      </div>
+                    </div>
+                    
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label class="form-label small text-muted mb-2">Phone Number</label>
+                        <input type="tel" class="form-control form-control-lg" name="phone" placeholder="+977 (123) 456-7890">
+                      </div>
+                    </div>
+                    
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label class="form-label small text-muted mb-2">Country</label>
+                        <input type="text" class="form-control form-control-lg" name="country" placeholder="Your Country">
+                      </div>
+                    </div>
+                    
+                    <div class="col-12">
+                      <div class="form-group">
+                        <label class="form-label small text-muted mb-2">Interested In *</label>
+                        <select class="form-select form-control-lg" name="interest" required>
+                          <option value="">Select your interest</option>
+                          <option value="traditional">Traditional Tibetan Carpets</option>
+                          <option value="antique">Antique Reproductions</option>
+                          <option value="contemporary">Contemporary Designs</option>
+                          <option value="custom">Custom Design Order</option>
+                          <option value="wholesale">Wholesale/Bulk Order</option>
+                          <option value="other">Other Inquiry</option>
+                        </select>
+                      </div>
+                    </div>
+                    
+                    <div class="col-12">
+                      <div class="form-group">
+                        <label class="form-label small text-muted mb-2">Project Details *</label>
+                        <textarea class="form-control form-control-lg" name="message" rows="3" 
+                                  placeholder="Tell us about your project (size, design preferences, timeline, budget, etc.)" required></textarea>
+                      </div>
+                    </div>
+                    
+                    <div class="col-12">
+                      <button type="submit" class="btn btn-primary btn-lg w-100 py-3">
+                        <i class="bi bi-send me-2"></i> Submit Enquiry
+                      </button>
+                    </div>
+                    
+                    <div class="col-12">
+                      <p class="text-center text-muted small mt-3">
+                        <i class="bi bi-shield-check me-1"></i>
+                        Your information is secure and confidential. We'll contact you within 24 hours.
+                      </p>
+                    </div>
+                  </div>
+                </form>
+              </div>
             </div>
           </div>
         </div>
-        
-        <div class="col-lg-6 bg-surface-color p-5 p-lg-6">
-          <div class="cta-form">
-            <h3 class="h3 fw-bold mb-3">Request Quote</h3>
-            <p class="text-muted mb-4">Fill in your details and we'll get back to you</p>
-            
-            <form class="needs-validation" novalidate>
-              <div class="mb-3">
-                <label class="form-label small text-muted mb-2">Full Name</label>
-                <input type="text" class="form-control py-3 rounded-3" placeholder="John Smith" required>
-              </div>
-              
-              <div class="row mb-3">
-                <div class="col-md-6">
-                  <label class="form-label small text-muted mb-2">Email Address</label>
-                  <input type="email" class="form-control py-3 rounded-3" placeholder="john@example.com" required>
-                </div>
-                <div class="col-md-6">
-                  <label class="form-label small text-muted mb-2">Phone Number</label>
-                  <input type="tel" class="form-control py-3 rounded-3" placeholder="+1 (123) 456-7890">
-                </div>
-              </div>
-              
-              <div class="mb-3">
-                <label class="form-label small text-muted mb-2">Interested In</label>
-                <select class="form-select py-3 rounded-3" required>
-                  <option value="">Select Collection</option>
-                  <option value="traditional">Traditional Tibetan</option>
-                  <option value="antique">Antique Reproduction</option>
-                  <option value="contemporary">Contemporary Design</option>
-                  <option value="custom">Custom Design</option>
-                </select>
-              </div>
-              
-              <div class="mb-4">
-                <label class="form-label small text-muted mb-2">Project Details</label>
-                <textarea class="form-control py-3 rounded-3" rows="3" placeholder="Tell us about your project (size, design preferences, etc.)" required></textarea>
-              </div>
-              
-              <button type="submit" class="btn btn-primary w-100 py-3">
-                <i class="bi bi-send me-2"></i> Submit Request
-              </button>
-              
-              <p class="text-center text-muted small mt-3">
-                <i class="bi bi-shield-check me-1"></i>
-                Your information is secure and confidential
-              </p>
-            </form>
-          </div>
-        </div>
       </div>
     </div>
   </div>
 </section>
-
-<!-- Quick Contact -->
-<section class="quick-contact py-6 bg-surface-color">
-  <div class="container">
-    <div class="row g-4">
-      <div class="col-md-4" data-aos="fade-up">
-        <div class="contact-card text-center p-4 rounded-3 border border-default-color border-opacity-10 bg-background-color h-100">
-          <div class="contact-icon mb-3">
-            <i class="bi bi-telephone text-accent-color fs-2"></i>
-          </div>
-          <h5 class="fw-bold mb-2">Call Us</h5>
-          <p class="text-muted small mb-3">Speak directly with our experts</p>
-          <a href="tel:+977-1-415414" class="text-accent-color fw-bold">+977-1-415414</a>
-        </div>
-      </div>
-      
-      <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
-        <div class="contact-card text-center p-4 rounded-3 border border-default-color border-opacity-10 bg-background-color h-100">
-          <div class="contact-icon mb-3">
-            <i class="bi bi-whatsapp text-accent-color fs-2"></i>
-          </div>
-          <h5 class="fw-bold mb-2">WhatsApp</h5>
-          <p class="text-muted small mb-3">Instant messaging support</p>
-          <a href="https://wa.me/9779841XXXXXX" class="text-accent-color fw-bold">+977-9841XXXXXX</a>
-        </div>
-      </div>
-      
-      <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
-        <div class="contact-card text-center p-4 rounded-3 border border-default-color border-opacity-10 bg-background-color h-100">
-          <div class="contact-icon mb-3">
-            <i class="bi bi-envelope text-accent-color fs-2"></i>
-          </div>
-          <h5 class="fw-bold mb-2">Email Us</h5>
-          <p class="text-muted small mb-3">For detailed inquiries</p>
-          <a href="mailto:info@everestcarpets.com" class="text-accent-color fw-bold">info@everestcarpets.com</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 
 <style>
-/* Enhanced CSS with performance optimizations */
-
-/* ==================== ENHANCED COMPONENTS ==================== */
-
-/* Hero Section Enhancements */
-.hero-section {
-  background: linear-gradient(135deg, var(--background-color) 0%, color-mix(in srgb, var(--accent-color), transparent 95%) 100%);
-  position: relative;
+/* Updated CSS with new deep blue color (#0a192f) */
+:root {
+  --bs-primary: #0a192f;
+  --bs-primary-rgb: 10, 25, 47;
+  --bs-light: #f8f9fa;
+  --bs-light-subtle: #f9fafb;
+  --primary-hover: #0d2240;
+  --primary-light: rgba(10, 25, 47, 0.1);
+  --primary-light-25: rgba(10, 25, 47, 0.25);
 }
 
-.image-frame {
-  position: relative;
-  overflow: hidden;
-  border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+/* Override Bootstrap primary color */
+.text-primary {
+  color: #0a192f !important;
 }
 
-.image-frame img {
-  transition: transform 0.5s ease;
-  will-change: transform;
+.bg-primary {
+  background-color: #0a192f !important;
 }
 
-.image-frame:hover img {
-  transform: scale(1.03);
+.border-primary {
+  border-color: #0a192f !important;
 }
 
-.floating-badge {
-  backdrop-filter: blur(10px);
-  background-color: color-mix(in srgb, var(--surface-color), transparent 10%);
-}
-
-/* Scroll Indicator */
-.scroll-arrow {
-  width: 20px;
-  height: 20px;
-  border-right: 2px solid var(--accent-color);
-  border-bottom: 2px solid var(--accent-color);
-  transform: rotate(45deg);
-  animation: bounce 2s infinite;
-}
-
-@keyframes bounce {
-  0%, 20%, 50%, 80%, 100% {
-    transform: rotate(45deg) translateY(0);
-  }
-  40% {
-    transform: rotate(45deg) translateY(-10px);
-  }
-  60% {
-    transform: rotate(45deg) translateY(-5px);
-  }
-}
-
-/* Collection Cards Enhancement */
-.collection-card {
-  transition: all 0.3s ease;
-  border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
-  position: relative;
-  overflow: hidden;
-}
-
-.collection-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
-  background: linear-gradient(90deg, var(--accent-color), color-mix(in srgb, var(--accent-color), transparent 50%));
-  transform: translateY(-100%);
-  transition: transform 0.3s ease;
-  z-index: 2;
-}
-
-.collection-card:hover::before {
-  transform: translateY(0);
-}
-
-.collection-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-}
-
-.collection-overlay {
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  background: linear-gradient(135deg, color-mix(in srgb, var(--accent-color), transparent 10%) 0%, 
-                                       color-mix(in srgb, var(--accent-color), transparent 30%) 100%);
-}
-
-.collection-card:hover .collection-overlay {
-  opacity: 1;
-}
-
-.featured-badge {
-  z-index: 3;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-}
-
-/* Quality Cards Enhancement */
-.quality-card {
-  transition: all 0.3s ease;
-  border: 2px solid transparent;
-}
-
-.quality-card:hover {
-  border-color: color-mix(in srgb, var(--accent-color), transparent 30%);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
-}
-
-.quality-card.premium {
-  border-color: var(--accent-color);
-  position: relative;
-}
-
-.quality-card.premium::after {
-  content: '';
-  position: absolute;
-  top: -2px;
-  left: -2px;
-  right: -2px;
-  bottom: -2px;
-  border: 2px solid var(--accent-color);
-  border-radius: 0.75rem;
-  animation: pulse 2s infinite;
-  pointer-events: none;
-}
-
-@keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.5; }
-}
-
-.icon-wrapper {
-  transition: transform 0.3s ease;
-}
-
-.quality-card:hover .icon-wrapper {
-  transform: scale(1.1);
-}
-
-/* Process Steps Enhancement */
-.process-step {
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
-}
-
-.process-step::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(135deg, color-mix(in srgb, var(--accent-color), transparent 5%) 0%, 
-                                       color-mix(in srgb, var(--accent-color), transparent 0%) 100%);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.process-step:hover::before {
-  opacity: 1;
-}
-
-.process-step:hover {
-  transform: translateY(-3px);
-  border-color: var(--accent-color) !important;
-}
-
-/* Enhanced CTA Form */
-.cta-card {
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
-}
-
-.cta-form .form-control,
-.cta-form .form-select,
-.cta-form textarea {
-  border: 1px solid color-mix(in srgb, var(--default-color), transparent 80%);
-  background-color: var(--surface-color);
-  transition: all 0.3s ease;
-}
-
-.cta-form .form-control:focus,
-.cta-form .form-select:focus,
-.cta-form textarea:focus {
-  border-color: var(--accent-color);
-  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent-color), transparent 85%);
-  background-color: var(--surface-color);
-}
-
-.cta-form .form-label {
-  font-size: 0.875rem;
-}
-
-/* Quick Contact Cards */
-.contact-card {
-  transition: all 0.3s ease;
-}
-
-.contact-card:hover {
-  transform: translateY(-5px);
-  border-color: var(--accent-color) !important;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
-}
-
-.contact-icon {
-  transition: transform 0.3s ease;
-}
-
-.contact-card:hover .contact-icon {
-  transform: scale(1.1);
-}
-
-/* Performance Optimizations */
-.object-fit-cover {
-  object-fit: cover;
-}
-
-/* Reduce repaints and improve performance */
-.hover-lift {
-  will-change: transform;
-}
-
-/* Optimize animations */
-[data-aos] {
-  will-change: transform, opacity;
-}
-
-/* Better button styles */
 .btn-primary {
-  background-color: var(--accent-color);
-  border-color: var(--accent-color);
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
+  background-color: #0a192f;
+  border-color: #0a192f;
+  color: white;
 }
 
-.btn-primary:hover {
-  background-color: color-mix(in srgb, var(--accent-color), black 15%);
-  border-color: color-mix(in srgb, var(--accent-color), black 15%);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px color-mix(in srgb, var(--accent-color), transparent 60%);
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active {
+  background-color: #0d2240;
+  border-color: #0d2240;
+  color: white;
 }
 
 .btn-outline-primary {
-  border-color: var(--accent-color);
-  color: var(--accent-color);
-  transition: all 0.3s ease;
+  color: #0a192f;
+  border-color: #0a192f;
 }
 
 .btn-outline-primary:hover {
-  background-color: var(--accent-color);
-  color: var(--contrast-color);
+  background-color: #0a192f;
+  border-color: #0a192f;
+  color: white;
+}
+
+/* Hero Section */
+.hero-section::before {
+  background: linear-gradient(135deg, rgba(10, 25, 47, 0.05) 0%, transparent 100%);
+}
+
+.hero-content-container {
+  border-left: 4px solid #0a192f;
+}
+
+/* Floating badge */
+.floating-badge {
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+}
+
+/* Card styling */
+.card.border-primary {
+  border-width: 2px !important;
+}
+
+/* Feature cards */
+.feature-card:hover {
+  border-color: #0a192f !important;
+  transform: translateY(-3px);
+  transition: all 0.3s ease;
+}
+
+/* Process steps */
+.process-step.bg-primary {
+  background-color: #0a192f !important;
+}
+
+/* Form styling */
+.form-control:focus,
+.form-select:focus {
+  border-color: #0a192f;
+  box-shadow: 0 0 0 0.25rem rgba(10, 25, 47, 0.25);
+}
+
+/* Contact section */
+.enquiry-form .form-control-lg,
+.enquiry-form .form-select {
+  border: 1px solid #dee2e6;
+  border-radius: 0.5rem;
+  padding: 0.75rem 1rem;
+}
+
+.enquiry-form .form-control-lg:focus,
+.enquiry-form .form-select:focus {
+  border-color: #0a192f;
+  box-shadow: 0 0 0 0.25rem rgba(10, 25, 47, 0.1);
+}
+
+.contact-icon {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Button hover effects */
+.btn {
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
   transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(10, 25, 47, 0.2);
 }
 
-/* Enhanced form validation */
-.form-control:invalid:not(:focus):not(:placeholder-shown) {
-  border-color: #dc3545;
+.btn-outline-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(10, 25, 47, 0.1);
 }
 
-.form-control:invalid:not(:focus):not(:placeholder-shown) + .form-label {
-  color: #dc3545;
+/* Card hover effects */
+.card {
+  transition: all 0.3s ease;
 }
 
-/* Responsive optimizations */
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(10, 25, 47, 0.1) !important;
+}
+
+/* Responsive adjustments */
 @media (max-width: 768px) {
+  .hero-section .container {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+  
+  .hero-content-container {
+    padding: 1.25rem !important;
+    border-left: 3px solid #0a192f;
+  }
+  
   .display-4 {
-    font-size: 2.5rem;
+    font-size: 1.75rem;
   }
   
   .display-5 {
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
   
-  .display-3 {
-    font-size: 2.5rem;
+  .enquiry-form .row {
+    margin-left: -0.5rem;
+    margin-right: -0.5rem;
   }
   
-  .hero-actions {
-    flex-direction: column;
-  }
-  
-  .hero-actions .btn {
-    width: 100%;
-  }
-  
-  .stats-container {
-    flex-direction: column;
-    gap: 1.5rem;
-  }
-  
-  .cta-card .row {
-    flex-direction: column;
+  .enquiry-form .col-md-6,
+  .enquiry-form .col-12 {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
   }
 }
 
-/* Loading states */
-.loading-skeleton {
-  background: linear-gradient(90deg, 
-    color-mix(in srgb, var(--background-color), transparent 100%) 0%,
-    color-mix(in srgb, var(--background-color), transparent 85%) 50%,
-    color-mix(in srgb, var(--background-color), transparent 100%) 100%);
-  background-size: 200% 100%;
-  animation: loading 1.5s infinite;
+/* Animation for form focus */
+.form-group {
+  position: relative;
 }
 
-@keyframes loading {
-  0% { background-position: 200% 0; }
-  100% { background-position: -200% 0; }
+.form-group:focus-within label {
+  color: #0a192f !important;
+  font-weight: 500;
 }
 
-/* Image loading optimization */
+/* Loading animation for images */
 img {
   opacity: 0;
   transition: opacity 0.3s ease;
@@ -986,26 +651,54 @@ img {
 img.loaded {
   opacity: 1;
 }
+
+/* Star icon color */
+.bi-star-fill.text-primary {
+  color: #0a192f !important;
+}
+
+/* Badge styling */
+.badge.bg-primary {
+  background-color: #0a192f !important;
+}
+
+.bg-primary.bg-opacity-10 {
+  background-color: rgba(10, 25, 47, 0.1) !important;
+}
 </style>
 
-<!-- Optimized JavaScript -->
 <script>
-// Wait for DOM to be fully loaded
+// Optimized JavaScript
 document.addEventListener('DOMContentLoaded', function() {
-  
-  // Initialize AOS with optimized settings
+  // Initialize AOS
   if (typeof AOS !== 'undefined') {
     AOS.init({
-      duration: 600,
-      easing: 'ease-out-cubic',
+      duration: 400,
       once: true,
       offset: 100,
-      delay: 0,
-      disable: window.innerWidth < 768 // Disable on mobile for performance
+      disable: window.innerWidth < 768
     });
+  } else {
+    // Load AOS dynamically if not present
+    const script = document.createElement('script');
+    script.src = 'https://unpkg.com/aos@2.3.1/dist/aos.js';
+    script.onload = function() {
+      AOS.init({
+        duration: 400,
+        once: true,
+        offset: 100,
+        disable: window.innerWidth < 768
+      });
+    };
+    document.head.appendChild(script);
+    
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = 'https://unpkg.com/aos@2.3.1/dist/aos.css';
+    document.head.appendChild(link);
   }
 
-  // Simple image loading
+  // Image loading optimization
   const images = document.querySelectorAll('img');
   images.forEach(img => {
     if (img.complete) {
@@ -1014,14 +707,34 @@ document.addEventListener('DOMContentLoaded', function() {
       img.addEventListener('load', function() {
         this.classList.add('loaded');
       });
-      
-      img.addEventListener('error', function() {
-        // Set a fallback background color
-        this.style.backgroundColor = '#f9fafb';
-        this.style.padding = '20px';
-        this.classList.add('loaded');
-      });
     }
+  });
+
+  // Form validation
+  const forms = document.querySelectorAll('.needs-validation, .enquiry-form');
+  forms.forEach(form => {
+    form.addEventListener('submit', function(e) {
+      if (!form.checkValidity()) {
+        e.preventDefault();
+        e.stopPropagation();
+        
+        // Highlight invalid fields
+        const invalidFields = form.querySelectorAll(':invalid');
+        invalidFields.forEach(field => {
+          field.style.borderColor = '#dc3545';
+        });
+      }
+      form.classList.add('was-validated');
+    });
+
+    // Remove error styling on input
+    form.querySelectorAll('input, select, textarea').forEach(field => {
+      field.addEventListener('input', function() {
+        if (this.checkValidity()) {
+          this.style.borderColor = '';
+        }
+      });
+    });
   });
 
   // Smooth scrolling for anchor links
@@ -1041,156 +754,32 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
-  // Simple counter animation for stats
-  function animateCounter(element) {
-    const target = parseInt(element.getAttribute('data-count'));
-    const current = parseInt(element.textContent.replace('+', '').replace('K', ''));
-    const isK = element.textContent.includes('K');
+  // Add hover effect to cards
+  document.querySelectorAll('.card').forEach(card => {
+    card.addEventListener('mouseenter', function() {
+      this.style.zIndex = '10';
+    });
     
-    if (current < target) {
-      let count = current;
-      const increment = target / 30; // 30 frames for animation
-      const timer = setInterval(() => {
-        count += increment;
-        if (count >= target) {
-          count = target;
-          clearInterval(timer);
-        }
-        element.textContent = isK ? Math.floor(count/1000) + 'K' : Math.floor(count) + '+';
-      }, 30);
-    }
-  }
-
-  // Observe counters when they come into view
-  const counters = document.querySelectorAll('[data-count]');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        animateCounter(entry.target);
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.5 });
-
-  counters.forEach(counter => observer.observe(counter));
-
-  // Simple hover effects for cards
-  function setupCardHover() {
-    const cards = document.querySelectorAll('.collection-card, .quality-card, .process-step');
-    cards.forEach(card => {
-      card.addEventListener('mouseenter', function() {
-        this.style.zIndex = '10';
-      });
-      
-      card.addEventListener('mouseleave', function() {
-        this.style.zIndex = '';
-      });
-    });
-  }
-
-  setupCardHover();
-
-  // Form validation
-  const forms = document.querySelectorAll('.needs-validation');
-  forms.forEach(form => {
-    form.addEventListener('submit', function(e) {
-      if (!form.checkValidity()) {
-        e.preventDefault();
-        e.stopPropagation();
-        
-        // Highlight invalid fields
-        const invalidFields = form.querySelectorAll(':invalid');
-        invalidFields.forEach(field => {
-          field.style.borderColor = '#dc3545';
-        });
-      }
-      form.classList.add('was-validated');
-    });
-
-    // Remove error state when user starts typing
-    form.querySelectorAll('input, select, textarea').forEach(field => {
-      field.addEventListener('input', function() {
-        if (this.checkValidity()) {
-          this.style.borderColor = '';
-        }
-      });
+    card.addEventListener('mouseleave', function() {
+      this.style.zIndex = '';
     });
   });
 
-  // Simple parallax effect for hero
-  let ticking = false;
-  window.addEventListener('scroll', function() {
-    if (!ticking) {
-      window.requestAnimationFrame(function() {
-        const scrolled = window.pageYOffset;
-        const hero = document.querySelector('.hero-section');
-        if (hero && scrolled < 500) {
-          hero.style.backgroundPositionY = scrolled * 0.3 + 'px';
+  // Auto-fill country based on IP (optional)
+  const countryInput = document.querySelector('input[name="country"]');
+  if (countryInput && !countryInput.value) {
+    fetch('https://ipapi.co/json/')
+      .then(response => response.json())
+      .then(data => {
+        if (data.country_name) {
+          countryInput.value = data.country_name;
         }
-        ticking = false;
+      })
+      .catch(() => {
+        // Fallback if API fails
+        countryInput.placeholder = "Enter your country";
       });
-      ticking = true;
-    }
-  });
-
-  // Debounced scroll handler for performance
-  let scrollTimeout;
-  window.addEventListener('scroll', function() {
-    clearTimeout(scrollTimeout);
-    scrollTimeout = setTimeout(function() {
-      // Update active nav based on scroll position
-      const sections = document.querySelectorAll('section[id]');
-      const scrollPos = window.pageYOffset + 100;
-      
-      sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionBottom = sectionTop + section.offsetHeight;
-        
-        if (scrollPos >= sectionTop && scrollPos <= sectionBottom) {
-          const navLink = document.querySelector(`.nav-link[href="#${section.id}"]`);
-          if (navLink) {
-            document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
-            navLink.classList.add('active');
-          }
-        }
-      });
-    }, 50);
-  });
-
-  // Preload critical images
-  function preloadImages() {
-    const imageUrls = [
-      'https://images.unsplash.com/photo-1600166898405-da9535204843?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1600166898405-da9535204843?auto=format&fit=crop&w=600&h=400&q=80'
-    ];
-    
-    imageUrls.forEach(url => {
-      const img = new Image();
-      img.src = url;
-    });
-  }
-
-  // Only preload on fast connections
-  if (navigator.connection && navigator.connection.effectiveType !== 'slow-2g') {
-    preloadImages();
   }
 });
-
-// Simple Intersection Observer for lazy elements
-if ('IntersectionObserver' in window) {
-  const lazyObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('aos-animate');
-        lazyObserver.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.1 });
-  
-  // Observe elements that need to appear on scroll
-  document.querySelectorAll('[data-aos]').forEach(el => {
-    lazyObserver.observe(el);
-  });
-}
 </script>
 {% endblock %}

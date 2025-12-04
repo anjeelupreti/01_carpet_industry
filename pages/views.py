@@ -20,7 +20,7 @@ def gallery(request):
     return render(request, 'pages/gallery.html')
 
 def manufacturing(request):
-    return render(request, 'pages/manufacturing.html')
+    return render(request, 'pages/manufacturing_process.html')
 
 def history(request):
     return render(request, 'pages/history.html')
