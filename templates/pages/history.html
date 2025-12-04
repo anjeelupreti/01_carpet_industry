@@ -1,0 +1,772 @@
+{% extends 'base/index.html' %}
+{% load static %}
+
+{% block title %}History of Tibetan Carpets - Everest Carpet Industry{% endblock %}
+{% block description %}Explore the rich history of Tibetan carpets from ancient nomadic traditions to modern craftsmanship. Learn about the journey of Tibetan carpet weaving since 1959.{% endblock %}
+{% block body_class %}history-page{% endblock %}
+
+{% block extra_css %}
+<style>
+/* ========== HISTORY PAGE STYLES ========== */
+.history-section {
+    padding: 80px 0;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-tag {
+    display: inline-block;
+    background: rgba(10, 25, 47, 0.1);
+    color: #0a192f;
+    padding: 6px 16px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.section-title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #0a192f;
+    margin-bottom: 15px;
+    line-height: 1.2;
+}
+
+.section-subtitle {
+    color: rgba(10, 25, 47, 0.6);
+    font-size: 1.1rem;
+    line-height: 1.6;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Timeline - Fixed overlap issue */
+.timeline-container {
+    position: relative;
+    padding: 60px 0 30px;
+}
+
+.timeline-line {
+    position: absolute;
+    width: 3px;
+    background: #0a192f;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 3px;
+    z-index: 0;
+}
+
+/* Push timeline content below the header */
+.timeline-container .section-header {
+    margin-bottom: 100px;
+    position: relative;
+    z-index: 2;
+}
+
+.timeline-items-wrapper {
+    position: relative;
+    z-index: 1;
+}
+
+.timeline-item {
+    margin-bottom: 80px;
+    width: 45%;
+    position: relative;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease;
+}
+
+.timeline-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.timeline-item:nth-child(odd) {
+    margin-left: 0;
+    margin-right: auto;
+    text-align: right;
+    padding-right: 40px;
+}
+
+.timeline-item:nth-child(even) {
+    margin-left: auto;
+    margin-right: 0;
+    padding-left: 40px;
+    text-align: left;
+}
+
+.timeline-dot {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: #0a192f;
+    border: 4px solid white;
+    border-radius: 50%;
+    top: 20px;
+    z-index: 2;
+    box-shadow: 0 0 0 3px rgba(10, 25, 47, 0.1);
+}
+
+.timeline-item:nth-child(odd) .timeline-dot {
+    right: -10px;
+}
+
+.timeline-item:nth-child(even) .timeline-dot {
+    left: -10px;
+}
+
+.timeline-year {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #0a192f;
+    margin-bottom: 10px;
+    display: inline-block;
+    background: white;
+    padding: 6px 16px;
+    border-radius: 50px;
+    border: 2px solid #0a192f;
+}
+
+.timeline-content {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(10, 25, 47, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.timeline-content:hover {
+    transform: translateY(-5px);
+}
+
+.timeline-content h4 {
+    color: #0a192f;
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.timeline-content p {
+    color: rgba(10, 25, 47, 0.8);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* History Content */
+.history-content {
+    background: white;
+    border-radius: 15px;
+    padding: 40px;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(10, 25, 47, 0.1);
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease;
+}
+
+.history-content.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.history-content h3 {
+    color: #0a192f;
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.history-content p {
+    color: rgba(10, 25, 47, 0.8);
+    line-height: 1.8;
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+.history-content p:last-child {
+    margin-bottom: 0;
+}
+
+/* Color Palette */
+.color-palette {
+    display: flex;
+    gap: 15px;
+    margin: 25px 0;
+    flex-wrap: wrap;
+}
+
+.color-item {
+    width: 70px;
+    height: 70px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease;
+}
+
+.color-item:hover {
+    transform: scale(1.1);
+}
+
+.color-red { background: #dc2626; }
+.color-blue { background: #1d4ed8; }
+.color-yellow { background: #f59e0b; }
+.color-ivory { background: #f5f5f4; color: #0a192f; border: 2px solid #ddd; text-shadow: none; }
+
+/* Key Moments */
+.key-moments {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-top: 40px;
+}
+
+.key-moment {
+    background: white;
+    border-radius: 12px;
+    padding: 25px;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    border-top: 4px solid #0a192f;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s ease 0.2s;
+}
+
+.key-moment.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.key-moment:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+}
+
+.key-moment-icon {
+    width: 60px;
+    height: 60px;
+    background: #0a192f;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    font-size: 1.5rem;
+}
+
+.key-moment h4 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #0a192f;
+    margin-bottom: 10px;
+}
+
+.key-moment p {
+    color: rgba(10, 25, 47, 0.7);
+    font-size: 1rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Quote Block */
+.quote-block {
+    background: linear-gradient(135deg, #0a192f 0%, #071528 100%);
+    color: white;
+    border-radius: 15px;
+    padding: 40px;
+    margin: 50px 0;
+    position: relative;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease;
+}
+
+.quote-block.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.quote-block::before {
+    content: '"';
+    position: absolute;
+    font-size: 15rem;
+    color: rgba(255, 255, 255, 0.1);
+    top: -40px;
+    left: 20px;
+    font-family: Georgia, serif;
+    line-height: 1;
+}
+
+.quote-text {
+    font-size: 1.3rem;
+    font-style: italic;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.quote-author {
+    font-weight: 600;
+    opacity: 0.9;
+    position: relative;
+    z-index: 1;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .timeline-line {
+        left: 30px;
+    }
+    
+    .timeline-item {
+        width: 100%;
+        padding-left: 60px !important;
+        padding-right: 15px !important;
+        text-align: left !important;
+        margin-left: 0 !important;
+    }
+    
+    .timeline-dot {
+        left: 21px !important;
+        right: auto !important;
+    }
+    
+    .timeline-content {
+        border-left: 3px solid #0a192f !important;
+        border-right: none !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 1.8rem;
+    }
+    
+    .history-section {
+        padding: 50px 0;
+    }
+    
+    .history-content {
+        padding: 30px;
+    }
+    
+    .key-moments {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 576px) {
+    .section-title {
+        font-size: 1.6rem;
+    }
+    
+    .color-item {
+        width: 60px;
+        height: 60px;
+        font-size: 0.8rem;
+    }
+    
+    .timeline-line {
+        left: 20px;
+    }
+    
+    .timeline-item {
+        padding-left: 50px !important;
+    }
+    
+    .timeline-dot {
+        left: 11px !important;
+    }
+}
+
+/* Page Header */
+.page-header {
+    background: linear-gradient(135deg, #0a192f 0%, #071528 100%);
+    padding: 120px 0 80px;
+    color: white;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.page-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100"><path d="M0,50 Q250,0 500,50 T1000,50 V100 H0 Z" fill="rgba(255,255,255,0.05)"/></svg>') bottom/100% auto no-repeat;
+}
+
+.page-title-main {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+    line-height: 1.2;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+.page-subtitle {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.3rem;
+    max-width: 700px;
+    margin: 0 auto 30px;
+    line-height: 1.6;
+}
+
+/* CTA Section */
+.cta-section {
+    padding: 100px 0;
+    background: linear-gradient(135deg, #0a192f 0%, #071528 100%);
+    color: white;
+    text-align: center;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 40px;
+    flex-wrap: wrap;
+}
+
+.cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 32px;
+    border-radius: 50px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 1.1rem;
+}
+
+.cta-btn-primary {
+    background: white;
+    color: #0a192f;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+}
+
+.cta-btn-primary:hover {
+    background: #f8f9fa;
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.cta-btn-outline {
+    border: 2px solid white;
+    color: white;
+    background: transparent;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.cta-btn-outline:hover {
+    background: white;
+    color: #0a192f;
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+</style>
+{% endblock %}
+
+{% block content %}
+{% include 'base/navbar.html' %}
+
+<!-- Page Header -->
+<section class="page-header">
+    <div class="container">
+        <h1 class="page-title-main">The Heritage of Tibetan Carpets</h1>
+        <p class="page-subtitle">A thousand-year journey of tradition, art, and cultural preservation</p>
+    </div>
+</section>
+
+<!-- Ancient Origins -->
+<section class="history-section" style="background: #f8fafc;">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-tag">Ancient Origins</span>
+            <h2 class="section-title">Where It All Began</h2>
+            <p class="section-subtitle">From nomadic necessity to spiritual expression</p>
+        </div>
+        
+        <div class="history-content">
+            <h3><i class="bi bi-house-heart"></i> Nomadic Roots</h3>
+            <p>Tibetan carpet weaving dates back centuries, originating among nomadic tribes who roamed the harsh Tibetan plateau. These early carpets served practical purposes - as mats, door covers, saddle blankets, and insulation against the extreme cold.</p>
+            <p>Made from locally sourced Tibetan wool, these functional items were hand-spun and woven using techniques passed down through generations. The art was born from necessity but evolved into a cultural expression.</p>
+            
+            <h3 style="margin-top: 30px;"><i class="bi bi-palette"></i> The Colors of Tradition</h3>
+            <p>Early Tibetan weavers used only vegetable dyes, creating bold, vibrant colors that reflected their natural surroundings and spiritual beliefs.</p>
+            <div class="color-palette">
+                <div class="color-item color-red">Red<br>Earth & Fire</div>
+                <div class="color-item color-blue">Blue<br>Sky & Water</div>
+                <div class="color-item color-yellow">Yellow<br>Sun & Wisdom</div>
+                <div class="color-item color-ivory">Ivory<br>Purity & Peace</div>
+            </div>
+            <p>Each color carried symbolic meaning - red for earth and fire, blue for sky and water, yellow for sun and wisdom, and ivory for purity and peace.</p>
+        </div>
+        
+        <div class="key-moments">
+            <div class="key-moment">
+                <div class="key-moment-icon">
+                    <i class="bi bi-mountain"></i>
+                </div>
+                <h4>Nomadic Life</h4>
+                <p>Woven for survival in harsh Himalayan climate</p>
+            </div>
+            <div class="key-moment">
+                <div class="key-moment-icon">
+                    <i class="bi bi-flower3"></i>
+                </div>
+                <h4>Natural Dyes</h4>
+                <p>Colors from plants, minerals, and natural sources</p>
+            </div>
+            <div class="key-moment">
+                <div class="key-moment-icon">
+                    <i class="bi bi-infinity"></i>
+                </div>
+                <h4>Enduring Craft</h4>
+                <p>Techniques preserved for over a thousand years</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Historical Timeline -->
+<section class="history-section timeline-container">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-tag">Timeline</span>
+            <h2 class="section-title">The Journey Through Time</h2>
+            <p class="section-subtitle">Key moments in Tibetan carpet history</p>
+        </div>
+        
+        
+        <div class="timeline-items-wrapper">
+            <div class="timeline-line"></div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <span class="timeline-year">8th-12th Century</span>
+                <div class="timeline-content">
+                    <h4>Buddhist Influence</h4>
+                    <p>With the spread of Buddhism, carpets entered monasteries as meditation mats and throne covers. Designs incorporated Buddhist symbols like the endless knot and lotus flower.</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <span class="timeline-year">13th-18th Century</span>
+                <div class="timeline-content">
+                    <h4>Cultural Fusion</h4>
+                    <p>Tibetan carpets absorbed influences from Chinese, Persian, and Indian arts. Dragon and phoenix motifs were adapted, creating unique Tibetan interpretations.</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <span class="timeline-year">1959</span>
+                <div class="timeline-content">
+                    <h4>The Great Exodus</h4>
+                    <p>Thousands of Tibetans fled to Nepal, India, and Bhutan, carrying their weaving traditions. In refugee settlements, carpet weaving became vital for survival and cultural preservation.</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <span class="timeline-year">1960s-70s</span>
+                <div class="timeline-content">
+                    <h4>Global Discovery</h4>
+                    <p>Western markets discovered Tibetan carpets. The unique hand-spun wool, vegetable dyes, and spiritual designs captivated international audiences.</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <span class="timeline-year">1980s-90s</span>
+                <div class="timeline-content">
+                    <h4>Commercial Success</h4>
+                    <p>Tibetan carpets became Nepal's top export. The industry grew while maintaining traditional techniques, providing livelihoods for thousands of refugee families.</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <span class="timeline-year">21st Century</span>
+                <div class="timeline-content">
+                    <h4>Modern Evolution</h4>
+                    <p>Traditional techniques meet contemporary designs. Tibetan carpets are now recognized as both cultural artifacts and luxury art pieces worldwide.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- The Diaspora Story -->
+<section class="history-section" style="background: #0a192f;">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-tag" style="background: rgba(255, 255, 255, 0.2); color: white;">The Diaspora</span>
+            <h2 class="section-title" style="color: white;">Preservation Through Exile</h2>
+            <p class="section-subtitle" style="color: rgba(255, 255, 255, 0.9);">How Tibetan carpets survived and thrived</p>
+        </div>
+        
+        <div class="history-content" style="background: rgba(255, 255, 255, 0.1); border-color: rgba(255, 255, 255, 0.2);">
+            <h3 style="color: white;"><i class="bi bi-globe-americas"></i> A Tradition in Transit</h3>
+            <p style="color: rgba(255, 255, 255, 0.9);">The 1959 Tibetan exodus marked a turning point. As refugees settled in Nepal, they turned to carpet weaving - one of the few skills they could carry with them. What began as economic necessity became a powerful tool for cultural preservation.</p>
+            <p style="color: rgba(255, 255, 255, 0.9);">In Kathmandu's refugee settlements, looms were set up in community centers and homes. Master weavers taught younger generations, ensuring techniques wouldn't be lost. Each knot tied was not just wool, but a connection to homeland and heritage.</p>
+            
+            <h3 style="color: white; margin-top: 30px;"><i class="bi bi-arrow-up-right-circle"></i> Global Recognition</h3>
+            <p style="color: rgba(255, 255, 255, 0.9);">When these carpets reached Western markets in the 1970s, they caused a sensation. Europeans and Americans were captivated by the depth of color from vegetable dyes, the texture of hand-spun Tibetan wool, and the spiritual symbolism in every design.</p>
+            <p style="color: rgba(255, 255, 255, 0.9);">By the 1980s, Tibetan carpets had become Nepal's largest export. This commercial success provided dignity and livelihood to refugee communities while sharing Tibetan culture with the world.</p>
+        </div>
+        
+        <div class="quote-block">
+            <p class="quote-text">"Our carpets carry the mountains in their wool, the rivers in their dyes, and the prayers in their knots. They are not just textiles - they are maps of our journey, records of our resilience, and promises to our children that our culture will continue."</p>
+            <div class="quote-author">— Tibetan Master Weaver</div>
+        </div>
+    </div>
+</section>
+
+<!-- Modern Era -->
+<section class="history-section">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-tag">Modern Era</span>
+            <h2 class="section-title">Tradition Meets Innovation</h2>
+            <p class="section-subtitle">Preserving heritage while embracing the future</p>
+        </div>
+        
+        <div class="history-content">
+            <h3><i class="bi bi-arrow-clockwise"></i> Evolving While Enduring</h3>
+            <p>Today's Tibetan carpets represent a perfect balance between ancient tradition and contemporary design. While maintaining 100% hand-spun Tibetan wool and traditional knotting techniques, weavers now create pieces that appeal to modern interiors.</p>
+            <p>The evolution includes subtle shifts - contemporary color palettes that complement modern decor, minimalist designs that highlight the natural wool texture, and custom pieces that incorporate personal stories into traditional patterns.</p>
+            
+            <h3 style="margin-top: 30px;"><i class="bi bi-award"></i> The Everest Carpet Legacy</h3>
+            <p>At Everest Carpet Industry, we honor this heritage. Each carpet is created using techniques unchanged for centuries - hand-spinning the wool, preparing natural dyes when requested, and tying each knot with mindful attention.</p>
+            <p>Our master weavers, many from families who have woven for generations, bring not just skill but spiritual intention to their work. They understand that they are not just creating carpets, but preserving a living cultural tradition.</p>
+        </div>
+        
+        <div class="key-moments">
+            <div class="key-moment">
+                <div class="key-moment-icon">
+                    <i class="bi bi-snow"></i>
+                </div>
+                <h4>Tibetan Wool</h4>
+                <p>100% hand-spun, known for durability and luster</p>
+            </div>
+            <div class="key-moment">
+                <div class="key-moment-icon">
+                    <i class="bi bi-vector-pen"></i>
+                </div>
+                <h4>Modern Designs</h4>
+                <p>Traditional patterns adapted for contemporary spaces</p>
+            </div>
+            <div class="key-moment">
+                <div class="key-moment-icon">
+                    <i class="bi bi-heart-hand"></i>
+                </div>
+                <h4>Ethical Craft</h4>
+                <p>Fair wages, safe conditions, cultural preservation</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta-section">
+    <div class="container">
+        <h2 style="margin-bottom: 20px; font-size: 2.5rem;">Own a Piece of Living History</h2>
+        <p style="color: rgba(255, 255, 255, 0.95); max-width: 700px; margin: 0 auto; font-size: 1.2rem; line-height: 1.8;">
+            Each Everest Memorial carpet carries centuries of tradition in its fibers. More than decor, they are cultural artifacts - stories woven in wool, prayers tied in knots, and heritage preserved through craft.
+        </p>
+        
+        <div class="cta-buttons">
+            <a href="{% url 'products' %}" class="cta-btn cta-btn-primary">
+                <i class="bi bi-eye"></i>
+                Explore Our Collection
+            </a>
+            <a href="{% url 'contact_us' %}" class="cta-btn cta-btn-outline">
+                <i class="bi bi-chat-dots"></i>
+                Start Your Heritage Piece
+            </a>
+        </div>
+    </div>
+</section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Intersection Observer for scroll animations
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { 
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    });
+    
+    // Animate timeline items
+    document.querySelectorAll('.timeline-item').forEach(item => {
+        observer.observe(item);
+    });
+    
+    // Animate history content
+    document.querySelectorAll('.history-content, .quote-block').forEach(item => {
+        observer.observe(item);
+    });
+    
+    // Animate key moments with staggered delay
+    document.querySelectorAll('.key-moment').forEach((item, index) => {
+        item.style.transitionDelay = `${index * 0.1}s`;
+        observer.observe(item);
+    });
+    
+    // Smooth hover effects for interactive elements
+    document.querySelectorAll('.color-item, .key-moment').forEach(item => {
+        item.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-8px)';
+        });
+        
+        item.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0)';
+        });
+    });
+    
+    // Parallax effect for page header
+    window.addEventListener('scroll', function() {
+        const scrolled = window.pageYOffset;
+        const header = document.querySelector('.page-header');
+        if (header) {
+            header.style.transform = `translateY(${scrolled * 0.2}px)`;
+        }
+    });
+});
+</script>
+
+{% endblock %}
